@@ -1,0 +1,89 @@
+@import '../../../../theme';
+.big-banner{
+  width: 100%;
+  display: block;
+  position: relative;
+  .slick-next,
+  .slick-prev{
+    z-index: 10;
+  }
+  .slick-next{
+    right: 50px;
+  }
+  .slick-prev{
+    left:50px;
+  }
+  .slick-slide{
+    position: relative;
+  }
+
+  .content{
+    width:60%;
+    position: absolute;
+    z-index: 11;
+    bottom:40%;
+    left:0;
+    h3,h5,p{
+      font-family: 'Roboto', sans-serif;
+    }
+    h3{
+      font-weight: 900;
+      color:$white;
+    }
+    h5{
+      font-weight: 700;
+      color:$white;
+    }
+    p{
+      font-weight: 400;
+      color:$white;
+    }
+
+    .wrapper-content-slides{
+      max-width:85%;
+      display: block;
+      margin: 0 auto;
+      position: relative;
+    }
+
+  }
+}
+
+
+.slick-slider {
+  width: 100%;
+  margin: auto;
+  background: #000;
+}
+
+.nav-btn {
+  height: 47px;
+  position: absolute;
+  width: 26px;
+  cursor: pointer;
+  top: 100px !important;
+}
+
+.prev-slide.slick-disabled,
+.next-slide.slick-disabled {
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.prev-slide {
+  // background: url(assets/images/nav-icon.png) no-repeat scroll 0 0;
+  left: -33px;
+}
+
+.next-slide {
+  // background: url(assets/images/nav-icon.png) no-repeat scroll -24px 0px;
+  right: -33px;
+}
+
+.prev-slide:hover {
+  background-position: 0px -53px;
+}
+
+.next-slide:hover {
+  background-position: -24px -53px;
+}

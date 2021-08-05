@@ -1,0 +1,31 @@
+@import '../../../../theme';
+
+.menu{
+  width:100%;
+  display: block;
+  .header-1{
+    display: grid;
+    grid-template-columns: 40% 60%;
+  }
+
+  .nav-menu{
+    ul{
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      li{
+        list-style: none;
+        margin:0 20px;
+        a{
+          font-family: 'Roboto', sans-serif;
+          text-decoration: none;
+          padding:10px;
+          display: block;
+          color: $black;
+        }
+      }
+    }
+  }
+}
