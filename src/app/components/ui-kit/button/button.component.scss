@@ -1,0 +1,22 @@
+.btn-primary,
+.btn-secundary{
+  padding:12px;
+  p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    text-align: center;
+  }
+}
+.btn-primary{
+  background: #d50202;
+  p{
+    color:#fff;
+  }
+}
+
+.btn-secundary{
+  background: #000000;
+  p{
+    color:#fff;
+  }
+}

@@ -1,0 +1,32 @@
+.somos{
+  width: 100%;
+  padding:60px 0 60px 0;
+  .wrapper-teaser{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    .left,
+    .right{
+      h2,p{
+        color:#fff;
+        font-family: 'Roboto', sans-serif;
+      }
+      h2{
+        font-size: 70px;
+        font-weight: 900;
+      }
+      p{
+        font-weight: 200;
+      }
+    }
+    .right{
+      p{
+        margin:20px 0;
+      }
+      app-button{
+        max-width:200px;
+        display: block;
+        margin:40px 0 0 0;
+      }
+    }
+  }
+}

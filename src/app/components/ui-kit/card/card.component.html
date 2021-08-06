@@ -1,0 +1,22 @@
+<div class="{{Theme}}">
+  <div class="wrapper-card">
+
+    <div class="head-card">
+      <ng-container *ngIf="true">
+        <div class="ico-card">
+          <img src="../../../../assets/img/ico-1.png" />
+        </div>
+      </ng-container>
+      <h3>{{Title}}</h3>
+    </div>
+
+    <div class="body-card">
+      <p>{{Message}}</p>
+    </div>
+
+    <div class="foo-card">
+      <ng-content select="[foo]"></ng-content>
+    </div>
+
+  </div>
+</div>

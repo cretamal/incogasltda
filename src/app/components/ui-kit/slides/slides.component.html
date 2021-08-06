@@ -8,6 +8,7 @@
     (beforeChange)="beforeChange($event)">
 
     <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+
       <div class="content">
         <div class="wrapper-content-slides">
           <h3>{{slide.title}}</h3>
@@ -16,6 +17,7 @@
         </div>
       </div>
       <img src="{{ slide.img }}" alt="" width="100%">
+
     </div>
 
   </ngx-slick-carousel>

@@ -10,6 +10,11 @@ import { ServicesComponent } from './pages/services/services.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { SlidesComponent } from './components/ui-kit/slides/slides.component';
 import { BigBannerComponent } from './components/ui-kit/big-banner/big-banner.component';
+import { CardComponent } from './components/ui-kit/card/card.component';
+import { ButtonComponent } from './components/ui-kit/button/button.component';
+import { QuickShortcutsComponent } from './components/ui-kit/quick-shortcuts/quick-shortcuts.component';
+import { TeaserComponent } from './components/ui-kit/teaser/teaser.component';
+import { WorksComponent } from './components/ui-kit/works/works.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { BigBannerComponent } from './components/ui-kit/big-banner/big-banner.co
     HomeComponent,
     ServicesComponent,
     SlidesComponent,
-    BigBannerComponent
+    BigBannerComponent,
+    CardComponent,
+    ButtonComponent,
+    QuickShortcutsComponent,
+    TeaserComponent,
+    WorksComponent
   ],
   imports: [
     BrowserModule,

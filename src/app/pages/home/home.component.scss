@@ -1,0 +1,38 @@
+.box-thumbnails{
+  .wrapper-thumbnails{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+}
+
+
+
+.box-quick-shortcuts{
+  padding:0;
+  background: #a6a4a4;
+}
+.box-teaser{
+  background: #868686;
+}
+
+
+.box-services{
+  .box-head-services{
+    background: #676767;
+    padding:60px 0 60px 0;
+    h2{
+      font-size:70px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 900;
+      text-align: center;
+      color:#fff;
+    }
+  }
+  .box-grid-services{
+    background: #868686;
+    padding:60px 0 60px 0;
+  }
+
+}

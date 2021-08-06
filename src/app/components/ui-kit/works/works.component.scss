@@ -1,0 +1,22 @@
+.works-home{
+  // border:1px solid red;
+  ul{
+    margin:0;
+    padding:0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    li{
+      app-card{
+        display: block;
+        .works-card{
+          width:100%;
+          max-width: 100%;
+          border:1px solid rgba(0,0,0,0.1);
+          position:relative;
+          z-index: 10;
+        }
+      }
+
+    }
+  }
+}
