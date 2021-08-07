@@ -7,7 +7,7 @@
           Title="{{work.title}}"
           Message="{{work.message}}"
         >
-          <app-button Theme="btn-primary" Label="Ver Más" foo></app-button>
+          <app-button Theme="btn-primary" Label="Ver Más" foo (click)="gotoLink(work.params)"></app-button>
         </app-card>
       </li>
     </ul>

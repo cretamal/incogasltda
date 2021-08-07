@@ -15,6 +15,9 @@ import { ButtonComponent } from './components/ui-kit/button/button.component';
 import { QuickShortcutsComponent } from './components/ui-kit/quick-shortcuts/quick-shortcuts.component';
 import { TeaserComponent } from './components/ui-kit/teaser/teaser.component';
 import { WorksComponent } from './components/ui-kit/works/works.component';
+import { BreadcrumbsComponent } from './components/ui-kit/breadcrumbs/breadcrumbs.component';
+import { DetailsComponent } from './pages/services/details/details.component';
+import { AllServicesComponent } from './pages/services/all-services/all-services.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { WorksComponent } from './components/ui-kit/works/works.component';
     ButtonComponent,
     QuickShortcutsComponent,
     TeaserComponent,
-    WorksComponent
+    WorksComponent,
+    BreadcrumbsComponent,
+    DetailsComponent,
+    AllServicesComponent
   ],
   imports: [
     BrowserModule,
