@@ -4,7 +4,6 @@
     margin:0;
     padding:0;
     display: grid;
-    grid-template-columns: auto auto auto;
     li{
       app-card{
         display: block;
@@ -16,4 +15,20 @@
 
     }
   }
+
+
+
+}
+
+.col-3-flex{
+  ul{
+    grid-template-columns: auto auto auto;
+  }
+
+}
+.col-4-flex{
+  ul{
+    grid-template-columns: auto auto auto auto;
+  }
+
 }
