@@ -16,8 +16,11 @@ import { QuickShortcutsComponent } from './components/ui-kit/quick-shortcuts/qui
 import { TeaserComponent } from './components/ui-kit/teaser/teaser.component';
 import { WorksComponent } from './components/ui-kit/works/works.component';
 import { BreadcrumbsComponent } from './components/ui-kit/breadcrumbs/breadcrumbs.component';
-import { DetailsComponent } from './pages/services/details/details.component';
+
 import { AllServicesComponent } from './pages/services/all-services/all-services.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { AllProductsComponent } from './pages/products/all-products/all-products.component';
+import { DetailsServicesComponent } from './pages/services/details-services/details-services.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +37,10 @@ import { AllServicesComponent } from './pages/services/all-services/all-services
     TeaserComponent,
     WorksComponent,
     BreadcrumbsComponent,
-    DetailsComponent,
-    AllServicesComponent
+    AllServicesComponent,
+    ProductsComponent,
+    AllProductsComponent,
+    DetailsServicesComponent
   ],
   imports: [
     BrowserModule,

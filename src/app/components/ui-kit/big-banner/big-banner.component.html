@@ -1,1 +1,10 @@
-<app-slides Theme="big-banner" [data]="slides_data" [config]="config_slide"></app-slides>
+<ng-container *ngIf="Type === 'carousel' ">
+  <app-slides Theme="big-banner" [data]="slides_data" [config]="config_slide"></app-slides>
+</ng-container>
+<ng-container  *ngIf="Type === 'big-banner' ">
+  <div>
+    <img src="https://via.placeholder.com/1200x400.png/333/fff">
+  </div>
+</ng-container>
+
+

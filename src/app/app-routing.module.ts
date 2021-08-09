@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { AllProductsComponent } from './pages/products/all-products/all-products.component';
+import { ProductsComponent } from './pages/products/products.component';
 import { AllServicesComponent } from './pages/services/all-services/all-services.component';
-import { DetailsComponent } from './pages/services/details/details.component';
+import { DetailsServicesComponent } from './pages/services/details-services/details-services.component';
+
 import { ServicesComponent } from './pages/services/services.component';
 
 
@@ -14,9 +17,18 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'all', pathMatch: 'full' },
       { path: 'all', component: AllServicesComponent },
-      { path: 'details/:id', component: DetailsComponent }
+      { path: 'details/:id', component: DetailsServicesComponent },
     ]
-  }
+  },
+
+  {
+    path: 'products', component: ProductsComponent,
+    children: [
+      { path: '', redirectTo: 'all', pathMatch: 'full' },
+      { path: 'all', component: AllProductsComponent },
+      // { path: 'details/:id', component: DetailsComponent },
+    ]
+  },
 ];
 
 @NgModule({

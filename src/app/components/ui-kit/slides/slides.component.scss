@@ -1,8 +1,43 @@
 @import '../../../../theme';
+.slider-primary{
+  position: relative;
+  display: block;
+  .content{
+    z-index: 11;
+    h3,h5,p{
+      font-family: 'Roboto', sans-serif;
+    }
+    .wrapper-content-slides{
+      max-width:85%;
+      display: block;
+      margin: 0 auto;
+      position: relative;
+    }
+  }
+}
 .big-banner{
   width: 100%;
-  display: block;
-  position: relative;
+  .content{
+    width:60%;
+    position: absolute;
+    bottom:40%;
+    left:0;
+    h3{
+      font-weight: 900;
+      color:$white;
+    }
+    h5{
+      font-weight: 700;
+      color:$white;
+    }
+    p{
+      font-weight: 400;
+      color:$white;
+    }
+  }
+
+
+  // Slick > Theme
   .slick-next,
   .slick-prev{
     z-index: 10;
@@ -17,36 +52,102 @@
     position: relative;
   }
 
+}
+
+.thumbs-services{
+  width: 100%;
+  .wrapper-content-slides{
+    max-width:100% !important;
+  }
   .content{
-    width:60%;
-    position: absolute;
-    z-index: 11;
-    bottom:40%;
+    width:100%;
+    position: relative;
+    margin-top:25px;
     left:0;
-    h3,h5,p{
-      font-family: 'Roboto', sans-serif;
-    }
     h3{
-      font-weight: 900;
+      font-size: 22px;
+      font-weight: 600;
       color:$white;
+      padding:10px 0 10px 0;
     }
     h5{
-      font-weight: 700;
+      font-weight: 200;
+      font-size: 16px;
       color:$white;
+      padding:5px 0 5px 0;
     }
     p{
+      font-size: 14px;
+      font-weight: 200;
+      color:$white;
+      padding:5px 0 5px 0;
+    }
+  }
+
+
+  // Slick > Theme
+  .slick-next,
+  .slick-prev{
+    z-index: 10;
+  }
+  .slick-next{
+    right: 50px;
+  }
+  .slick-prev{
+    left:50px;
+  }
+  .slick-slide{
+    position: relative;
+  }
+
+}
+
+.thumbs-products{
+  width: 100%;
+  .wrapper-content-slides{
+    max-width:100% !important;
+  }
+  .content{
+    width:100%;
+    position: relative;
+    margin-top:25px;
+    left:0;
+    h3{
+      font-size: 22px;
       font-weight: 400;
       color:$white;
+      padding:10px 0 10px 0;
     }
-
-    .wrapper-content-slides{
-      max-width:85%;
-      display: block;
-      margin: 0 auto;
-      position: relative;
+    h5{
+      font-weight: 600;
+      font-size: 22px;
+      color:$white;
+      padding:5px 0 5px 0;
     }
-
+    p{
+      font-size: 14px;
+      font-weight: 200;
+      color:$white;
+      padding:5px 0 5px 0;
+    }
   }
+
+
+  // Slick > Theme
+  .slick-next,
+  .slick-prev{
+    z-index: 10;
+  }
+  .slick-next{
+    right: 50px;
+  }
+  .slick-prev{
+    left:50px;
+  }
+  .slick-slide{
+    position: relative;
+  }
+
 }
 
 

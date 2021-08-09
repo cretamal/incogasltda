@@ -1,5 +1,5 @@
 
-<div class="{{Theme}}">
+<div class="slider-primary {{Theme}}">
     <ngx-slick-carousel class="carousel" #slickModal="slick-carousel"
     [config]="slideConfig"
     (init)="slickInit($event)"
@@ -8,7 +8,7 @@
     (beforeChange)="beforeChange($event)">
 
     <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-
+      <img src="{{ slide.img }}" alt="" width="100%">
       <div class="content">
         <div class="wrapper-content-slides">
           <h3>{{slide.title}}</h3>
@@ -16,7 +16,6 @@
           <p>{{slide.message}}</p>
         </div>
       </div>
-      <img src="{{ slide.img }}" alt="" width="100%">
 
     </div>
 

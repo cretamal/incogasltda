@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-big-banner',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./big-banner.component.scss']
 })
 export class BigBannerComponent implements OnInit {
+  @Input() Type:any;
   // :::::: SLICKJS CONFIGURATION :::::::::::::::::::
   // ::::::::::::::::::::::::::::::::::::::::::::::::
   slides_data:any  = [];
@@ -19,17 +20,11 @@ export class BigBannerComponent implements OnInit {
     // ::::::::::::::::::::::::::::::::::::::::::::::::
     this.slides_data = [
       {
-        img: "https://via.placeholder.com/1200x400.png/333/fff",
+        img: "./assets/img/slider-1.jpg",
         title: "1 Lorem Ipsum",
         subTitle:"Lorem Ipsum",
         message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-      },
-      {
-        img: "https://via.placeholder.com/1200x400.png/333/fff",
-        title: "2 Lorem Ipsum",
-        subTitle:"Lorem Ipsum",
-        message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-      },
+      }
 
     ];
 

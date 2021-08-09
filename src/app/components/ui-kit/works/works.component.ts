@@ -20,9 +20,10 @@ export class WorksComponent implements OnInit {
     this.data_works = this.Data;
   }
 
-  gotoLink(params:any){
-    this.router.navigate(['/services/details', params]);
-
+  gotoLink(type:any, params:any){
+    //  type => seccion / tipo / producto
+    // params => id que realiza la ralaciión
+    this.router.navigate([`/${type}/details`, params]);
   }
 
 }

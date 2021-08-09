@@ -11,10 +11,11 @@ export class HeaderComponent implements OnInit {
 
   constructor() {
     this.navMenu = [
-      {id:0,label:'Link 1', url: 'home'},
-      {id:1,label:'Link 2', url: 'home'},
-      {id:2,label:'Link 3', url: 'home'},
-      {id:3,label:'Link 4', url: 'home'}
+      {id:0,  label:'Home',  url: '/'},
+      {id:1,  label:'Somos', url: '/somos'},
+      {id:2,  label:'Servicios', url: '/services'},
+      {id:3,  label:'Productos', url: '/products'},
+      {id:4,  label:'Contacto', url: '/contacts'},
     ];
   }
 
