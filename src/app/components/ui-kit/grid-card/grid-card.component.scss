@@ -1,0 +1,34 @@
+.works-home{
+  // border:1px solid red;
+  ul{
+    margin:0;
+    padding:0;
+    display: grid;
+    li{
+      app-card{
+        display: block;
+        .works-card{
+          width:100%;
+          max-width: 100%;
+        }
+      }
+
+    }
+  }
+
+
+
+}
+
+.col-3-flex{
+  ul{
+    grid-template-columns: auto auto auto;
+  }
+
+}
+.col-4-flex{
+  ul{
+    grid-template-columns: auto auto auto auto;
+  }
+
+}

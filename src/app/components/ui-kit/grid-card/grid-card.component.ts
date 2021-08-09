@@ -1,22 +1,19 @@
-import { Input, ViewEncapsulation } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-works',
-  templateUrl: './works.component.html',
-  styleUrls: ['./works.component.scss'],
+  selector: 'app-grid-card',
+  templateUrl: './grid-card.component.html',
+  styleUrls: ['./grid-card.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class WorksComponent implements OnInit {
+export class GridCardComponent implements OnInit {
   data_works:any = [];
   @Input() Theme:any;
   @Input() Data:any;
   constructor(
     private router: Router,
-  ) {
-    alert('deprecated');
-  }
+  ) { }
 
   ngOnInit(): void {
     this.data_works = this.Data;
