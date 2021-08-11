@@ -24,6 +24,8 @@ import { DetailsServicesComponent } from './pages/services/details-services/deta
 import { GridCardComponent } from './components/ui-kit/grid-card/grid-card.component';
 import { DetailProductComponent } from './pages/products/detail-product/detail-product.component';
 import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -46,12 +48,14 @@ import { AboutComponent } from './pages/about/about.component';
     DetailsServicesComponent,
     GridCardComponent,
     DetailProductComponent,
-    AboutComponent
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
