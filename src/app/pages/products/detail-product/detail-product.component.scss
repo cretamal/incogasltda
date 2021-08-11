@@ -1,0 +1,90 @@
+@import '../../../../theme';
+.box-view-product{
+  width: 100%;
+  display: block;
+  margin: 80px auto 0 auto;
+  .wrapper-product{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    .right{
+      width: 100%;
+      height: 100%;
+      display: block;
+      .box-especification{
+        max-width: 80%;
+        height:100%;
+        margin: 0 auto;
+        display:flex;
+        align-items: center;
+        .card-shop{
+          display: block;
+          h6{
+            color:$brand-secundary;
+            font-family: 'Roboto', sans-serif;
+            font-size: 30px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            display: block;
+          }
+          h2{
+            color:$brand-primary;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: 900;
+            display: block;
+          }
+          h5{
+            margin-top: 10px;
+            color:$brand-secundary;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: 900;
+            display: block;
+          }
+          h3{
+            margin-top: 10px;
+            color:$brand-secundary;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            display: block;
+          }
+          .p{
+            margin-top: 20px;
+            color:$brand-secundary;
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 300;
+            display: block;
+          }
+
+          .call-to-action{
+            width: 100%;
+            display: none;
+            margin:30px auto 0 auto;
+            ul{
+              margin: 0;
+              padding: 0;
+              display: grid;
+              grid-template-columns: 50% 50%;
+            }
+          }
+
+        }
+      }
+    }
+
+  }
+
+
+  .head-section{
+    h1{
+      color:#000;
+    }
+  }
+
+}

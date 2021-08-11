@@ -102,6 +102,7 @@
 
 }
 
+// theme para todos los productos
 .thumbs-products{
   width: 100%;
   .wrapper-content-slides{
@@ -131,8 +132,6 @@
       padding:5px 0 5px 0;
     }
   }
-
-
   // Slick > Theme
   .slick-next,
   .slick-prev{
@@ -148,6 +147,57 @@
     position: relative;
   }
 
+}
+
+
+// theme para el interior de un producto
+.thumbs-product{
+  width: 100%;
+  .slide{
+    display: flex;
+  }
+  .wrapper-content-slides{
+    max-width:100% !important;
+  }
+  .content{
+    display:none !important;
+    width:100%;
+    position: relative;
+    margin-top:25px;
+    left:0;
+    h3{
+      font-size: 22px;
+      font-weight: 400;
+      color:$white;
+      padding:10px 0 10px 0;
+    }
+    h5{
+      font-weight: 600;
+      font-size: 22px;
+      color:$white;
+      padding:5px 0 5px 0;
+    }
+    p{
+      font-size: 14px;
+      font-weight: 200;
+      color:$white;
+      padding:5px 0 5px 0;
+    }
+  }
+  // Slick > Theme
+  .slick-next,
+  .slick-prev{
+    z-index: 10;
+  }
+  .slick-next{
+    right: 50px;
+  }
+  .slick-prev{
+    left:50px;
+  }
+  .slick-slide{
+    position: relative;
+  }
 }
 
 
