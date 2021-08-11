@@ -1,0 +1,91 @@
+<div class="{{Theme}}">
+  <div class="wrapper-site">
+    <div class="left">
+      <div class="body">
+        <div class="head-section">
+          <h2>
+            Contacto
+          </h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam quaerat et unde provident perspiciatis, assumenda ab sapiente vel maiores incidunt illum, voluptatum, quasi mollitia ratione dignissimos nesciunt consequatur excepturi error?
+          </p>
+        </div>
+        <div class="content">
+          <h3>Lorem ipsum </h3>
+          <ul>
+            <li>
+              <img src="http://placehold.it/20x20/">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </li>
+            <li>
+              <img src="http://placehold.it/20x20/">
+              <p>ventas@incogasltda.cl - contacto@incogasltda.cl</p>
+            </li>
+            <li>
+              <img src="http://placehold.it/20x20/">
+              <p>+569 65739999 - +569 XXXXXXXX</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <form [formGroup]="formData">
+        <div class="form">
+          <div class="body">
+            <ul>
+              <!-- Replicar con data dinamica json -->
+              <li>
+                <div class="box-campo-form">
+                  <p>Nombre</p>
+                  <input type="text" placeholder="Ej: Juan Riquelme" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                  <div class="error">
+                    <div *ngIf="submitted && f.name.errors">
+                      <p *ngIf="f.name.errors.required">
+                        dato obligatorio
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="box-campo-form">
+                  <p>Empresa</p>
+                  <input type="text" placeholder="Nombre Empresa" formControlName="business" [ngClass]="{ 'is-invalid': submitted && f.business.errors }" />
+                  <div class="error">
+                    <div *ngIf="submitted && f.business.errors">
+                      <p *ngIf="f.business.errors.required">
+                        dato obligatorio
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="box-campo-form">
+                  <p>Email</p>
+                  <input type="text" placeholder="Ej: contacto@empresa.cl" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                  <div class="error">
+                    <div *ngIf="submitted && f.email.errors">
+                      <p *ngIf="f.email.errors.required">
+                        dato obligatorio
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="box-campo-form">
+                  <p>Mensaje</p>
+                  <textarea formControlName="message" placeholder="Escribe tu mensaje"></textarea>
+                </div>
+              </li>
+            </ul>
+            <br/>
+            <app-button Theme="btn-primary" Label="Enviar"></app-button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
