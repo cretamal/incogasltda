@@ -9,7 +9,7 @@
       <div class="nav-menu">
         <ul>
           <li *ngFor="let nav of navMenu">
-            <p [routerLink]=nav.url>{{nav.label}}</p>
+            <p (click)="gotoLink(nav.url)">{{nav.label}}</p>
           </li>
         </ul>
       </div>

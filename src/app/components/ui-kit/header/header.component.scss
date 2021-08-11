@@ -6,7 +6,7 @@
   background:$brand-secundary;
   .header-primary{
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 120px auto;
     .left{
       position: relative;
       .logo{
@@ -41,6 +41,7 @@
               padding:10px;
               display: block;
               color: $white;
+              cursor: pointer;
               &:hover{
                 color:$brand-primary;
               }

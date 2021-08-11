@@ -23,6 +23,7 @@ import { AllProductsComponent } from './pages/products/all-products/all-products
 import { DetailsServicesComponent } from './pages/services/details-services/details-services.component';
 import { GridCardComponent } from './components/ui-kit/grid-card/grid-card.component';
 import { DetailProductComponent } from './pages/products/detail-product/detail-product.component';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { DetailProductComponent } from './pages/products/detail-product/detail-p
     AllProductsComponent,
     DetailsServicesComponent,
     GridCardComponent,
-    DetailProductComponent
+    DetailProductComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

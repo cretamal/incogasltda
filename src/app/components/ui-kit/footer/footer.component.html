@@ -1,1 +1,41 @@
-<p>footer works!</p>
+<div class="footer {{Theme}}">
+    <div class="wrapper-site">
+      <div class="foo">
+        <div class="left">
+          <h2>Incogas Ltda.</h2>
+          <p>Lorem ipsum dolor sit amet, consectet  ipsum dolor sit amet, consectet  </p>
+          <br />
+          <p>Contacto: <a href="mailto:contacto@incogasltda.cl">contacto@incogasltda.cl</a></p>
+        </div>
+        <div class="center">
+          <h5>Atajos rapidos</h5>
+          <ul>
+            <li>
+              <a [routerLink]="'/'">Home</a>
+            </li>
+            <li>
+              <a [routerLink]="'/somos'">Somos</a>
+            </li>
+            <li>
+              <a [routerLink]="'/services'">Servicios</a>
+            </li>
+            <li>
+              <a [routerLink]="'/products'">Productos</a>
+            </li>
+            <li>
+              <a [routerLink]="'/services'">Contacto</a>
+            </li>
+          </ul>
+        </div>
+        <div class="right">
+          <div class="logo" [routerLink]="'/'">
+            <img src="../../../../assets/img/incogas-red.png" />
+          </div>
+          <div class="copyright">
+            <p>Copyrights 2021 Incogas Ltda. Todos los derechos reservados.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>
