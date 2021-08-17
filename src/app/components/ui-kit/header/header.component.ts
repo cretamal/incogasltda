@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
       {id:1,  label:'Somos', url: '/somos'},
       {id:2,  label:'Servicios', url: '/services'},
       {id:3,  label:'Productos', url: '/products'},
-      {id:4,  label:'Contacto', url: '/'},
+      {id:4,  label:'Contacto', url: '/contacto'},
     ];
   }
 
