@@ -25,14 +25,21 @@
     h3{
       font-weight: 900;
       color:$white;
+      font-size: 40px;
+      color:#ff0000;
     }
     h5{
       font-weight: 700;
       color:$white;
+      color:#ff0000;
+      display: block;
+      margin:5px 0 5px 0;
     }
     p{
       font-weight: 400;
       color:$white;
+      color:#ff0000;
+      max-width:460px;
     }
   }
 
