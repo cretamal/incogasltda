@@ -1,3 +1,4 @@
+@import '../../../../theme';
 .btn-primary,
 .btn-secundary{
   cursor:pointer;
@@ -9,15 +10,25 @@
   }
 }
 .btn-primary{
-  background: #d50202;
+  background: $brand-primary;
+  border:1px solid $brand-primary;
   p{
     color:#fff;
+  }
+  &:hover{
+    background: $brand-primary;
+    border:1px solid #fff;
   }
 }
 
 .btn-secundary{
-  background: #000000;
+  background: $brand-secundary;
+  border:1px solid $brand-secundary;
   p{
     color:#fff;
+  }
+  &:hover{
+    background: $brand-secundary;
+    border:1px solid #fff;
   }
 }

@@ -27,20 +27,26 @@ h1,h2,h3,h4,h5,h6,p{
 .box-about{
   .box-head-services,
   .box-head-products{
-    background: #676767;
-    padding:60px 0 60px 0;
+    background: $brand-secundary;
+    padding:80px 0 5vh 0;
     h2{
-      font-size:70px;
+      font-size:3.5vw;
       font-family: 'Roboto', sans-serif;
       font-weight: 900;
       text-align: center;
       color:#fff;
     }
   }
+  .box-grid-services{
+    background: $brand-primary;
+  }
+  .box-grid-products{
+    background: $brand-primary;
+  }
   .box-grid-services,
   .box-grid-products{
-    background: #868686;
-    padding:60px 0 60px 0;
+
+    padding:120px 0;
   }
 
 }
