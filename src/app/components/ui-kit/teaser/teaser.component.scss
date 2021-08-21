@@ -1,9 +1,14 @@
+
+@import '../../../../mq';
 .somos{
   width: 100%;
   padding:60px 0 60px 0;
   .wrapper-teaser{
     display: grid;
     grid-template-columns: 40% 60%;
+    @include respond-to($iphone_xs) {
+      grid-template-columns: 100%;
+    }
     .left,
     .right{
       h2,p{
@@ -11,8 +16,11 @@
         font-family: 'Roboto', sans-serif;
       }
       h2{
-        font-size: 70px;
+        font-size:3.5vw;
         font-weight: 900;
+        @include respond-to($iphone_xs) {
+          font-size:15vw;
+        }
       }
       p{
         font-weight: 300;

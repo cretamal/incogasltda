@@ -26,6 +26,8 @@ import { DetailProductComponent } from './pages/products/detail-product/detail-p
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ScrollToComponent } from './components/ui-kit/scroll-to/scroll-to.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -49,15 +51,19 @@ import { ReactiveFormsModule } from '@angular/forms';
     GridCardComponent,
     DetailProductComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    ScrollToComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     SlickCarouselModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: Window, useValue: window }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

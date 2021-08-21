@@ -1,3 +1,4 @@
+@import '../../../../mq';
 .works-home{
   // border:1px solid red;
   ul{
@@ -23,12 +24,20 @@
 .col-3-flex{
   ul{
     grid-template-columns: auto auto auto;
+    @include respond-to($iphone_xs) {
+      grid-template-columns: 100%;
+      row-gap: 20px;
+    }
   }
 
 }
 .col-4-flex{
   ul{
     grid-template-columns: auto auto auto auto;
+    @include respond-to($iphone_xs) {
+      grid-template-columns: 100%;
+      row-gap: 20px;
+    }
   }
 
 }

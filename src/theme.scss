@@ -3,23 +3,28 @@ $red:#e41b23;
 $black: #000;
 $white: #fff;
 
-
 // Brand Colors
 $brand-primary:$red;
 $brand-secundary:$black;
 
-
-
-
-
 // Mockups Colors
 $bgWireframe1:#868686;
-
 
 // Text Colors
 $title:$white;
 
-
 // Template Colors
 $background-page:$black;
 $buttonPrimary:$brand-primary;
+
+
+
+// Mixin Mediaqueries
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}

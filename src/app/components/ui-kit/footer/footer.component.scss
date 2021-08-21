@@ -1,4 +1,5 @@
 @import '../../../../theme';
+@import '../../../../mq';
 .footer{
   width: 100%;
   height: auto;
@@ -11,6 +12,9 @@
     justify-content: space-between;
     align-items: center;
     column-gap: 80px;
+    @include respond-to($iphone_xs) {
+      grid-template-columns: 100%;
+    }
     .left,.center,.right{
       h2,p,h5, a{
         color:#fff;

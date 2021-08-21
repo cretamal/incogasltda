@@ -1,0 +1,43 @@
+// Actual Iphone
+$iphone_xxs : '(min-width: 200px) and (max-width: 413px)';
+$iphone_xs : '(min-width: 200px) and (max-width: 767px)';
+$iphone_xl : '(min-width: 319px) and (max-width: 736px)';
+$mobile_s : '(min-width: 320px) and (max-width: 375px)';
+$mobile_m : '(min-width: 375px) and (max-width: 425px)';
+$mobile_l : '(min-width: 425px) and (max-width: 768px)';
+
+
+
+
+$ipad_P : '(min-width : 768px) and (max-width : 1024px) and (orientation : portrait)';
+
+
+
+
+
+$Menu_mobile_tablet : '(min-width: 319px) and (max-width: 1000px)';
+$ipad_L : '(min-width: 768px) and (max-width: 1025px)';
+$tablet-portrait: '(min-width: 319px) and (max-width: 736px)';
+$tablet-landscape: '(min-width: 768px) and (max-width: 979px)';
+$desktop-small: '(min-width: 1000px) and (max-width:1439px)';
+$desktop-medium: '(min-width: 1440px) and (max-width:1679px)';
+$large-desktop: '(min-width: 1445px) and (max-width:5600px)';
+$non-retina: 'screen and (-webkit-max-device-pixel-ratio: 1)';
+$retina: '(min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 144dpi),(min-resolution: 1.5dppx)';
+
+@mixin respond-to($media) {
+    @media only screen and #{$media} {
+        @content;
+    }
+}
+
+//use...
+
+//@include respond-to($iphone_xxs) {}
+//@include respond-to($iphone_xs) {}
+ //@include respond-to($iphone_xl) {}
+ //@include respond-to($ipad_P) {}
+ //@include respond-to($ipad_L) {}
+ //@include respond-to($desktop-small) {}
+ //@include respond-to($desktop-medium) {}
+//@include respond-to($large-desktop) {} //
