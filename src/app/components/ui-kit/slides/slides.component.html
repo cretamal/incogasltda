@@ -8,14 +8,14 @@
     (beforeChange)="beforeChange($event)">
 
     <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-      <img src="{{ slide.img }}" alt="" width="100%">
+      <img *ngIf="slide?.background" src="{{urlAssets}}{{slide.background.url }}" alt="" width="100%">
       <div class="content">
         <div class="wrapper-content-slides">
           <h3>{{slide.title}}</h3>
-          <h5>{{slide.subTitle}}</h5>
+          <h5>{{slide.description}}</h5>
           <p>{{slide.message}}</p>
-          <div class="call-to-action">
-            <app-button Theme="btn-secundary" Label="Ver Más"></app-button>
+          <div class="call-to-action" *ngIf="slide?.callToAction">
+            <app-button Theme="btn-secundary" Label="{{slide?.callToAction?.label}}" [routerLink]="[slide?.callToAction?.url]"></app-button>
           </div>
         </div>
       </div>

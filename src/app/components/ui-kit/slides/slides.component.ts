@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-slides',
   templateUrl: './slides.component.html',
@@ -15,20 +15,21 @@ export class SlidesComponent implements OnInit {
 
   slides:any = [];
   slideConfig:any;
+  urlAssets:any;
 
   constructor() {
-
+    this.urlAssets = environment.server;
   }
 
   ngOnInit(): void {
-    this.slides = this.data;
     this.slideConfig = {"slidesToShow": this.config.slidesToShow, "slidesToScroll": this.config.slidesToScroll};
-    console.log('data-config', this.config);
-
   }
 
+  ngOnChanges() {
+    this.slides = this.data;
+}
 
-
+  ngAfterViewInit(){}
 
   addSlide() {
     this.slides.push({img: "http://placehold.it/350x150/777777"})

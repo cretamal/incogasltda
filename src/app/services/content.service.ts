@@ -14,12 +14,12 @@ export class ContentService {
   }
 
   getAll(): Observable<any> {
-    const url = `${this.url}contents`;
+    const url = `${this.url}/contents`;
     return this.http.get<any>( url );
   }
 
   getContentType(query_type:string): Observable<any> {
-    const url = `${this.url}contents${query_type}`;
+    const url = `${this.url}/contents${query_type}`;
     return this.http.get<any>( url );
   }
 

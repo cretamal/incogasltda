@@ -11,6 +11,7 @@
         .works-card{
           width:100%;
           max-width: 100%;
+          min-height: 280px;
         }
       }
 
@@ -24,6 +25,7 @@
 .col-3-flex{
   ul{
     grid-template-columns: auto auto auto;
+    grid-auto-flow: dense;
     @include respond-to($iphone_xs) {
       grid-template-columns: 100%;
       row-gap: 20px;
@@ -34,6 +36,7 @@
 .col-4-flex{
   ul{
     grid-template-columns: auto auto auto auto;
+    grid-auto-flow: dense;
     @include respond-to($iphone_xs) {
       grid-template-columns: 100%;
       row-gap: 20px;
