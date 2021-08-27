@@ -23,4 +23,13 @@ export class ContactComponent implements OnInit {
 
   get f() { return this.formData.controls; }
 
+  onSubmit(){
+    if(this.formData.valid){
+
+      alert('todos los campos');
+
+    }else {
+      alert('ingresar campos');
+    }
+  }
 }
