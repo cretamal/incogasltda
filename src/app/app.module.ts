@@ -28,7 +28,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ScrollToComponent } from './components/ui-kit/scroll-to/scroll-to.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { PageLoadingComponent } from './components/ui-kit/page-loading/page-loading.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +52,8 @@ import { HttpClientModule } from '@angular/common/http';
     DetailProductComponent,
     AboutComponent,
     ContactComponent,
-    ScrollToComponent
+    ScrollToComponent,
+    PageLoadingComponent
   ],
   imports: [
     BrowserModule,

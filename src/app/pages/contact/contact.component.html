@@ -7,7 +7,7 @@
             Contacto
           </h2>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam quaerat et unde provident perspiciatis, assumenda ab sapiente vel maiores incidunt illum, voluptatum, quasi mollitia ratione dignissimos nesciunt consequatur excepturi error?
+            Utiliza cualquiera de nuestro canales para contactarnos, estaremos felices de atender tus necesidades.
           </p>
         </div>
         <div class="content">
@@ -70,6 +70,9 @@
                       <p *ngIf="f.email.errors.required">
                         dato obligatorio
                       </p>
+                      <p *ngIf="!f.email.errors.required && this.formData?.controls['email'].invalid">
+                        Formato invalido
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -89,3 +92,6 @@
     </div>
   </div>
 </div>
+
+
+<app-page-loading [activeLoad]=sendMail></app-page-loading>

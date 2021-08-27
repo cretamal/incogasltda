@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   encapsulation: ViewEncapsulation.None
 })
 export class DetailProductComponent implements OnInit {
-  @Input() Theme:any;
+  @Input() Theme:any = "default";
 
 
   // :::::: SLICKJS CONFIGURATION :::::::::::::::::::
