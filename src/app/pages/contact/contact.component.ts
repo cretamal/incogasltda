@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -10,7 +11,10 @@ export class ContactComponent implements OnInit {
   formData:any = FormGroup;
   submitted = false;
   @Input() Theme:any = 'contact-primary';
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private contactService: ContactService
+  ) {}
 
   ngOnInit() {
     this.formData = this.formBuilder.group({
@@ -26,7 +30,20 @@ export class ContactComponent implements OnInit {
   onSubmit(){
     if(this.formData.valid){
 
-      alert('todos los campos');
+
+      const dataForm = {
+        name: this.formData.controls['name'].value,
+        business: this.formData.controls['business'].value,
+        email: this.formData.controls['email'].value,
+        message: this.formData.controls['message'].value
+      }
+      console.log(dataForm);
+
+      this.contactService.sendMessageContact(dataForm).subscribe( contact => {
+        console.log('contact', contact);
+      });
+
+
 
     }else {
       alert('ingresar campos');
