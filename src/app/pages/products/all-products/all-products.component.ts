@@ -1,18 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-all-products',
   templateUrl: './all-products.component.html',
-  styleUrls: ['./all-products.component.scss']
+  styleUrls: ['./all-products.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AllProductsComponent implements OnInit {
   data_products:any = [];
+  configProducts:any;
+  
   constructor() {
     this.data_products = [
-      {id:0, type:'products', params:'0', title:'Producto 1', message:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s'},
-      {id:1, type:'products', params:'1', title:'Producto 2', message:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s'},
-      {id:2, type:'products', params:'2', title:'Producto 3', message:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s'},
+      {id:0, type:'products', params:'0', label:'Lorem Ipsum', message:'Lorem Ipsum is simply'},
+      {id:1, type:'products', params:'1', label:'Lorem Ipsum', message:'Lorem Ipsum is simply'},
+      {id:2, type:'products', params:'2', label:'Lorem Ipsum', message:'Lorem Ipsum is simply'}
     ];
+
+    this.configProducts = {
+      theme:'product-service backgroud-product',
+      typeMedia:'background'
+    };
+
   }
 
   ngOnInit(): void {

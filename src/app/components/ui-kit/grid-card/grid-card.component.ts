@@ -11,12 +11,17 @@ export class GridCardComponent implements OnInit {
   data_works:any = [];
   @Input() Theme:any;
   @Input() Data:any;
+  @Input() ConfigChildren:any;
   constructor(
     private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.data_works = this.Data;
+
+    console.log('this.data_works',  this.data_works);
+
+
   }
 
   gotoLink(type:any, params:any){

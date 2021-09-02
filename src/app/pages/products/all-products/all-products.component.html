@@ -12,8 +12,11 @@
         </div>
       </div>
       <div class="box-grid-products">
-        <div class="wrapper-site">
-          <app-grid-card [Data]="data_products" Theme="works-home col-3-flex"></app-grid-card>
+        <div class="wrapper-site aside-category-active">
+          <app-aside-category></app-aside-category>
+
+
+          <app-grid-card [Data]="data_products" Theme="works-home col-3-flex" [ConfigChildren]="configProducts"></app-grid-card>
         </div>
       </div>
 

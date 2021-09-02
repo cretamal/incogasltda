@@ -19,6 +19,7 @@ export class SlidesComponent implements OnInit {
 
   constructor() {
     this.urlAssets = environment.server;
+    console.log('this.urlAssets', this.urlAssets);
   }
 
   ngOnInit(): void {

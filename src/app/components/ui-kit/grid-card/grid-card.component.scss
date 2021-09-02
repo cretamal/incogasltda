@@ -24,8 +24,9 @@
 
 .col-3-flex{
   ul{
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 33% 33% 33%;
     grid-auto-flow: dense;
+    column-gap: 25px;
     @include respond-to($iphone_xs) {
       grid-template-columns: 100%;
       row-gap: 20px;
@@ -37,6 +38,7 @@
   ul{
     grid-template-columns: auto auto auto auto;
     grid-auto-flow: dense;
+    column-gap: 25px;
     @include respond-to($iphone_xs) {
       grid-template-columns: 100%;
       row-gap: 20px;

@@ -25,7 +25,7 @@
         <div>
           <h2>
             Nuestros<br/>
-            Servicios
+            Segmentos
           </h2>
           <div class="btn-view-all">
             <app-button Theme="btn-primary" Label="Ver Todos" [routerLink]="'/services/all'"></app-button>
@@ -36,7 +36,9 @@
 
     <div class="box-grid-services">
       <div class="wrapper-site">
-        <app-grid-card [Data]="data_services" Theme="works-home col-3-flex"></app-grid-card>
+        <ng-container *ngIf="data_services.length > 0">
+          <app-grid-card [Data]="data_services" Theme="works-home col-3-flex" [ConfigChildren]="configServices"></app-grid-card>
+        </ng-container>
       </div>
     </div>
 
@@ -60,7 +62,7 @@
 
     <div class="box-grid-products">
       <div class="wrapper-site">
-        <app-grid-card [Data]="data_products" Theme="works-home col-4-flex"></app-grid-card>
+        <app-grid-card [Data]="data_products" Theme="works-home col-4-flex" [ConfigChildren]="configProducts"></app-grid-card>
       </div>
     </div>
 

@@ -1,22 +1,41 @@
-<div class="card {{Theme}}">
-  <div class="wrapper-card">
+<ng-container *ngIf="Config">
+  <div class="card {{Config.theme}}">
+    <div class="wrapper-card">
 
-    <div class="head-card">
-      <ng-container *ngIf="true">
-        <div class="ico-card">
-          <img src="./assets/img/ico-1.png" />
+      <ng-container *ngIf="Config.typeMedia === 'background'">
+        <div class="background-card">
+          <img src="./assets/img/producto-2.jpg" />
         </div>
       </ng-container>
-      <h3>{{Title}}</h3>
-    </div>
 
-    <div class="body-card">
-      <p>{{Message}}</p>
-    </div>
+      <ng-container *ngIf="Config.typeMedia === 'icon'">
+        <div class="head-card">
+            <div class="ico-card">
+              <img src="./assets/img/ico-1.png" />
+            </div>
+          <h3>{{Title}}</h3>
+        </div>
+      </ng-container>
 
-    <div class="foo-card">
-      <ng-content select="[foo]"></ng-content>
-    </div>
+      <div [ngClass]="{'content-float': Config.typeMedia === 'background'}">
+        <div class="body-card">
 
+          <ng-container  *ngIf="Config.typeMedia === 'background'">
+            <h3>{{Title}}</h3>
+          </ng-container>
+
+
+
+
+          <p>{{Message}}</p>
+        </div>
+
+        <div class="foo-card">
+          <ng-content select="[foo]"></ng-content>
+        </div>
+      </div>
+
+
+    </div>
   </div>
-</div>
+</ng-container>

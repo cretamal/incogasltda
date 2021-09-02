@@ -29,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ScrollToComponent } from './components/ui-kit/scroll-to/scroll-to.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageLoadingComponent } from './components/ui-kit/page-loading/page-loading.component';
+import { AsideCategoryComponent } from './components/ui-kit/aside-category/aside-category.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { PageLoadingComponent } from './components/ui-kit/page-loading/page-load
     AboutComponent,
     ContactComponent,
     ScrollToComponent,
-    PageLoadingComponent
+    PageLoadingComponent,
+    AsideCategoryComponent
   ],
   imports: [
     BrowserModule,

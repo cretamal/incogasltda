@@ -1,7 +1,14 @@
+
 #products{
   width: 100%;
   background: #000000;
   min-height: 85vh;
   padding-bottom: 80px;
+  .aside-category-active{
+    display: grid;
+    grid-template-columns:280px auto;
+    column-gap: 30px;
+
+  }
 }
 
