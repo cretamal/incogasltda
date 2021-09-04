@@ -3,6 +3,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ContentService } from './../../services/content.service';
 import { CategoryService } from './../../services/category.service';
+import { ProductService } from './../../services/product.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,22 +18,18 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private contentService: ContentService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private productService: ProductService
   ) {
-    this.data_products = [
-      {id:0, type:'products', params:'0', label:'Lorem Ipsum', message:'Lorem Ipsum is simply'},
-      {id:1, type:'products', params:'1', label:'Lorem Ipsum', message:'Lorem Ipsum is simply'},
-      {id:2, type:'products', params:'2', label:'Lorem Ipsum', message:'Lorem Ipsum is simply'}
-    ];
-
 
     this.configProducts = {
       theme:'product-service backgroud-product',
       typeMedia:'background'
     };
+
     this.configServices = {
-      theme:'product-service',
-      typeMedia:'icon'
+      theme:'product-service backgroud-product',
+      typeMedia:'background'
     };
 
 
@@ -46,6 +43,7 @@ export class HomeComponent implements OnInit {
 
   ngAfterViewInit() {
     this.getAllCategory();
+    this.getAllProducts();
   }
 
 
@@ -59,9 +57,18 @@ export class HomeComponent implements OnInit {
     this.categoryService.getAll().subscribe( (category) => {
       console.log('category', category);
       this.data_services =  category;
-      console.log('this.data_services', this.data_services[0]);
+      console.log('this.data_services', this.data_services);
     });
   }
+
+  getAllProducts(){
+    this.productService.getAll().subscribe( (product) => {      
+      this.data_products =  product;
+      console.log('this.data_products', this.data_products);
+    });
+  }
+
+  
 
 
 

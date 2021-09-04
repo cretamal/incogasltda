@@ -28,6 +28,7 @@ export class SlidesComponent implements OnInit {
 
   ngOnChanges() {
     this.slides = this.data;
+    console.log('this.slides', this.slides);
 }
 
   ngAfterViewInit(){}

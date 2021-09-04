@@ -5,11 +5,9 @@
 
           <app-card
             [Config]="ConfigChildren"
-            Theme="{{ConfigChildren}}"
-            Title="{{work.label}}"
-            Message="{{work.message}}"
-          >
-            <app-button Theme="btn-secundary" Label="Ver Más" foo (click)="gotoLink(work.type, work.params)"></app-button>
+            [Data]="work"
+            Theme="{{ConfigChildren}}"            
+          >            
           </app-card>
 
 

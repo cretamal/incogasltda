@@ -1,5 +1,5 @@
-import { ContentService } from './../../../services/content.service';
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { ContentService } from './../../../services/content.service';
 
 @Component({
   selector: 'app-big-banner',

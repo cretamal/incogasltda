@@ -81,7 +81,8 @@
 
 
 // theme quick-shortcuts
-.product-service{
+.product-service,
+.product-shortcuts{
   max-width:400px;
   border-radius:0;
   padding:90px 0 50px 0;
@@ -115,7 +116,44 @@
   }
 }
 
+.price{
+  font-size:30px;
+  font-family: 'Roboto', sans-serif;
+  color:$white;
+  font-weight: 400;
+  padding:10px 0 10px 0;
+  span{
+    font-size:20px;
+    font-weight: 600;
+  }
+}
+
 .backgroud-product{
+  padding:0 0 0 0;  
+  .background-card{
+    z-index:-1;
+  }
+  .wrapper-card{
+    width:100%;
+    max-width: 100%;
+    position: relative;
+  }
+  .content-float{
+    width: 100%;
+    position:relative;
+    // bottom:25px;
+    // left:0;
+    // background: rgba(0,0,0,0.5);
+    .body-card,
+    .foo-card{
+      max-width:80%;
+      display:block;
+      margin:0 auto 0 auto;
+    }
+  }
+}
+
+.product-shortcuts{
   padding:0 0 0 0;
   .background-card{
     z-index:-1;

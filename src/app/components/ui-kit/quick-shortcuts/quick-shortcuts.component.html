@@ -3,36 +3,9 @@
     Las Mejores Ofertas
   </h2>
 </div>
-<div class="box-thumbnails">
-    <app-card
-      Theme="product-service"
-      Title="Lorem Ipsum"
-      Message="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
-    >
-      <app-button Theme="btn-secundary" Label="Ver Más" foo></app-button>
-    </app-card>
 
-    <app-card
-      Theme="product-service"
-      Title="Lorem Ipsum"
-      Message="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
-    >
-      <app-button Theme="btn-secundary" Label="Ver Más" foo></app-button>
-    </app-card>
-
-    <app-card
-      Theme="product-service"
-      Title="Lorem Ipsum"
-      Message="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
-    >
-      <app-button Theme="btn-secundary" Label="Ver Más" foo></app-button>
-    </app-card>
-
-
-
-
-
-
-
-
+<div class="box-thumbnails">  
+  <ng-container *ngIf="data_shortcut && data_shortcut.length > 0">
+    <app-grid-card [Data]="data_shortcut" Theme="works-home col-3-flex" [ConfigChildren]="configServices"></app-grid-card>
+  </ng-container>
 </div>

@@ -62,7 +62,9 @@
 
     <div class="box-grid-products">
       <div class="wrapper-site">
-        <app-grid-card [Data]="data_products" Theme="works-home col-4-flex" [ConfigChildren]="configProducts"></app-grid-card>
+        <ng-container *ngIf="data_products.length > 0">
+          <app-grid-card [Data]="data_products" Theme="works-home col-4-flex" [ConfigChildren]="configProducts"></app-grid-card>
+        </ng-container>        
       </div>
     </div>
 
