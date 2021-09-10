@@ -21,7 +21,7 @@ export class AsideCategoryComponent implements OnInit {
 
   getAllCategory(){
     this.categoryService.getAll().subscribe( (category) => {
-      // console.log('category', category);
+      console.log('category', category);
       this.categories = category;
     });
   }

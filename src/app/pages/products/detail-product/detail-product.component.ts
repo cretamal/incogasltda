@@ -1,6 +1,7 @@
 import { Input, ViewEncapsulation } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-detail-product',
@@ -22,32 +23,34 @@ export class DetailProductComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private productService: ProductService
   ) {
     // :::::: SLICKJS CONFIGURATION :::::::::::::::::::
     // ::::::::::::::::::::::::::::::::::::::::::::::::
-    this.slides_data = [
-      {
-        img: "https://via.placeholder.com/600x600.png/333/fff",
-        title: "Manejo y Suministro de Gases",
-        subTitle:"Suministro confiable de los gases industriales que necesita para hacer que su empresa prospere.",
-        message: "Ver Más"
-      },
-      {
-        img: "https://via.placeholder.com/600x600.png/333/fff",
-        title: "Servicios industriales",
-        subTitle:"Permita que nuestros servicios de tanques y suministro por tuberías sean el camino hacia su eficiencia.",
-        message: "Ver Más"
-      },
-      {
-        img: "https://via.placeholder.com/600x600.png/333/fff",
-        title: "Servicios de Homecare",
-        subTitle:"El Servicio Home Health Care Linde está desarrollado para atender en forma segura a pacientes con problemas respiratorios",
-        message: "Ver Más"
-      }
-    ];
+    // this.slides_data = [
+    //   {
+    //     img: "https://via.placeholder.com/600x600.png/333/fff",
+    //     title: "Manejo y Suministro de Gases",
+    //     description:"Suministro confiable de los gases industriales que necesita para hacer que su empresa prospere.",
+    //     message: 'ldddldlñd'
+    //   }
+    // ];
   }
 
   ngOnInit(): void {
   }
+
+  ngAfterViewInit() {
+    this.getAllProducts();
+  }
+
+
+  getAllProducts(){
+    this.productService.getProduct(4).subscribe( (product) => {
+
+      console.log('this.data_products', product );
+    });
+  }
+
 
 }

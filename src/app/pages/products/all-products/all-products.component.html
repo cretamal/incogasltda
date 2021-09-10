@@ -1,7 +1,7 @@
 <section id="products">
   <article>
     <div class="box-products">
-      <div class="box-head-products">
+      <div class="box-head-products bg-services">
         <div class="wrapper-site">
           <div>
             <h2>
@@ -15,8 +15,24 @@
         <div class="wrapper-site aside-category-active">
           <app-aside-category></app-aside-category>
 
+          <ng-container *ngIf="data_products.length > 0">
+            <app-grid-card [Data]="data_products" Theme="works-home col-3-flex" [ConfigChildren]="configProducts"></app-grid-card>
+          </ng-container>
 
-          <app-grid-card [Data]="data_products" Theme="works-home col-3-flex" [ConfigChildren]="configProducts"></app-grid-card>
+          <ng-container *ngIf="data_products.length == 0">
+            <div class="not-found">
+              <div>
+                <div class="icon">
+                  <img src="./assets/img/not-found.svg" />
+                </div>
+                <p>sin datos relacionados</p>
+              </div>
+
+            </div>
+
+          </ng-container>
+
+
         </div>
       </div>
 

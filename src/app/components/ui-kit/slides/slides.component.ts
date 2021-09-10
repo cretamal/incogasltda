@@ -23,7 +23,13 @@ export class SlidesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.slideConfig = {"slidesToShow": this.config.slidesToShow, "slidesToScroll": this.config.slidesToScroll};
+    this.slideConfig = {
+      "slidesToShow": this.config.slidesToShow,
+      "slidesToScroll": this.config.slidesToScroll,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      speed: 1000
+    };
   }
 
   ngOnChanges() {

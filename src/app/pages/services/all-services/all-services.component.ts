@@ -14,9 +14,9 @@ export class AllServicesComponent implements OnInit {
   constructor(
     private categoryService: CategoryService
   ) {
-    
+
     this.configServices = {
-      theme:'product-service',
+      theme:'service-card-primary',
       typeMedia:'icon'
     };
   }

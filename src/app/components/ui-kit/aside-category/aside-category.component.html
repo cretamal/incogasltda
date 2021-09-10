@@ -5,7 +5,7 @@
       <ng-container *ngFor="let category of categories">
         <li>
           <p>
-            {{category.label}}
+            {{category.title}}
           </p>
           <ng-container *ngIf="category.sub_categories.length > 0">
             <ul class="suCategory">

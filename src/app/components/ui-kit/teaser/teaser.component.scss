@@ -1,5 +1,6 @@
 
 @import '../../../../mq';
+@import '../../../../theme';
 .somos{
   width: 100%;
   padding:60px 0 60px 0;
@@ -8,6 +9,46 @@
     grid-template-columns: 40% 60%;
     @include respond-to($iphone_xs) {
       grid-template-columns: 100%;
+    }
+    .left{
+      display: flex;
+      align-items: center;
+      .box-thumb-somos{
+        position: relative;
+        .rect-float{
+          width: 120px;
+          height: 120px;
+          border-radius: 10px;
+          position: absolute;
+        }
+        .t-l{
+          top:-60px;
+          left:-60px;
+          background: $brand-primary;
+          z-index: 0;
+        }
+        .b-r{
+          bottom: -60px;
+          right: -60px;
+          background: $brand-primary;
+          z-index: 11;
+        }
+        .team{
+          width:300px;
+          height: 300px;
+          display: block;
+          background: $brand-secundary;
+          position: relative;
+          z-index: 10;
+          border-radius:15px;
+          overflow: hidden;
+          img{
+            width: 100%;
+          }
+        }
+      }
+
+
     }
     .left,
     .right{

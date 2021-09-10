@@ -1,32 +1,38 @@
 <ng-container *ngIf="Config">
   <div class="card {{Config.theme}}">
+    <div class="btn-products" (click)="callToAction(Data)">
+      <img src="./assets/img/buscar.svg" alt="lupa"/>
+    </div>
     <div class="wrapper-card">
 
       <ng-container *ngIf="Config.typeMedia === 'background'">
         <div class="background-card">
-          <img *ngIf="Data.img" src="{{urlAssets}}{{Data.img.url }}" alt="" width="100%">          
+          <ng-container>
+            <img *ngIf="Data.img" src="{{urlAssets}}{{Data.img.url }}" alt="" width="100%">
+          </ng-container>
+
+
         </div>
       </ng-container>
 
       <ng-container *ngIf="Config.typeMedia === 'icon'">
         <div class="head-card">
             <div class="ico-card">
-              <img *ngIf="Data.img" src="{{urlAssets}}{{Data.img.url }}" alt="" width="100%">                        
+              <img *ngIf="Data.img" src="{{urlAssets}}{{Data.img.url }}" alt="" width="100%">
             </div>
-            
+
           <h3>{{Data.title}}</h3>
         </div>
       </ng-container>
 
       <div [ngClass]="{'content-float': Config.typeMedia === 'background'}">
         <div class="body-card">
-          <ng-container  *ngIf="Config.typeMedia === 'background'">          
+          <ng-container  *ngIf="Config.typeMedia === 'background'">
             <h3>{{Data.title}}</h3>
             <ng-container *ngIf="Data.price != null">
               <h4 class="price"> <span>$</span> {{Data.price}} <span>+ iva</span></h4>
             </ng-container>
-            
-            
+
           </ng-container>
           <p>{{Data.label}}</p>
         </div>
@@ -34,10 +40,10 @@
 
       <ng-container *ngIf="Data.callToAction != null">
             <div class="foo-card">
-              <app-button Theme="btn-secundary" Label="{{Data.callToAction.label}}" (click)="callToAction(Data.callToAction)"></app-button>
+              <app-button Theme="btn-secundary" Label="{{Data.callToAction.label}}" (click)="callToAction(Data)"></app-button>
             </div>
       </ng-container>
-      
+
     </div>
   </div>
 </ng-container>

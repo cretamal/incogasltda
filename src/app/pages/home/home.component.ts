@@ -28,8 +28,8 @@ export class HomeComponent implements OnInit {
     };
 
     this.configServices = {
-      theme:'product-service backgroud-product',
-      typeMedia:'background'
+      theme:'service-card-primary',
+      typeMedia:'icon'
     };
 
 
@@ -62,13 +62,13 @@ export class HomeComponent implements OnInit {
   }
 
   getAllProducts(){
-    this.productService.getAll().subscribe( (product) => {      
+    this.productService.getAll().subscribe( (product) => {
       this.data_products =  product;
       console.log('this.data_products', this.data_products);
     });
   }
 
-  
+
 
 
 

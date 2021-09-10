@@ -9,7 +9,7 @@
       <div class="wrapper-product">
         <div class="left">
           <div>
-            <app-slides Theme="thumbs-product" [data]="slides_data" [config]="config_slide"></app-slides>
+            <app-slides *ngIf="slides_data.length > 0" Theme="thumbs-product" [data]="slides_data" [config]="config_slide"></app-slides>
           </div>
         </div>
         <div class="right">

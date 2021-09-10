@@ -1,29 +1,33 @@
+@import '../../../../theme';
 .box-side-category{
   ul{
     margin: 0;
     padding: 0;
     h4{
       font-family: 'Roboto', sans-serif;
-      color: #fff;
+      color: $brand-primary;
       font-size:26px;
       font-weight: 600;
-      padding:20px 0;
+      padding:10px 0 50px 0;
     }
     li{
       width: 100%;
       height: auto;
       display: block;
-      background: rgba(255,255,255,0.05);
+      background: rgba(228,27,35,0.95);
       cursor:pointer;
+      padding:5px 0 5px 0;
+      border: 1px solid $brand-primary;
       &:hover{
-        background: rgba(0,0,0,0.1);
+        background: rgba(228,27,35,1);
+        box-shadow: -20px 1px 20px -20px rgba(0,0,0,0.10);
         .suCategory{
           display: block;
         }
       }
       p{
         font-family: 'Roboto', sans-serif;
-        color: #fff;
+        color: $white;
         font-size:16px;
         font-weight: 500;
         padding:10px 20px;

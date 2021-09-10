@@ -7,8 +7,35 @@
   .aside-category-active{
     display: grid;
     grid-template-columns:280px auto;
-    column-gap: 30px;
-
+    column-gap: 80px;
   }
 }
 
+
+.not-found{
+  width:100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border:1px solid #bababa;
+  border-radius:8px;
+  background:#ededed;
+  p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 200;
+    padding:20px 0;
+  }
+  .icon{
+    width:50px;
+    display: block;
+    margin: 0 auto;
+    img{
+      width:100%;
+    }
+  }
+}

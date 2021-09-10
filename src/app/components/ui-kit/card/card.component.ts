@@ -1,15 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CardComponent implements OnInit {
   @Input() Config:any;
   @Input() Data:any;
-  
+
   @Input() Theme:any;
   @Input() TypeMedia = 'background';
   // @Input() Title:any;
@@ -20,21 +21,26 @@ export class CardComponent implements OnInit {
   body:any;
   foo:any;
   urlAssets:any;
-    
+  typeImg:any;
+
 
   constructor(private router: Router) {
     this.urlAssets = environment.server;
   }
 
   ngOnInit(): void {
-    console.log('Data', this.Data.callToAction)
+    this.typeImg = typeof this.Data.img;
+    console.log('this.typeImg', this.typeImg);
+
+
+
   }
 
   callToAction(data:any){
-    console.log('callToAction', data);
-
-    this.router.navigate([`/${data.url}`]);
-    
+    console.log('callToAction', data.callToAction.url);
+    this.router.navigate([`${data.callToAction.url}/${data.id}`]);
   }
+
+
 
 }

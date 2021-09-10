@@ -12,15 +12,18 @@
 
 
 .box-quick-shortcuts{
-  padding:80px 0;
+  padding:0px 0;
+  background: $white;
   // background: $brand-primary;
-  background: rgb(228,27,35);
-  background: linear-gradient(90deg, rgba(228,27,35,1) 0%, rgb(250, 37, 45) 100%);
+  // background: rgb(228,27,35);
+  // background: linear-gradient(90deg, rgba(228,27,35,1) 0%, rgb(250, 37, 45) 100%);
 }
 .box-teaser{
+  margin-top: 50px;
+  padding:20px 0;
   // background: $brand-primary;
-  background: rgb(228,27,35);
-  background: linear-gradient(90deg, rgba(228,27,35,1) 0%, rgb(250, 37, 45) 100%);
+  background: rgb(254,71,78);
+  background: linear-gradient(90deg, rgba(254,71,78,1) 0%, rgba(228,27,35,1) 100%);
 }
 
 .btn-view-all{
@@ -30,48 +33,6 @@
 }
 
 
-
-// .box-security{
-//   background: $brand-primary;
-//   .security{
-//     width: 100%;
-//     padding:60px 0 60px 0;
-//     .wrapper-teaser{
-//       display: grid;
-//       grid-template-columns: 40% 60%;
-//       @include respond-to($iphone_xs) {
-//         grid-template-columns: 100%;
-//       }
-//       .left,
-//       .right{
-//         h2,p{
-//           color:#fff;
-//           font-family: 'Roboto', sans-serif;
-//         }
-//         h2{
-//           font-size:3.5vw;
-//           font-weight: 900;
-//           @include respond-to($iphone_xs) {
-//             font-size:15vw;
-//           }
-//         }
-//         p{
-//           font-weight: 300;
-//         }
-//       }
-//       .right{
-//         p{
-//           margin:20px 0;
-//         }
-//         app-button{
-//           max-width:200px;
-//           display: block;
-//           margin:40px 0 0 0;
-//         }
-//       }
-//     }
-//   }
-// }
 
 
 
