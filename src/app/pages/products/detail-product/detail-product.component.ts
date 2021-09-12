@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class DetailProductComponent implements OnInit {
   @Input() Theme:any = "default";
+  product:any = [];
 
 
   // :::::: SLICKJS CONFIGURATION :::::::::::::::::::
@@ -23,7 +24,7 @@ export class DetailProductComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
   ) {
     // :::::: SLICKJS CONFIGURATION :::::::::::::::::::
     // ::::::::::::::::::::::::::::::::::::::::::::::::
@@ -38,6 +39,7 @@ export class DetailProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('active router', this.activatedRoute.snapshot.params['id']);
   }
 
   ngAfterViewInit() {
@@ -46,11 +48,16 @@ export class DetailProductComponent implements OnInit {
 
 
   getAllProducts(){
-    this.productService.getProduct(4).subscribe( (product) => {
+    this.productService.getProduct(this.activatedRoute.snapshot.params['id']).subscribe( (product) => {
+      this.product = product;
+      console.log('this.data_products-galery', product );
+      this.slides_data = product.galery;
 
-      console.log('this.data_products', product );
     });
   }
 
+  goToCategory(category:any){
+    console.log('goToCategory:', category);
+  }
 
 }

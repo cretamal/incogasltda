@@ -1,6 +1,6 @@
 @import '../../../../theme';
 .default{
-  background: $brand-primary;
+  background: $white;
 }
 .box-view-product{
   width: 100%;
@@ -12,6 +12,9 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 50% 50%;
+    .left{
+      max-width: 80%;
+    }
     .right{
       width: 100%;
       height: 100%;
@@ -24,56 +27,116 @@
         align-items: center;
         .card-shop{
           display: block;
-          h6{
-            color:$brand-secundary;
-            font-family: 'Roboto', sans-serif;
-            font-size: 30px;
-            font-weight: 900;
-            margin-bottom: 10px;
+          ul{
+            width: 100%;
             display: block;
+            margin: 0 auto;
+            padding: 0;
+            li{
+              width: 100%;
+              display: flex;
+              padding: 10px 10px;
+              align-items: center;
+
+              color:$brand-secundary;
+              font-family: 'Roboto', sans-serif;
+              font-size: 18px;
+
+              font-weight: 300;
+
+              p{
+                color: $brand-primary;
+                padding:0 10px;
+              }
+            }
           }
-          h2{
-            color:$brand-primary;
-            font-family: 'Roboto', sans-serif;
-            font-size: 20px;
-            font-weight: 900;
+          .category{
             display: block;
+            ul{
+              width: 100%;
+              display:flex;
+              align-items: center;
+              li{
+                width: auto;
+                display:block;
+                font-size: 12px;
+                padding:5px 10px;
+                margin:0 5px;
+                background: #333333;
+                color:#fff;
+                border-radius:10px;
+              }
+            }
+
           }
-          h5{
-            margin-top: 10px;
-            color:$brand-secundary;
-            font-family: 'Roboto', sans-serif;
-            font-size: 20px;
-            font-weight: 900;
-            display: block;
+          .description{
+            font-size: 14px;
+            line-height:16px;
+            h3{
+              display: block;
+              padding:10px 0;
+            }
           }
-          h3{
-            margin-top: 10px;
-            color:$brand-secundary;
-            font-family: 'Roboto', sans-serif;
-            font-size: 20px;
-            font-weight: 400;
-            display: block;
-          }
-          .p{
-            margin-top: 20px;
-            color:$brand-secundary;
-            font-family: 'Roboto', sans-serif;
-            font-size: 18px;
-            line-height: 24px;
-            font-weight: 300;
-            display: block;
-          }
+          // h6{
+          //   color:$brand-secundary;
+          //   font-family: 'Roboto', sans-serif;
+          //   font-size: 30px;
+          //   font-weight: 900;
+          //   margin-bottom: 10px;
+          //   display: block;
+          // }
+          // h2{
+          //   font-family: 'Roboto', sans-serif;
+          //   font-size: 20px;
+          //   font-weight: 900;
+          //   display: flex;
+          //   div{
+          //     color:$brand-primary;
+          //     margin:0 10px;
+          //   }
+          // }
+          // h5{
+          //   margin-top: 10px;
+          //   color:$brand-secundary;
+          //   font-family: 'Roboto', sans-serif;
+          //   font-size: 20px;
+          //   font-weight: 900;
+          //   display: block;
+          // }
+          // h3{
+          //   margin-top: 10px;
+          //   color:$brand-secundary;
+          //   font-family: 'Roboto', sans-serif;
+          //   font-size: 20px;
+          //   font-weight: 400;
+          //   display: block;
+          // }
+          // .p{
+          //   margin-top: 20px;
+          //   color:$brand-secundary;
+          //   font-family: 'Roboto', sans-serif;
+          //   font-size: 18px;
+          //   line-height: 24px;
+          //   font-weight: 300;
+          //   display: block;
+          // }
 
           .call-to-action{
             width: 100%;
-            display: none;
+            display: block;
             margin:30px auto 0 auto;
             ul{
               margin: 0;
               padding: 0;
               display: grid;
               grid-template-columns: 50% 50%;
+              li{
+                app-button{
+                  p{
+                    color: #fff !important;
+                  }
+                }
+              }
             }
           }
 
@@ -87,6 +150,9 @@
   .head-section{
     h1{
       color:#000;
+    }
+    .nombre{
+     font-size:34px;
     }
   }
 

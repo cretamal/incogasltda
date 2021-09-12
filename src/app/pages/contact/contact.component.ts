@@ -20,9 +20,11 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.formData = this.formBuilder.group({
       name: ['', Validators.required],
-      business: ['', Validators.required],
+      rut: ['', Validators.required],
+      phone: [''],
+      business: [''],
       email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-      message: ['', Validators.required],
+      message: [''],
     });
 
   }

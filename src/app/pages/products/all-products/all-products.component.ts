@@ -1,5 +1,6 @@
 import { ProductService } from './../../../services/product.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { SubCategoryService } from 'src/app/services/sub-category.service';
 // import { ProductService } from './../../services/product.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class AllProductsComponent implements OnInit {
   configProducts:any;
 
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private subCategoryService: SubCategoryService
   ) {
     // this.data_products = [
     //   {id:0, type:'products', params:'0', label:'Lorem Ipsum', message:'Lorem Ipsum is simply'},
@@ -40,6 +42,14 @@ export class AllProductsComponent implements OnInit {
     this.productService.getAll().subscribe( (product) => {
       this.data_products =  product;
       console.log('this.data_products', this.data_products);
+    });
+  }
+
+
+  handlerProduct($event:any){
+    this.data_products = [];
+    this.subCategoryService.findOne($event.id).subscribe( (subCategory) => {
+      this.data_products = subCategory.products;
     });
   }
 

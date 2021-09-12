@@ -2,11 +2,6 @@
   <div class="wrapper-site">
     <div class="box-view-product">
       <div class="wrapper-product">
-        <div class="head-section">
-          <h1>Nombre Producto</h1>
-        </div>
-      </div>
-      <div class="wrapper-product">
         <div class="left">
           <div>
             <app-slides *ngIf="slides_data.length > 0" Theme="thumbs-product" [data]="slides_data" [config]="config_slide"></app-slides>
@@ -15,23 +10,39 @@
         <div class="right">
           <div class="box-especification">
             <div class="card-shop">
-              <h6 class="dealer">Proveedor</h6>
-              <h2 class="price">Precio</h2>
-              <h5 class="category">Categoria</h5>
-              <h3 class="sub-title">What is Lorem Ipsum?</h3>
-              <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              </p>
-
+              <ul>
+                <li>
+                  <h1 class="nombre">{{product.title}}</h1>
+                </li>
+                <li>
+                  Proveedor:  <p class="dealer">{{product.supplier}}</p>
+                </li>
+                <li>
+                  Valor: <p class="price">{{product.price | currency}} + Iva</p>
+                </li>
+                <li class="category">
+                  <ul>
+                    <ng-container>
+                      <li *ngFor="let category of product.categories" (click)="goToCategory(category)">
+                        {{category.title}}
+                      </li>
+                    </ng-container>
+                  </ul>
+                </li>
+                <li>
+                  <div class="description">
+                    <h3 class="sub-title">What is Lorem Ipsum?</h3>
+                    {{product.label}}
+                  </div>
+                </li>
+              </ul>
               <div class="call-to-action">
                 <ul>
                   <li>
-                    <app-button Theme="btn-secundary" Label="Hacer Pedido" foo></app-button>
+                    <app-button Theme="btn-secundary" Label="Contactar" [routerLink]="'/contacto'"></app-button>
                   </li>
                   <li>
-                    <app-button Theme="btn-secundary" Label="Hacer Pedido" foo></app-button>
+                    <!-- <app-button Theme="btn-secundary" Label="Hacer Pedido" foo></app-button> -->
                   </li>
                 </ul>
 

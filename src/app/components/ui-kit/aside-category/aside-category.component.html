@@ -10,7 +10,7 @@
           <ng-container *ngIf="category.sub_categories.length > 0">
             <ul class="suCategory">
               <ng-container *ngFor="let subCategory of category.sub_categories">
-                <li>
+                <li (click)="handlerSubCategory(subCategory)">
                   <p>
                     {{subCategory.label}}
                   </p>

@@ -27,6 +27,13 @@ $colorTextBanner: $white;
   margin:50px auto;
   border-radius:30px;
   overflow: hidden;
+  .wrapper-content-slides{
+    width: 90% !important;
+    max-width:500px !important;
+    display: block !important;
+    margin: 0 0 0 8% !important;
+    position: relative !important;
+  }
   .content{
     width:60%;
     position: absolute;
@@ -35,11 +42,12 @@ $colorTextBanner: $white;
     h3{
       font-weight: 900;
       color:$white;
-      font-size: 40px;
+      font-size: 30px;
       color:$colorTextBanner;
     }
     h5{
-      font-weight: 700;
+      font-size: 16px;
+      font-weight: 200;
       color:$white;
       color:$colorTextBanner;
       display: block;

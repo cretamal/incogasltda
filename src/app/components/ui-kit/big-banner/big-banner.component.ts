@@ -43,10 +43,10 @@ export class BigBannerComponent implements OnInit, AfterViewInit {
   }
 
   getDataBanner(){
-    this.contentService.getContentType('?type=big-banner').subscribe( (contentType) => {
-      this.slides_data = contentType;
+    this.contentService.getContentType('?type=big-banner').subscribe( (slide) => {
+      this.slides_data = slide;
 
-      console.log('contentType', contentType);
+      console.log('this.slides_data', this.slides_data);
     });
   }
 

@@ -1,5 +1,6 @@
 import { CategoryService } from './../../../services/category.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { SubCategoryService } from 'src/app/services/sub-category.service';
 
 @Component({
   selector: 'app-aside-category',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./aside-category.component.scss']
 })
 export class AsideCategoryComponent implements OnInit {
+  @Output() Product = new EventEmitter<any>();
 
-  constructor(private categoryService: CategoryService) { }
+
+
+  constructor(
+    private categoryService: CategoryService
+  ) { }
 
   categories:any = [];
 
@@ -24,6 +30,19 @@ export class AsideCategoryComponent implements OnInit {
       console.log('category', category);
       this.categories = category;
     });
+  }
+
+  handlerSubCategory(product:any){
+    console.log('product', product);
+    this.getResultSubCategory(product);
+  }
+
+  getResultSubCategory(product:any){
+    console.log('getResultSubCategory', product);
+    this.Product.emit(product);
+
+
+
   }
 
 }

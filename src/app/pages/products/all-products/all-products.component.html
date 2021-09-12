@@ -13,7 +13,7 @@
       </div>
       <div class="box-grid-products">
         <div class="wrapper-site aside-category-active">
-          <app-aside-category></app-aside-category>
+          <app-aside-category (Product)="handlerProduct($event)"></app-aside-category>
 
           <ng-container *ngIf="data_products.length > 0">
             <app-grid-card [Data]="data_products" Theme="works-home col-3-flex" [ConfigChildren]="configProducts"></app-grid-card>
