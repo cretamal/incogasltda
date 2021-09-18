@@ -11,6 +11,12 @@
           </div>
         </div>
       </div>
+      <div class="breadcrumbs wrapper-site">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item><a [routerLink]="['/']">Home</a></nz-breadcrumb-item>
+          <nz-breadcrumb-item>Nuestros Segmentos</nz-breadcrumb-item>
+        </nz-breadcrumb>
+      </div>
       <div class="box-grid-services">
         <div class="wrapper-site">
           <ng-container *ngIf="data_services.length > 0">

@@ -60,4 +60,9 @@ export class DetailProductComponent implements OnInit {
     console.log('goToCategory:', category);
   }
 
+
+  addCotizacion(product:any){
+    console.log('addCotizacion:', product);
+  }
+
 }

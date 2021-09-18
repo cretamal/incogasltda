@@ -11,6 +11,14 @@
           </div>
         </div>
       </div>
+
+      <div class="breadcrumbs wrapper-site">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item><a [routerLink]="['/']">Home</a></nz-breadcrumb-item>
+          <nz-breadcrumb-item>Nuestros Productos</nz-breadcrumb-item>
+        </nz-breadcrumb>
+      </div>
+
       <div class="box-grid-products">
         <div class="wrapper-site aside-category-active">
           <app-aside-category (Product)="handlerProduct($event)"></app-aside-category>
@@ -27,9 +35,7 @@
                 </div>
                 <p>sin datos relacionados</p>
               </div>
-
             </div>
-
           </ng-container>
 
 

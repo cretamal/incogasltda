@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
     private router: Router,
   ) {
     this.navMenu = [
-      {id:0,  label:'Home',  url: '/'},
+      {id:0,  label:'Home',  url: '/home'},
       {id:1,  label:'Somos', url: '/somos'},
       {id:2,  label:'Segmentos', url: '/services'},
       {id:3,  label:'Productos', url: '/products'},

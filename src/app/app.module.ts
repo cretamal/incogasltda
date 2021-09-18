@@ -25,11 +25,27 @@ import { GridCardComponent } from './components/ui-kit/grid-card/grid-card.compo
 import { DetailProductComponent } from './pages/products/detail-product/detail-product.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ScrollToComponent } from './components/ui-kit/scroll-to/scroll-to.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageLoadingComponent } from './components/ui-kit/page-loading/page-loading.component';
 import { AsideCategoryComponent } from './components/ui-kit/aside-category/aside-category.component';
+
+
+
+// ANT-DESIN
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { es_ES } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import es from '@angular/common/locales/es';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+registerLocaleData(es);
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,10 +78,17 @@ import { AsideCategoryComponent } from './components/ui-kit/aside-category/aside
     HttpClientModule,
     AppRoutingModule,
     SlickCarouselModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NzButtonModule,
+    NzCardModule,
+    NzMenuModule,
+    NzBreadCrumbModule,
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
-    { provide: Window, useValue: window }
+    { provide: Window, useValue: window },
+    { provide: NZ_I18N, useValue: es_ES }
   ],
   bootstrap: [AppComponent]
 })

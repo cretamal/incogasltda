@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContentService } from './../../services/content.service';
 import { CategoryService } from './../../services/category.service';
 import { ProductService } from './../../services/product.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

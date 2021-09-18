@@ -103,3 +103,15 @@ h1,h2,h3,h4,h5,h6,p{
     padding: 0;
   }
 }
+
+
+.breadcrumbs{
+  width: 100%;
+  display: block;
+  margin: 30px auto 30px auto;
+
+  .ant-breadcrumb-link{
+    color:#e41b23;
+    font-weight: 400;
+  }
+}

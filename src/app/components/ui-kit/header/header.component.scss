@@ -5,6 +5,7 @@
   width:100%;
   display: block;
   background:$brand-secundary;
+  border-top: 1px solid $brand-primary;
   .header-primary{
     display: grid;
     grid-template-columns: 120px auto;
@@ -41,6 +42,14 @@
           li{
             list-style: none;
             margin:0 20px;
+            position: relative;
+            span{
+              width: 0%;
+              display: block;
+              border-bottom:3px solid $brand-primary;
+              left:50%;
+              // margin-left:-25%;
+            }
             p{
               font-family: 'Roboto', sans-serif;
               font-weight: 300;
@@ -53,7 +62,16 @@
                 color:$brand-primary;
               }
             }
+            &:hover,
+            &.active{
+              span{
+                @include transition(0.2s);
+                width: 100%;
+              }
+            }
+
           }
+
         }
       }
     }

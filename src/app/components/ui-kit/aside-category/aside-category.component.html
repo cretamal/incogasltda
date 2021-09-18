@@ -1,6 +1,28 @@
 <aside>
   <div class="box-side-category">
-    <ul>
+    <ul nz-menu nzMode="inline" style="width: 240px;">
+      <ng-container *ngFor="let category of categories">
+        <li
+          nz-submenu
+          nzTitle="{{category.title}}"
+          nzIcon="appstore"
+        >
+        <ng-container *ngIf="category.sub_categories.length > 0">
+          <ul class="suCategory">
+            <li nz-menu-item (click)="handlerSubCategory(subCategory)" *ngFor="let subCategory of category.sub_categories">
+              <p>
+                {{subCategory.label}}
+              </p>
+            </li>
+          </ul>
+
+        </ng-container>
+        </li>
+      </ng-container>
+
+
+      </ul>
+    <!-- <ul>
       <h4>Categorias</h4>
       <ng-container *ngFor="let category of categories">
         <li>
@@ -24,6 +46,6 @@
       </ng-container>
 
 
-    </ul>
+    </ul> -->
   </div>
 </aside>

@@ -8,8 +8,9 @@
     <div class="right">
       <div class="nav-menu">
         <ul>
-          <li *ngFor="let nav of navMenu">
-            <p (click)="gotoLink(nav.url)">{{nav.label}}</p>
+          <li *ngFor="let nav of navMenu" [routerLink]="[nav.url]" routerLinkActive="active">
+            <p>{{nav.label}}</p>
+            <span></span>
           </li>
         </ul>
       </div>

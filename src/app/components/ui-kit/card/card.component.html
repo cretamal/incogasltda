@@ -32,16 +32,15 @@
             <ng-container *ngIf="Data.price != null">
               <h4 class="price"> <span>$</span> {{Data.price}} <span>+ iva</span></h4>
             </ng-container>
-
           </ng-container>
           <p>{{Data.label}}</p>
         </div>
       </div>
 
       <ng-container *ngIf="Data.callToAction != null">
-            <div class="foo-card">
-              <app-button Theme="btn-secundary" Label="{{Data.callToAction.label}}" (click)="callToAction(Data)"></app-button>
-            </div>
+        <div class="foo-card">
+          <app-button Theme="btn-secundary" Label="{{Data.callToAction.label}}" (click)="callToAction(Data)"></app-button>
+        </div>
       </ng-container>
 
     </div>
