@@ -54,7 +54,7 @@
               font-family: 'Roboto', sans-serif;
               font-weight: 300;
               text-decoration: none;
-              padding:20px 0 20px 0;
+              padding:20px 10px 20px 10px;
               display: block;
               color: #fff;
               cursor: pointer;
@@ -62,11 +62,20 @@
                 color:$brand-primary;
               }
             }
+            &:hover{
+              opacity:0.65;
+            }
+            &.active{
+              opacity:1 !important;
+            }
             &:hover,
             &.active{
               span{
                 @include transition(0.2s);
                 width: 100%;
+              }
+              p{
+                color:$brand-primary;
               }
             }
 

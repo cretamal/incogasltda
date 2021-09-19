@@ -27,6 +27,7 @@
     grid-template-columns: 33% 33% 33%;
     grid-auto-flow: dense;
     column-gap: 25px;
+    row-gap: 25px;
     @include respond-to($iphone_xs) {
       grid-template-columns: 100%;
       row-gap: 20px;

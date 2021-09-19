@@ -31,8 +31,12 @@ export class AllServicesComponent implements OnInit {
   getAllCategory(){
     this.categoryService.getAll().subscribe( (category) => {
       console.log('category', category);
-      this.data_services =  category;
-      console.log('this.data_services', this.data_services);
+      category.forEach((element:any) => {
+        if(element.content != undefined && element.content.Thumbnails != undefined){
+          console.log('element', element.content.Thumbnails);
+          this.data_services.push(element.content.Thumbnails);
+        }
+      });
     });
   }
 

@@ -30,7 +30,7 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     this.typeImg = typeof this.Data.img;
-    console.log('this.typeImg', this.typeImg);
+    console.log('this.Data', this.Data);
 
 
 
