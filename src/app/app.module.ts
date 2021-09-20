@@ -38,12 +38,15 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { es_ES } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ShoppingCartComponent } from './components/ui-kit/shopping-cart/shopping-cart.component';
 
 registerLocaleData(es);
 @NgModule({
@@ -71,7 +74,8 @@ registerLocaleData(es);
     ContactComponent,
     ScrollToComponent,
     PageLoadingComponent,
-    AsideCategoryComponent
+    AsideCategoryComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
@@ -83,6 +87,8 @@ registerLocaleData(es);
     NzCardModule,
     NzMenuModule,
     NzBreadCrumbModule,
+    NzToolTipModule,
+    NzInputNumberModule,
     FormsModule,
     BrowserAnimationsModule
   ],

@@ -41,6 +41,10 @@ export class CardComponent implements OnInit {
     this.router.navigate([`${data.callToAction.url}/${data.id}`]);
   }
 
+  addShoppingCart(data:any){
+    console.log('addShoppingCart', data);
+  }
+
 
 
 }

@@ -1,8 +1,17 @@
 <ng-container *ngIf="Config">
   <div class="card {{Config.theme}}">
-    <div class="btn-products" (click)="callToAction(Data)">
-      <img src="./assets/img/buscar.svg" alt="lupa"/>
+
+    <div class="btn-products">
+      <ul>
+        <li (click)="callToAction(Data)" nzTooltipTitle="Ver Más" nzTooltipPlacement="top" nz-tooltip>
+          <img src="./assets/img/buscar.svg" alt="lupa"/>
+        </li>
+        <li (click)="addShoppingCart(Data)" nzTooltipTitle="Agregar a cotización" nzTooltipPlacement="top" nz-tooltip>
+          <img src="./assets/img/add.svg" alt="lupa"/>
+        </li>
+      </ul>
     </div>
+
     <div class="wrapper-card">
 
       <ng-container *ngIf="Config.typeMedia === 'background'">
