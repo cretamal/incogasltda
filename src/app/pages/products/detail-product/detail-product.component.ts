@@ -39,7 +39,7 @@ export class DetailProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('active router', this.activatedRoute.snapshot.params['id']);
+    // console.log('active router', this.activatedRoute.snapshot.params['id']);
   }
 
   ngAfterViewInit() {
@@ -50,14 +50,14 @@ export class DetailProductComponent implements OnInit {
   getAllProducts(){
     this.productService.getProduct(this.activatedRoute.snapshot.params['id']).subscribe( (product) => {
       this.product = product;
-      console.log('this.data_products-galery', product );
+      // console.log('this.data_products-galery', product );
       this.slides_data = product.galery;
 
     });
   }
 
   goToCategory(category:any){
-    console.log('goToCategory:', category);
+    // console.log('goToCategory:', category);
   }
 
 

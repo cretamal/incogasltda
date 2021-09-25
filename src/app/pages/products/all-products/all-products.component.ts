@@ -41,7 +41,7 @@ export class AllProductsComponent implements OnInit {
   getAllProducts(){
     this.productService.getAll().subscribe( (product) => {
       this.data_products =  product;
-      console.log('this.data_products', this.data_products);
+      // console.log('this.data_products', this.data_products);
     });
   }
 

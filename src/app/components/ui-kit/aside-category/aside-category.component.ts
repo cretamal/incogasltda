@@ -43,18 +43,18 @@ export class AsideCategoryComponent implements OnInit {
 
   getAllCategory(){
     this.categoryService.getAll().subscribe( (category) => {
-      console.log('category', category);
+      // console.log('category', category);
       this.categories = category;
     });
   }
 
   handlerSubCategory(product:any){
-    console.log('product', product);
+    // console.log('product', product);
     this.getResultSubCategory(product);
   }
 
   getResultSubCategory(product:any){
-    console.log('getResultSubCategory', product);
+    // console.log('getResultSubCategory', product);
     this.Product.emit(product);
 
 

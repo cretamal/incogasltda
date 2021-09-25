@@ -19,7 +19,7 @@ export class SlidesComponent implements OnInit {
 
   constructor() {
     this.urlAssets = environment.server;
-    console.log('this.urlAssets', this.urlAssets);
+    // console.log('this.urlAssets', this.urlAssets);
   }
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class SlidesComponent implements OnInit {
 
   ngOnChanges() {
     this.slides = this.data;
-    console.log('this.slides', this.slides);
+    // console.log('this.slides', this.slides);
 }
 
   ngAfterViewInit(){}
@@ -48,19 +48,19 @@ export class SlidesComponent implements OnInit {
   }
 
   slickInit(e:any) {
-    console.log('slick initialized');
+    // console.log('slick initialized');
   }
 
   breakpoint(e:any) {
-    console.log('breakpoint');
+    // console.log('breakpoint');
   }
 
   afterChange(e:any) {
-    console.log('afterChange');
+    // console.log('afterChange');
   }
 
   beforeChange(e:any) {
-    console.log('beforeChange');
+    // console.log('beforeChange');
   }
 
 

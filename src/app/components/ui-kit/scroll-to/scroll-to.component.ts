@@ -21,7 +21,7 @@ export class ScrollToComponent implements OnInit {
   }
 
   scrollTop () {
-    console.log('window', window);
+    // console.log('window', window);
     // TweenMax.to(this.el.nativeElement, {opacity:0.3,repeat:-1});
   }
 

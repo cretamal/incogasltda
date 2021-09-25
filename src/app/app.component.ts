@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ShoppingCartService } from './services/shopping-cart.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'incogasltda';
+
+  constructor(private shoppingCartService: ShoppingCartService){
+    this.shoppingCartService.obtener();
+  }
+
+
+
+
 }

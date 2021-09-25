@@ -10,7 +10,7 @@ export class ContentService {
   private url = environment.server;
 
   constructor(private http: HttpClient) {
-    console.log('url:', this.url);
+    // console.log('url:', this.url);
   }
 
   getAll(): Observable<any> {

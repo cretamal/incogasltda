@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-card',
@@ -24,25 +25,26 @@ export class CardComponent implements OnInit {
   typeImg:any;
 
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private shoppingCartService: ShoppingCartService
+  ) {
     this.urlAssets = environment.server;
   }
 
   ngOnInit(): void {
     this.typeImg = typeof this.Data.img;
-    console.log('this.Data', this.Data);
-
-
-
+    // console.log('this.Data', this.Data);
   }
 
   callToAction(data:any){
-    console.log('callToAction', data.callToAction.url);
+    // console.log('callToAction', data.callToAction.url);
     this.router.navigate([`${data.callToAction.url}/${data.id}`]);
   }
 
   addShoppingCart(data:any){
-    console.log('addShoppingCart', data);
+    // console.log('addShoppingCart', data);
+    this.shoppingCartService.agregar(data);
   }
 
 

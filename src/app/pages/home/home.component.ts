@@ -50,17 +50,17 @@ export class HomeComponent implements OnInit {
 
   getAllContent(){
     this.contentService.getAll().subscribe( (content) => {
-      console.log('content', content);
+      // console.log('content', content);
     });
   }
 
 
   getAllCategory(){
     this.categoryService.getAll().subscribe( (category) => {
-      console.log('category', category);
+      // console.log('category', category);
       category.forEach((element:any) => {
         if(element.content != undefined && element.content.Thumbnails != undefined){
-          console.log('element', element.content.Thumbnails);
+          // console.log('element', element.content.Thumbnails);
           this.data_services.push(element.content.Thumbnails);
         }
       });
@@ -78,7 +78,7 @@ export class HomeComponent implements OnInit {
   getAllProducts(){
     this.productService.getAll().subscribe( (product) => {
       this.data_products =  product;
-      console.log('this.data_products', this.data_products);
+      // console.log('this.data_products', this.data_products);
     });
   }
 

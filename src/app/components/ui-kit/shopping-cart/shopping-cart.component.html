@@ -1,4 +1,4 @@
-<div class="shopping-cart">
+<div class="shopping-cart" *ngIf="productsItems.length > 0">
   <div class="head">
     <div class="wrapper">
       <h3>Cotización</h3>
@@ -10,14 +10,14 @@
   <div class="body">
     <div>
       <ul>
-        <li>
+        <li *ngFor="let product of productsItems">
           <div class="thumb">
             <img src="./assets/img/delete.svg" />
           </div>
           <div class="details">
-            <h4>Item Name</h4>
+            <h4>{{product.title}}</h4>
             <h5>Small Text</h5>
-            <p>$99.000</p>
+            <p>${{product.price}}</p>
           </div>
           <div class="controls">
             <div class="cant">
@@ -29,7 +29,7 @@
                 [nzDisabled]="isDisabled"
               ></nz-input-number>
             </div>
-            <div class="delete" (click)="deleteItem()">
+            <div class="delete" (click)="deleteItem(product.id)">
               <img src="./assets/img/delete.svg" />
             </div>
           </div>

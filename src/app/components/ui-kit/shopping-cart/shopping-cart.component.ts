@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -6,15 +9,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
+  private unsubscribe$: Subject<boolean> = new Subject();
   initValue:any = 1;
   isDisabled:boolean = false;
-  constructor() { }
+  productsItems:any = [];
+  constructor(
+    private shoppingCartService: ShoppingCartService
+  ) { }
 
   ngOnInit(): void {
+    this.addItems();
   }
 
-  deleteItem(){
-    alert('Eliminar Item del storage');
+  addItems(){
+    this.shoppingCartService.getShoppingCart
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(resp => {
+      if (resp) {
+        this.productsItems = resp;
+        this.unsubscribe$.complete();
+        console.log('productsItems', this.productsItems);
+      }
+    });
+  }
+
+  deleteItem(id:number){
+    this.shoppingCartService.quitar(id);
+    this.productsItems = this.shoppingCartService.obtener();
   }
 
 }

@@ -19,7 +19,7 @@ export class GridCardComponent implements OnInit {
   ngOnInit(): void {
     this.data_works = this.Data;
 
-    console.log('this.data_works',  this.data_works);
+    // console.log('this.data_works',  this.data_works);
 
 
   }

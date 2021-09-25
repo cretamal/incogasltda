@@ -41,7 +41,7 @@ export class ContactComponent implements OnInit {
         email: this.formData.controls['email'].value,
         message: this.formData.controls['message'].value
       }
-      console.log(dataForm);
+      // console.log(dataForm);
 
       this.contactService.sendMessageContact(dataForm).subscribe( (contact:any) => {
           if(contact['code'] == 200){

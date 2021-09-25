@@ -31,9 +31,9 @@ export class QuickShortcutsComponent implements OnInit {
     this.contentService.getContentType('?type=short-cuts').subscribe( (contentType) => {
       this.data_shortcut = contentType;
 
-      console.log('this.data_shortcut', this.data_shortcut);
+      // console.log('this.data_shortcut', this.data_shortcut);
 
-      console.log('typeof', typeof this.data_shortcut[0].img)
+      // console.log('typeof', typeof this.data_shortcut[0].img)
     });
   }
 
