@@ -10,30 +10,48 @@
   <div class="body">
     <div>
       <ul>
-        <li *ngFor="let product of productsItems">
-          <div class="thumb">
-            <img src="./assets/img/delete.svg" />
+        <form class="box-formulario-wrapper" [formGroup]="shoppingCart">
+          <div  formArrayName="productsCant" *ngFor="let coment of formArray.controls; let i = index">
+              <ng-container [formGroupName]="i">
+
+                <li *ngFor="let product of productsItems">
+                  <div class="thumb">
+                    <img src="./assets/img/delete.svg" />
+                  </div>
+                  <div class="details">
+                    <h4>{{product.title}}</h4>
+                    <p>${{product.price}}</p>
+                  </div>
+                  <div class="controls">
+                    <div class="cant">
+
+
+                      <ng-container *ngIf="false">
+                        <nz-input-number
+                          [(ngModel)]="initValue"
+                          [nzMin]="1"
+                          [nzMax]="10"
+                          [nzStep]="1"
+                          [nzDisabled]="isDisabled"
+                          (ngModelChange)="handlerChange($event)"
+                          formControlName="cant"
+                        ></nz-input-number>
+                      </ng-container>
+
+
+                    </div>
+                    <div class="delete" (click)="deleteItem(product.id)">
+                      <img src="./assets/img/delete.svg" />
+                    </div>
+                  </div>
+                </li>
+
+              </ng-container>
           </div>
-          <div class="details">
-            <h4>{{product.title}}</h4>
-            <h5>Small Text</h5>
-            <p>${{product.price}}</p>
-          </div>
-          <div class="controls">
-            <div class="cant">
-              <nz-input-number
-                [(ngModel)]="initValue"
-                [nzMin]="1"
-                [nzMax]="10"
-                [nzStep]="1"
-                [nzDisabled]="isDisabled"
-              ></nz-input-number>
-            </div>
-            <div class="delete" (click)="deleteItem(product.id)">
-              <img src="./assets/img/delete.svg" />
-            </div>
-          </div>
-        </li>
+
+      </form>
+
+
       </ul>
     </div>
   </div>
@@ -42,7 +60,7 @@
       <p>
         *Para que la cotizacion sea factible debes llenar tus datos personales
       </p>
-      <button nz-button nzSize="large" nzType="primary" [routerLink]="'/contacto'">Cotizar</button>
+      <button nz-button nzSize="large" nzType="primary" (click)="submit()">Cotizar</button>
     </div>
 
   </div>

@@ -33,7 +33,7 @@ export class ShoppingCartService {
       this.productos.push(itemProduct);
       this.guardar();
     }
-    // console.log('this.productos:::', this.productos);
+    console.log('this.productos:::', this.productos);
   }
 
   quitar(id:any) {
