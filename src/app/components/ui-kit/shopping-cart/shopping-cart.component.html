@@ -11,43 +11,42 @@
     <div>
       <ul>
         <form class="box-formulario-wrapper" [formGroup]="shoppingCart">
-          <div  formArrayName="productsCant" *ngFor="let coment of formArray.controls; let i = index">
-              <ng-container [formGroupName]="i">
-
-                <li *ngFor="let product of productsItems">
-                  <div class="thumb">
-                    <img src="./assets/img/delete.svg" />
-                  </div>
-                  <div class="details">
-                    <h4>{{product.title}}</h4>
-                    <p>${{product.price}}</p>
-                  </div>
-                  <div class="controls">
-                    <div class="cant">
 
 
-                      <ng-container *ngIf="false">
-                        <nz-input-number
-                          [(ngModel)]="initValue"
-                          [nzMin]="1"
-                          [nzMax]="10"
-                          [nzStep]="1"
-                          [nzDisabled]="isDisabled"
-                          (ngModelChange)="handlerChange($event)"
-                          formControlName="cant"
-                        ></nz-input-number>
-                      </ng-container>
 
-
-                    </div>
-                    <div class="delete" (click)="deleteItem(product.id)">
+                <li formArrayName="productsCant" *ngFor="let product of formArray.controls; let i = index">
+                  <ng-container *ngIf="product">
+                    <div class="thumb">
                       <img src="./assets/img/delete.svg" />
                     </div>
-                  </div>
+                    <div class="details">
+                      <h4>{{product['value'].title}}</h4>
+                      <p>${{product['value'].price}}</p>
+                    </div>
+                    <div class="controls">
+                      <div class="cant">
+                        <ng-container [formGroupName]="i">
+                          <nz-input-number
+                            [nzMin]="1"
+                            [nzMax]="10"
+                            [nzStep]="1"
+                            [nzDisabled]="isDisabled"
+                            (ngModelChange)="handlerChange($event)"
+
+                          ></nz-input-number>
+                        </ng-container>
+
+
+                      </div>
+                      <div class="delete" (click)="deleteItem(product.id)">
+                        <img src="./assets/img/delete.svg" />
+                      </div>
+                    </div>
+                  </ng-container>
                 </li>
 
-              </ng-container>
-          </div>
+
+
 
       </form>
 

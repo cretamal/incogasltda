@@ -23,9 +23,9 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
 
     this.shoppingCart = this.formBuilder.group({
       productsCant: this.formBuilder.array([
-        this.formBuilder.group({
-          cantidades: '',
-        })
+        // this.formBuilder.group({
+        //   cantidades: '',
+        // })
       ])
   });
   }
@@ -35,14 +35,9 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-
-    this.productsItems = this.shoppingCartService.obtener();
-
-    console.log('this.productsItems:', this.productsItems);
-
-
-
-    // this.addItems();
+    setTimeout(() => {
+      this.addItems();
+    },1000);
   }
 
   addItems(){
@@ -52,9 +47,25 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
       if (resp) {
         this.productsItems = resp;
         this.unsubscribe$.complete();
-        console.log('productsItems', resp);
+        console.log('shopping cart - productsItems', resp);
+        this.addItemFornControl();
       }
     });
+  }
+
+  addItemFornControl(){
+    this.productsItems.forEach((product:any) => {
+      // console.log('addItemFornControl', product);
+      this.formArray.push(this.formBuilder.group({
+        title:product.title,
+        price:product.price,
+        thumb:product.img.url,
+        cantidades: ''
+      }));
+    });
+
+
+    console.log('this.formArray', this.formArray.controls);
   }
 
   deleteItem(id:number){
@@ -67,7 +78,7 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
   }
 
   submit(){
-    console.log('submit', this.shoppingCart.controls);
+    console.log('submit', this.shoppingCart.controls['productsCant']);
   }
 
 }

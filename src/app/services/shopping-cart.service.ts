@@ -16,7 +16,10 @@ export class ShoppingCartService {
 
   constructor() {
     this.productos      = this.obtener();
-    console.log('this.productos', this.productos);
+    console.log('constructor - ShoppingCartService', this.productos);
+    if(this.productos.length > 0) {
+      this.guardar();
+    }
   }
 
   get getShoppingCart() { return this.shoppingItem$.asObservable();}
@@ -26,6 +29,7 @@ export class ShoppingCartService {
     if (!this.existe(producto.id)) {
       const itemProduct = {
         id: producto.id,
+        cantidad: '',
         title: producto.title,
         price: producto.price,
         img: producto.img
@@ -33,7 +37,10 @@ export class ShoppingCartService {
       this.productos.push(itemProduct);
       this.guardar();
     }
-    console.log('this.productos:::', this.productos);
+    console.log('agregar - ShoppingCartService', {
+      'this.productos': this.productos,
+      'producto': producto
+    });
   }
 
   quitar(id:any) {
