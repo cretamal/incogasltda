@@ -16,6 +16,7 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
   productsItems:any = [];
   shoppingCart:                   FormGroup;
   formArray:                                          any;
+  tempFormArray:any = [];
   constructor(
     private shoppingCartService: ShoppingCartService,
     private formBuilder: FormBuilder
@@ -31,7 +32,7 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.formArray = <FormArray> this.shoppingCart.controls.productsCant;
+
   }
 
   ngAfterViewInit(): void {
@@ -47,30 +48,38 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
       if (resp) {
         this.productsItems = resp;
         this.unsubscribe$.complete();
-        console.log('shopping cart - productsItems', resp);
+        console.log('resp', resp);
+        this.productsForm.clear();
         this.addItemFornControl();
       }
     });
   }
 
+  get productsForm():FormArray{
+    return <FormArray> this.shoppingCart.get('productsCant') as FormArray;
+  }
+
+  createProductForm(product:any):FormGroup{
+    return this.formArray.controls.push(this.formBuilder.group({
+      id:product.id,
+      title:product.title,
+      price:product.price,
+      thumb:product.img.url,
+      cantidades: ''
+    }));
+  }
+
   addItemFornControl(){
+    this.formArray = this.productsForm;
     this.productsItems.forEach((product:any) => {
-      // console.log('addItemFornControl', product);
-      this.formArray.push(this.formBuilder.group({
-        title:product.title,
-        price:product.price,
-        thumb:product.img.url,
-        cantidades: ''
-      }));
+      this.createProductForm(product);
     });
-
-
-    console.log('this.formArray', this.formArray.controls);
   }
 
   deleteItem(id:number){
     this.shoppingCartService.quitar(id);
-    this.productsItems = this.shoppingCartService.obtener();
+    // this.productsItems = this.shoppingCartService.obtener();
+    console.log('delete item');
   }
 
   handlerChange($event:any){

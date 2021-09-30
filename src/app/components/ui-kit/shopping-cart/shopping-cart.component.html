@@ -11,34 +11,26 @@
     <div>
       <ul>
         <form class="box-formulario-wrapper" [formGroup]="shoppingCart">
-
-
-
-                <li formArrayName="productsCant" *ngFor="let product of formArray.controls; let i = index">
+                <li formArrayName="productsCant" *ngFor="let product of productsForm.controls; let i = index">
                   <ng-container *ngIf="product">
                     <div class="thumb">
                       <img src="./assets/img/delete.svg" />
                     </div>
                     <div class="details">
-                      <h4>{{product['value'].title}}</h4>
-                      <p>${{product['value'].price}}</p>
+                      <h4>{{product.value.title}}</h4>
+                      <p>${{product.value.price}}</p>
                     </div>
                     <div class="controls">
                       <div class="cant">
-                        <ng-container [formGroupName]="i">
-                          <nz-input-number
-                            [nzMin]="1"
-                            [nzMax]="10"
-                            [nzStep]="1"
-                            [nzDisabled]="isDisabled"
-                            (ngModelChange)="handlerChange($event)"
-
-                          ></nz-input-number>
-                        </ng-container>
-
-
+                        <nz-input-number
+                          [nzMin]="1"
+                          [nzMax]="10"
+                          [nzStep]="1"
+                          [nzDisabled]="isDisabled"
+                          (ngModelChange)="handlerChange($event)"
+                        ></nz-input-number>
                       </div>
-                      <div class="delete" (click)="deleteItem(product.id)">
+                      <div class="delete" (click)="deleteItem(product.value.id)">
                         <img src="./assets/img/delete.svg" />
                       </div>
                     </div>
