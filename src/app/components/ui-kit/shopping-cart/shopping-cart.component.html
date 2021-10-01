@@ -1,4 +1,5 @@
-<div class="shopping-cart" *ngIf="productsItems.length > 0">
+<!-- *ngIf="productsItems.length > 0" -->
+<div class="shopping-cart">
   <div class="head">
     <div class="wrapper">
       <h3>Cotización</h3>
@@ -9,41 +10,41 @@
   </div>
   <div class="body">
     <div>
-      <ul>
-        <form class="box-formulario-wrapper" [formGroup]="shoppingCart">
-                <li formArrayName="productsCant" *ngFor="let product of productsForm.controls; let i = index">
-                  <ng-container *ngIf="product">
-                    <div class="thumb">
+      <form [formGroup]="formGroup" class="spaced" class="box-formulario-wrapper">
+        <ul>
+            <li formArrayName="productsCant" *ngFor="let alias of formGroup.get('productsCant').controls; let i = index;" class="border">
+                <ng-container [formGroupName]="i">
+                  <div class="thumb">
+                    <img src="./assets/img/delete.svg" />
+                  </div>
+                  <div class="details">
+                    <h4>Nombre</h4>
+                    <p>$56.990</p>
+                  </div>
+                  <div class="controls">
+                    <div class="cant">
+                      <nz-input-number
+                        [nzMin]="1"
+                        [nzMax]="10"
+                        [nzStep]="1"
+                        [nzDisabled]="isDisabled"
+                        (ngModelChange)="handlerChange($event, alias)"
+                        formControlName="name"
+                      ></nz-input-number>
+                      <!-- <input *ngIf="productsForm.controls.length > 0 " type="number" value="1" id="tentacles" name="tentacles" min="1" max="10" (change)="handlerChange($event, product.value.id)" [formControlName]="i" /> -->
+                    </div>
+                    <div class="delete" (click)="deleteItem(4)">
                       <img src="./assets/img/delete.svg" />
                     </div>
-                    <div class="details">
-                      <h4>{{product.value.title}}</h4>
-                      <p>${{product.value.price}}</p>
-                    </div>
-                    <div class="controls">
-                      <div class="cant">
-                        <nz-input-number
-                          [nzMin]="1"
-                          [nzMax]="10"
-                          [nzStep]="1"
-                          [nzDisabled]="isDisabled"
-                          (ngModelChange)="handlerChange($event)"
-                        ></nz-input-number>
-                      </div>
-                      <div class="delete" (click)="deleteItem(product.value.id)">
-                        <img src="./assets/img/delete.svg" />
-                      </div>
-                    </div>
-                  </ng-container>
-                </li>
+                  </div>
+                </ng-container>
+                <!-- <button type="button" (click)="deleteAlias(i)">X</button> -->
 
 
-
-
+            </li>
+            <!-- <button type="button" (click)="addNewAlias()">add</button> -->
+        </ul>
       </form>
-
-
-      </ul>
     </div>
   </div>
   <div class="foo">

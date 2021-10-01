@@ -29,7 +29,7 @@ export class ShoppingCartService {
     if (!this.existe(producto.id)) {
       const itemProduct = {
         id: producto.id,
-        cantidad: '',
+        cantidad: producto.cantidad,
         title: producto.title,
         price: producto.price,
         img: producto.img
@@ -39,7 +39,7 @@ export class ShoppingCartService {
     }
     console.log('agregar - ShoppingCartService', {
       'this.productos': this.productos,
-      'producto': producto
+      'producto': producto,
     });
   }
 
@@ -54,6 +54,8 @@ export class ShoppingCartService {
   guardar() {
     localStorage.setItem(this.clave, JSON.stringify(this.productos));
     this.shoppingItem$.next(this.productos);
+
+    console.log('guardar')
   }
 
   obtener() {

@@ -14,67 +14,92 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
   initValue:any = 1;
   isDisabled:boolean = false;
   productsItems:any = [];
-  shoppingCart:                   FormGroup;
+  shoppingCart: FormGroup;
   formArray:                                          any;
   tempFormArray:any = [];
+
+
+  formGroup:any = FormGroup;
+
+
   constructor(
     private shoppingCartService: ShoppingCartService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private fb: FormBuilder
   ) {
-
     this.shoppingCart = this.formBuilder.group({
-      productsCant: this.formBuilder.array([
-        // this.formBuilder.group({
-        //   cantidades: '',
-        // })
-      ])
-  });
+      productsCant:  new FormArray([])
+    });
   }
 
   ngOnInit(): void {
 
-  }
-
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.addItems();
-    },1000);
-  }
-
-  addItems(){
-    this.shoppingCartService.getShoppingCart
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(resp => {
-      if (resp) {
-        this.productsItems = resp;
-        this.unsubscribe$.complete();
-        console.log('resp', resp);
-        this.productsForm.clear();
-        this.addItemFornControl();
-      }
+    this.formGroup = this.fb.group({
+      address: this.fb.group({
+        street: [''],
+      }),
+      productsCant: this.fb.array([])
     });
-  }
+    const fa = (this.formGroup.get('productsCant')as FormArray);
+    this.addNewAlias();
 
-  get productsForm():FormArray{
-    return <FormArray> this.shoppingCart.get('productsCant') as FormArray;
   }
-
-  createProductForm(product:any):FormGroup{
-    return this.formArray.controls.push(this.formBuilder.group({
-      id:product.id,
-      title:product.title,
-      price:product.price,
-      thumb:product.img.url,
-      cantidades: ''
+  addNewAlias(){
+    const fa = (this.formGroup.get('productsCant')as FormArray);
+    fa.push(this.fb.group({
+      name: ['']
     }));
   }
-
-  addItemFornControl(){
-    this.formArray = this.productsForm;
-    this.productsItems.forEach((product:any) => {
-      this.createProductForm(product);
-    });
+  deleteAlias(i:number){
+    const fa = (this.formGroup.get('productsCant')as FormArray);
+    fa.removeAt(i);
+    if(fa.length===0){
+      this.addNewAlias();
+    }
   }
+
+
+
+  ngAfterViewInit(): void {
+    // setTimeout(() => {
+    //   this.addItems();
+    // },1000);
+  }
+
+  // addItems(){
+  //   this.shoppingCartService.getShoppingCart
+  //     .pipe(takeUntil(this.unsubscribe$))
+  //     .subscribe(resp => {
+  //     if (resp) {
+  //       this.productsItems = resp;
+  //       this.unsubscribe$.complete();
+  //       console.log('resp', resp);
+  //       this.productsForm.clear();
+  //       this.addItemFornControl();
+  //     }
+  //   });
+  // }
+
+  // get productsForm():FormArray{
+  //   return this.shoppingCart.get('productsCant') as FormArray;
+  // }
+
+  // createProductForm(product:any):FormGroup{
+  //   return this.formArray.controls.push(this.formBuilder.group({
+  //     id:product.id,
+  //     title:product.title,
+  //     price:product.price,
+  //     thumb:product.img.url,
+  //     cantidades: 1
+  //   }));
+  // }
+
+  // addItemFornControl(){
+  //   this.formArray = this.productsForm;
+  //   this.productsItems.forEach((product:any) => {
+  //     this.createProductForm(product);
+  //   });
+  // }
 
   deleteItem(id:number){
     this.shoppingCartService.quitar(id);
@@ -82,12 +107,28 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
     console.log('delete item');
   }
 
-  handlerChange($event:any){
-    console.log('handlerChange', $event);
+  handlerChange($event:any, id:any){
+    console.log('handlerChange', {
+      '$event': $event,
+      'id': id
+    });
+
   }
 
+  // findElementFormControls(id:any){
+  //   return this.formArray.controls.find((element:any)  => element.value.id === id );
+  // }
+
   submit(){
-    console.log('submit', this.shoppingCart.controls['productsCant']);
+    console.log('submit', this.shoppingCart.controls['productsCant'].value);
   }
+
+
+
+
+
+
+
+
 
 }
