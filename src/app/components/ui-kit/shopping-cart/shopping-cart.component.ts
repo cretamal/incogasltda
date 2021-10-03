@@ -79,7 +79,7 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
       if (resp) {
         this.productsItems = resp;
         this.unsubscribe$.complete();
-        console.log('resp', resp);
+        // console.log('resp', resp);
         this.addItemFornControl();
       }
     });
@@ -87,8 +87,7 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
 
   addItemFornControl(){
     this.productsItems.forEach((product:any) => {
-
-        console.log('product', product);
+        // console.log('product', product);
         this.addNewAlias(product);
 
 
@@ -123,11 +122,10 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
   }
 
   handlerChange($event:any, id:any){
-    console.log('handlerChange', {
-      '$event': $event,
-      'id': id
-    });
-
+    // console.log('handlerChange', {
+    //   '$event': $event,
+    //   'id': id
+    // });
   }
 
   // findElementFormControls(id:any){

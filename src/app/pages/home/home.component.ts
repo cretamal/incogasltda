@@ -57,11 +57,11 @@ export class HomeComponent implements OnInit {
 
   getAllCategory(){
     this.categoryService.getAll().subscribe( (category) => {
-      // console.log('category', category);
       category.forEach((element:any) => {
-        if(element.content != undefined && element.content.Thumbnails != undefined){
-          // console.log('element', element.content.Thumbnails);
-          this.data_services.push(element.content.Thumbnails);
+        if(element.contents.length > 0) {
+          const findElement = element.contents.find((item:any) => item.type == "thumbnails" );
+          console.log('findElement', findElement);
+          this.data_services.push(findElement.Thumbnails);
         }
       });
     });
