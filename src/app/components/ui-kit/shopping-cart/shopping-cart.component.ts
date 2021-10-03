@@ -14,7 +14,7 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
   initValue:any = 1;
   isDisabled:boolean = false;
   productsItems:any = [];
-  shoppingCart: FormGroup;
+  // shoppingCart: FormGroup;
   formArray:                                          any;
   tempFormArray:any = [];
 
@@ -27,58 +27,73 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
     private formBuilder: FormBuilder,
     private fb: FormBuilder
   ) {
-    this.shoppingCart = this.formBuilder.group({
-      productsCant:  new FormArray([])
-    });
+    // this.shoppingCart = this.formBuilder.group({
+    //   productsCant:  new FormArray([])
+    // });
   }
 
   ngOnInit(): void {
+    this.iniForm();
+  }
 
+  iniForm(){
     this.formGroup = this.fb.group({
-      address: this.fb.group({
-        street: [''],
-      }),
       productsCant: this.fb.array([])
     });
     const fa = (this.formGroup.get('productsCant')as FormArray);
-    this.addNewAlias();
-
+    this.addItems();
   }
-  addNewAlias(){
+
+  addNewAlias(product:any){
     const fa = (this.formGroup.get('productsCant')as FormArray);
+
     fa.push(this.fb.group({
-      name: ['']
+      product:
+        {
+          id:product.id,
+          title:product.title,
+          price:product.price,
+          thumb:product.img.url,
+          cantidades: 1
+        }
+
     }));
+
   }
   deleteAlias(i:number){
     const fa = (this.formGroup.get('productsCant')as FormArray);
     fa.removeAt(i);
     if(fa.length===0){
-      this.addNewAlias();
+      this.addNewAlias(null);
     }
   }
 
 
 
-  ngAfterViewInit(): void {
-    // setTimeout(() => {
-    //   this.addItems();
-    // },1000);
+  ngAfterViewInit(): void {}
+
+  addItems(){
+    this.shoppingCartService.getShoppingCart
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(resp => {
+      if (resp) {
+        this.productsItems = resp;
+        this.unsubscribe$.complete();
+        console.log('resp', resp);
+        this.addItemFornControl();
+      }
+    });
   }
 
-  // addItems(){
-  //   this.shoppingCartService.getShoppingCart
-  //     .pipe(takeUntil(this.unsubscribe$))
-  //     .subscribe(resp => {
-  //     if (resp) {
-  //       this.productsItems = resp;
-  //       this.unsubscribe$.complete();
-  //       console.log('resp', resp);
-  //       this.productsForm.clear();
-  //       this.addItemFornControl();
-  //     }
-  //   });
-  // }
+  addItemFornControl(){
+    this.productsItems.forEach((product:any) => {
+
+        console.log('product', product);
+        this.addNewAlias(product);
+
+
+    });
+  }
 
   // get productsForm():FormArray{
   //   return this.shoppingCart.get('productsCant') as FormArray;
@@ -94,14 +109,14 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
   //   }));
   // }
 
-  // addItemFornControl(){
-  //   this.formArray = this.productsForm;
-  //   this.productsItems.forEach((product:any) => {
-  //     this.createProductForm(product);
-  //   });
-  // }
+
 
   deleteItem(id:number){
+
+    // this.deleteAlias(id);
+
+
+
     this.shoppingCartService.quitar(id);
     // this.productsItems = this.shoppingCartService.obtener();
     console.log('delete item');
@@ -120,7 +135,7 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
   // }
 
   submit(){
-    console.log('submit', this.shoppingCart.controls['productsCant'].value);
+    console.log('submit', this.formGroup.controls['productsCant'].value);
   }
 
 
