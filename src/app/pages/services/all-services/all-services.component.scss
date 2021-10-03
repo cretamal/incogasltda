@@ -1,5 +1,6 @@
-
 @import '../../../../theme';
+@import '../../../components/ui-kit/card/card.component.scss';
+@import '../../../components/ui-kit/grid-card/grid-card.component';
 #services{
   width: 100%;
   background: $white;

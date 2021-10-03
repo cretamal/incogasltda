@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-details-services',
@@ -9,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DetailsServicesComponent implements OnInit {
   nameServices:any = 'default';
   idParamRoute:any;
+  dataPage:any = [];
   // :::::: SLICKJS CONFIGURATION :::::::::::::::::::
   // ::::::::::::::::::::::::::::::::::::::::::::::::
   slides_data:any  = [];
@@ -18,7 +20,8 @@ export class DetailsServicesComponent implements OnInit {
   };
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private categoryService: CategoryService,
   ) {
     this.idParamRoute = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     // console.log('this.idParamRoute', this.idParamRoute);
@@ -47,15 +50,19 @@ export class DetailsServicesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAllCategory();
   }
 
-  // getAllProducts(){
-  //   this.productService.getProduct(this.activatedRoute.snapshot.params['id']).subscribe( (product) => {
-  //     this.product = product;
-  //     // console.log('this.data_products-galery', product );
-  //     this.slides_data = product.galery;
+  getAllCategory(){
+    this.categoryService.getAll().subscribe( (category) => {
 
-  //   });
-  // }
+      let matchElement  = category.find((item:any) => item.id === this.idParamRoute);
+      let itemDetails   = matchElement.contents.find((item:any) => item.type === 'page');
+      this.dataPage = itemDetails;
+      console.log('itemDetails:', itemDetails);
+
+
+    });
+  }
 
 }

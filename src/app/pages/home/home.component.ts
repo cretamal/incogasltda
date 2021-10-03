@@ -1,14 +1,16 @@
 
 import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ContentService } from './../../services/content.service';
 import { CategoryService } from './../../services/category.service';
 import { ProductService } from './../../services/product.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
   data_services:any = [];
@@ -16,13 +18,14 @@ export class HomeComponent implements OnInit {
 
   configProducts:any;
   configServices:any;
+  urlAssets:any;
 
   constructor(
     private contentService: ContentService,
     private categoryService: CategoryService,
     private productService: ProductService
   ) {
-
+    this.urlAssets = environment.server;
     this.configProducts = {
       theme:'product-service backgroud-product',
       typeMedia:'background'
@@ -61,7 +64,7 @@ export class HomeComponent implements OnInit {
         if(element.contents.length > 0) {
           const findElement = element.contents.find((item:any) => item.type == "thumbnails" );
           console.log('findElement', findElement);
-          this.data_services.push(findElement.Thumbnails);
+          this.data_services.push(findElement);
         }
       });
     });
@@ -80,6 +83,12 @@ export class HomeComponent implements OnInit {
       this.data_products =  product;
       // console.log('this.data_products', this.data_products);
     });
+  }
+
+
+  callToAction(service:any){
+    console.log('service', service);
+
   }
 
 

@@ -5,7 +5,7 @@
         <div class="wrapper-site">
           <div>
             <h2>
-              Nombre Servicio
+              {{dataPage.title}}
             </h2>
           </div>
         </div>
@@ -14,9 +14,7 @@
       <div class="wrapper-site">
         <div class="body-content">
           <div class="head-section">
-            <h1>
-              Oxigeno
-            </h1>
+            <div [innerHtml]="dataPage.Page.body"></div>
           </div>
         </div>
       </div>

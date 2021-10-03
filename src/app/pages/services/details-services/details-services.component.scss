@@ -1,6 +1,7 @@
 
+  @import '../../../../theme';
   #services-details{
-    // background: #000;
+    background: $brand-primary;
     padding:0 0 80px 0;
     .body-content{
       display: block;
