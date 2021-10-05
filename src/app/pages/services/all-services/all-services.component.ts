@@ -50,7 +50,7 @@ export class AllServicesComponent implements OnInit {
 
   callToAction(service:any){
     console.log('service', service);
-    this.router.navigate([`/services/details/${service.id}`]);
+    this.router.navigate([`/services/details/${service.category}`]);
 
   }
 

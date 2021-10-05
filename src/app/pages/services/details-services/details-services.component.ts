@@ -55,13 +55,15 @@ export class DetailsServicesComponent implements OnInit {
 
   getAllCategory(){
     this.categoryService.getAll().subscribe( (category) => {
-
       let matchElement  = category.find((item:any) => item.id === this.idParamRoute);
       let itemDetails   = matchElement.contents.find((item:any) => item.type === 'page');
       this.dataPage = itemDetails;
-      console.log('itemDetails:', itemDetails);
-
-
+      // console.log('categoryService:', {
+      //   'category': category,
+      //   'this.idParamRoute': this.idParamRoute,
+      //   'matchElement': matchElement,
+      //   'itemDetails': itemDetails
+      // });
     });
   }
 

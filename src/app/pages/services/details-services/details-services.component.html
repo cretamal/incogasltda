@@ -13,8 +13,9 @@
       <app-breadcrumbs Theme="inside-page"></app-breadcrumbs>
       <div class="wrapper-site">
         <div class="body-content">
-          <div class="head-section">
-            <div [innerHtml]="dataPage.Page.body"></div>
+          <div class="head-section" *ngIf="dataPage.Page != undefined">
+            <!-- <markdown [data]="dataPage.Page.body"></markdown> -->
+
           </div>
         </div>
       </div>
