@@ -4,7 +4,7 @@
       <ng-container *ngFor="let category of categories">
         <li
           nz-submenu
-          nzTitle="{{category.title}}"
+          nzTitle="{{category.type}}"
           nzIcon="appstore"
         >
         <ng-container *ngIf="category.sub_categories.length > 0">
@@ -19,33 +19,6 @@
         </ng-container>
         </li>
       </ng-container>
-
-
       </ul>
-    <!-- <ul>
-      <h4>Categorias</h4>
-      <ng-container *ngFor="let category of categories">
-        <li>
-          <p>
-            {{category.title}}
-          </p>
-          <ng-container *ngIf="category.sub_categories.length > 0">
-            <ul class="suCategory">
-              <ng-container *ngFor="let subCategory of category.sub_categories">
-                <li (click)="handlerSubCategory(subCategory)">
-                  <p>
-                    {{subCategory.label}}
-                  </p>
-                </li>
-              </ng-container>
-
-
-            </ul>
-          </ng-container>
-        </li>
-      </ng-container>
-
-
-    </ul> -->
   </div>
 </aside>

@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-details-services',
   templateUrl: './details-services.component.html',
-  styleUrls: ['./details-services.component.scss']
+  styleUrls: ['./details-services.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DetailsServicesComponent implements OnInit {
   nameServices:any = 'default';

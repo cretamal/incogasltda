@@ -44,6 +44,7 @@ export class ContactComponent implements OnInit {
       // console.log(dataForm);
 
       this.contactService.sendMessageContact(dataForm).subscribe( (contact:any) => {
+          console.log('contact', contact);
           if(contact['code'] == 200){
             alert('mensage enviado con exito');
             this.formData.reset();

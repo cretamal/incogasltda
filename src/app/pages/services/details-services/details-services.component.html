@@ -10,33 +10,19 @@
           </div>
         </div>
       </div>
-      <app-breadcrumbs Theme="inside-page"></app-breadcrumbs>
+      <div class="breadcrumbs wrapper-site">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item><a [routerLink]="['/services/all']">Nuestros Segmentos</a></nz-breadcrumb-item>
+          <nz-breadcrumb-item>Detalle {{dataPage.title}}</nz-breadcrumb-item>
+        </nz-breadcrumb>
+      </div>
       <div class="wrapper-site">
         <div class="body-content">
           <div class="head-section" *ngIf="dataPage.Page != undefined">
-            <!-- <markdown [data]="dataPage.Page.body"></markdown> -->
-
+            <markdown [data]="dataPage.Page.body"></markdown>
           </div>
         </div>
       </div>
-
-
-
-      <!-- <div class="similar-products">
-        <div class="wrapper-site">
-          <div class="head-section">
-            <h2>
-              Otros<br/> Segmentos
-            </h2>
-          </div>
-
-          <app-slides Theme="thumbs-services" [data]="slides_data" [config]="config_slide"></app-slides>
-        </div>
-
-      </div> -->
-
-
-
     </div>
   </article>
 </section>

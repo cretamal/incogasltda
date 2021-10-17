@@ -5,6 +5,7 @@ import { ContentService } from './../../services/content.service';
 import { CategoryService } from './../../services/category.service';
 import { ProductService } from './../../services/product.service';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private contentService: ContentService,
     private categoryService: CategoryService,
-    private productService: ProductService
+    private productService: ProductService,
+    private router: Router,
   ) {
     this.urlAssets = environment.server;
     this.configProducts = {
@@ -87,7 +89,7 @@ export class HomeComponent implements OnInit {
 
 
   callToAction(service:any){
-    console.log('service', service);
+    this.router.navigate([`/services/details/${service.category}`]);
 
   }
 

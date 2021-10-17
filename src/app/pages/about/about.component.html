@@ -1,7 +1,7 @@
 <section id="about">
   <article>
-    <div class="box-about">
-      <div class="box-head-services">
+    <div class="box-services">
+      <div class="box-head-services bg-about">
         <div class="wrapper-site">
           <div>
             <h2>
@@ -11,58 +11,22 @@
           </div>
         </div>
       </div>
-      <div class="box-content-about">
-        <div class="wrapper-site">
-
-          <div class="body-content">
-            <img src="./assets/img/somo-incogasltda.cl.jpg"/>
-
-            <h3>Somos</h3>
-            <p>
-              Somos una empresa nueva que tenemos un gran desafío personal, el lograr ser líderes en el mercado y lograr posicionarnos en el mercado industrial como una alternativa viable y confiable, que se caracterice por tener precios competitivos y productos de la mejor calidad.           </p>
-            <p>
-              Buscamos enfocarnos en los procesos de nuestros clientes y ser un partner para que ellos puedan contar con los insumos de mejor calidad para desarrollar sus proyectos.
-            </p>
-            <p>
-              Nos queremos involucrar en mejorar los procesos y ser un socio confiable de aquellos que nos aligan como proveedor, nos esmeraremos en poder cumplir con su exigencia, teniendo una política de flexibilidad en los repartos y enfoque a los clientes.
-            </p>
-
-
-            <h3>Nuestra Visión.</h3>
-            <p>
-              Consolidarnos en el mercado industrial, como una empresa que brinde un servicio de calidad, con fuerte enfoque al cliente. Velando por la integridad de nuestro proceso, cuidando el medio habiente y al entorno.
-            </p>
-
-            <h3>Nuestra Misión.</h3>
-            <p>
-              Ser una empresa competitiva en el mercado, con una fuerte convicción de otorgar un servicio de calidad y orientado a poder apoyar a nuestros clientes, logrando que se desarrollen sus negocios con insumos de calidad y precios accesibles.
-            </p>
-
-            <h3>
-              Seguridad
-            </h3>
-            <p>
-              Creemos que la seguridad e higiene es un valor corporativo y son cultura de nuestra empresa.
-            </p>
-            <p>
-              · Todos somos responsables de realizar nuestras tareas en un marco de seguridad y con trasparencia.
-            </p>
-            <p>
-              · Somos parte integral del ecosistema y debemos cuidarlo.
-            </p>
-            <p>
-              · Todos nuestros colaboradores y proveedores deben velar por la seguridad en sus funciones y minimizar los riesgos en las tareas diarias.
-            </p>
-            <p>
-              · La seguridad se lleva a casa y en el trayecto, se debe mantener una actitud basada en cuidar a nosotros y a terceros.
-            </p>
-
-
-
+      <div class="breadcrumbs wrapper-site">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item><a [routerLink]="['/']">Home</a></nz-breadcrumb-item>
+          <nz-breadcrumb-item>Somos</nz-breadcrumb-item>
+        </nz-breadcrumb>
+      </div>
+      <div class="wrapper-site">
+        <div class="body-content">
+          <div class="head-section" *ngIf="dataPage.Page != undefined">
+            <markdown [data]="dataPage.Page.body"></markdown>
           </div>
-
         </div>
       </div>
     </div>
   </article>
 </section>
+
+
+
