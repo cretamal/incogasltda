@@ -1,16 +1,11 @@
 
 import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit, ViewEncapsulation, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ContentService } from './../../services/content.service';
 import { CategoryService } from './../../services/category.service';
 import { ProductService } from './../../services/product.service';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
-
-
-declare var gsap: any;
-declare var window: any;
-
 
 @Component({
   selector: 'app-home',
@@ -19,8 +14,6 @@ declare var window: any;
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
-
-  @ViewChild('topSite') topSite: ElementRef;
   data_services:any = [];
   data_products:any = [];
 
@@ -98,11 +91,6 @@ export class HomeComponent implements OnInit {
   callToAction(service:any){
     this.router.navigate([`/services/details/${service.category}`]);
 
-  }
-
-
-  scrollToTop(){
-    gsap.to(window, { duration: 1, scrollTo: this.topSite.nativeElement, offsetY: -50, delay: 0 });
   }
 
 
