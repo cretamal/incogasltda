@@ -60,7 +60,9 @@
         font-size:3.5vw;
         font-weight: 900;
         @include respond-to($iphone_xs) {
-          font-size:15vw;
+          font-size:19vw;
+          line-height: 1.2;
+          padding: 5px 0 0 0;
         }
       }
       p{
@@ -79,5 +81,8 @@
         margin:40px 0 0 0;
       }
     }
+  }
+  .btn-secundary{
+    border:2px solid blue;
   }
 }

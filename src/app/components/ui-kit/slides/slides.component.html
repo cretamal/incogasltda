@@ -8,12 +8,6 @@
     (beforeChange)="beforeChange($event)">
 
     <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-        <img *ngIf="slide?.type === 'big-banner' && slide.img != null" src="{{urlAssets}}{{slide.img.url }}" alt="" width="100%">
-        <ng-container *ngIf="slide?.type != 'big-banner'">
-          <img src="{{urlAssets}}{{slide.url }}" alt="" width="100%">
-        </ng-container>
-
-
       <div class="content">
         <div class="wrapper-content-slides">
           <h3>{{slide.title}}</h3>
@@ -24,6 +18,15 @@
           </div>
         </div>
       </div>
+
+        <img *ngIf="slide?.type === 'big-banner' && slide.img != null" src="{{urlAssets}}{{slide.img.url }}" alt="" width="100%">
+
+        <ng-container *ngIf="slide?.type != 'big-banner'">
+          <img src="{{urlAssets}}{{slide.url }}" alt="" width="100%">
+        </ng-container>
+
+
+
 
     </div>
 

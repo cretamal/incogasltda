@@ -48,6 +48,7 @@ import es from '@angular/common/locales/es';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShoppingCartComponent } from './components/ui-kit/shopping-cart/shopping-cart.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 registerLocaleData(es);
 @NgModule({
@@ -90,6 +91,7 @@ registerLocaleData(es);
     NzBreadCrumbModule,
     NzToolTipModule,
     NzInputNumberModule,
+    NzModalModule,
     FormsModule,
     BrowserAnimationsModule,
     MarkdownModule.forRoot(),

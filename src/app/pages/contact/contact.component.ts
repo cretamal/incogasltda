@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { ContactService } from 'src/app/services/contact.service';
 @Component({
@@ -11,11 +12,20 @@ export class ContactComponent implements OnInit {
   formData:any = FormGroup;
   sendMail:boolean = false;
   submitted = false;
+  onBreadCrumbs:boolean = false;
   @Input() Theme:any = 'contact-primary';
+  isVisible:boolean = false;
   constructor(
     private formBuilder: FormBuilder,
-    private contactService: ContactService
-  ) {}
+    private contactService: ContactService,
+    private router: Router
+  ) {
+
+    if(this.router.url === '/contacto'){
+      this.onBreadCrumbs = true;
+    }
+
+  }
 
   ngOnInit() {
     this.formData = this.formBuilder.group({
@@ -46,7 +56,8 @@ export class ContactComponent implements OnInit {
       this.contactService.sendMessageContact(dataForm).subscribe( (contact:any) => {
           console.log('contact', contact);
           if(contact['code'] == 200){
-            alert('mensage enviado con exito');
+            //alert('mensage enviado con exito');
+            this.isVisible = true;
             this.formData.reset();
             this.sendMail = false;
           }
@@ -55,5 +66,9 @@ export class ContactComponent implements OnInit {
     }else {
 
     }
+  }
+
+  handleOk(){
+    this.isVisible = false;
   }
 }

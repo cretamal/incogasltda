@@ -14,8 +14,8 @@ export class ContactService {
     } )
   };
 
-  private url = 'https://public.devfun.cl';
-  // private url   = "http://localhost:3000";
+  // private url = 'https://public.devfun.cl';
+  private url   = "http://localhost:3000";
 
   constructor(private http: HttpClient) {}
 

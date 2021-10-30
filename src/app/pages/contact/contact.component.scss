@@ -18,6 +18,9 @@
           padding:0 0 20px 0;
           h2{
             margin-bottom: 0px;
+            @include respond-to($iphone_xs) {
+              font-size: 70px !important;
+            }
           }
           p{
             font-family: 'Roboto', sans-serif;
@@ -65,6 +68,10 @@
       background:$brand-primary;
       border:3px solid $brand-primary;
       overflow: hidden;
+      iframe{
+        width: 100%;
+      }
+
     }
     }
     .right{
@@ -92,7 +99,7 @@
                 }
                 input{
                   font-family: 'Roboto', sans-serif;
-                  width:calc(100% - 30px);
+                  width:100%;
                   display:block;
                   background:#a6a4a4;
                   padding:15px;
@@ -101,6 +108,9 @@
                   border-radius:4px;
                   font-size:16px;
                   color:#fff;
+                  @include respond-to($iphone_xs) {
+                    width: 100%;
+                  }
                 }
                 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
                   color:#fff;
@@ -128,7 +138,7 @@
                   }
                 }
                 textarea{
-                  width:calc(100% - 30px);
+                  width:100%;
                   min-height:200px;
                   background:#a6a4a4;
                   padding:15px;

@@ -30,6 +30,9 @@ h1,h2,h3,h4,h5,h6,p{
   .box-head-products{
     // background: $brand-secundary;
     padding:80px 0 5vh 0;
+    @include respond-to($iphone_xs) {
+      padding:20px 0 1vh 0;
+    }
     h2{
       font-size:3.5vw;
       font-family: 'Roboto', sans-serif;
@@ -50,6 +53,9 @@ h1,h2,h3,h4,h5,h6,p{
   .box-grid-services,
   .box-grid-products{
     padding:120px 0;
+    @include respond-to($iphone_xs) {
+      padding:0;
+    }
   }
 
 }
@@ -73,6 +79,9 @@ h1,h2,h3,h4,h5,h6,p{
 
 .head-section{
   padding:40px 0 60px 0;
+  @include respond-to($iphone_xs) {
+    padding:0px 0 30px 0;
+  }
   h2,h1{
     // color:#fff;
     color:$brand-primary;
@@ -80,7 +89,7 @@ h1,h2,h3,h4,h5,h6,p{
     font-weight: 900;
     font-size:3.5vw;
     @include respond-to($iphone_xs) {
-      font-size:15vw;
+      font-size:36px !important;
     }
   }
   p{

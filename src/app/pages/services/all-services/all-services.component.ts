@@ -35,12 +35,12 @@ export class AllServicesComponent implements OnInit {
 
   getAllCategory(){
     this.categoryService.getAll().subscribe( (category) => {
-      console.log('category', category);
+      // console.log('category', category);
       category.forEach((element:any) => {
 
         if(element.contents.length > 0) {
           const findElement = element.contents.find((item:any) => item.type == "thumbnails" );
-          console.log('findElement', findElement);
+          // console.log('findElement', findElement);
           this.data_services.push(findElement);
         }
       });
@@ -49,7 +49,7 @@ export class AllServicesComponent implements OnInit {
 
 
   callToAction(service:any){
-    console.log('service', service);
+    // console.log('service', service);
     this.router.navigate([`/services/details/${service.category}`]);
 
   }
