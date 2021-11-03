@@ -84,6 +84,9 @@
         img{
           width: 100%;
         }
+        @include respond-to($iphone_xs) {
+          margin:25px 0 25px 0;
+        }
       }
     }
   }

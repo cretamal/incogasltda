@@ -57,6 +57,7 @@ $colorTextBanner: $white;
       font-size: 30px;
       color:$colorTextBanner;
       @include respond-to($iphone_xs) {
+        max-width:50%;
         font-size: 18px;
         font-weight: 700;
       }
@@ -70,6 +71,7 @@ $colorTextBanner: $white;
       display: block;
       margin:5px 0 5px 0;
       @include respond-to($iphone_xs) {
+        max-width:50%;
         display: none;
       }
     }
@@ -78,6 +80,9 @@ $colorTextBanner: $white;
       color:$white;
       color:$colorTextBanner;
       max-width:460px;
+      @include respond-to($iphone_xs) {
+        max-width:50%;
+      }
     }
     h3,h5,p{
       @include respond-to($iphone_xs) {
@@ -90,6 +95,12 @@ $colorTextBanner: $white;
       margin: 15px 0;
       @include respond-to($iphone_xs) {
         max-width:120px;
+        .btn-secundary{
+          p{
+            width: 100% !important;
+            max-width: 100% !important;
+          }
+        }
       }
     }
   }

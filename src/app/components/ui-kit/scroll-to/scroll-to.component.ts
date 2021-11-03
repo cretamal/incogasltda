@@ -1,28 +1,22 @@
-import { Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-
-import gsap from "gsap";
-// import { TweenMax, ScrollToPlugin } from 'gsap/all'
-// const plugins = [ ScrollToPlugin ]
-
-declare var window: any;
-
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'app-scroll-to',
   templateUrl: './scroll-to.component.html',
   styleUrls: ['./scroll-to.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ScrollToComponent implements OnInit {
+export class ScrollToComponent implements OnInit, AfterViewInit {
   @Input() Theme:any;
-  // @ViewChild('el') el: ElementRef;
+  @ViewChild('el')
+  el!: ElementRef;
+
   constructor() { }
 
   ngOnInit(): void {
-  }
 
-  scrollTop () {
-    // console.log('window', window);
-    // TweenMax.to(this.el.nativeElement, {opacity:0.3,repeat:-1});
+  }
+  ngAfterViewInit(): void {
+
   }
 
 }

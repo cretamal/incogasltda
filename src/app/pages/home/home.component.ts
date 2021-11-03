@@ -1,6 +1,6 @@
 
 import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewEncapsulation } from '@angular/core';
 import { ContentService } from './../../services/content.service';
 import { CategoryService } from './../../services/category.service';
 import { ProductService } from './../../services/product.service';
@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
   configProducts:any;
   configServices:any;
   urlAssets:any;
+
+
 
   constructor(
     private contentService: ContentService,
@@ -92,6 +94,9 @@ export class HomeComponent implements OnInit {
     this.router.navigate([`/services/details/${service.category}`]);
 
   }
+
+
+
 
 
 

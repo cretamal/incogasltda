@@ -1,3 +1,4 @@
+<span #top></span>
 <app-header></app-header>
 
 <router-outlet></router-outlet>
@@ -6,4 +7,4 @@
 
 <app-shopping-cart></app-shopping-cart>
 
-<app-scroll-to Theme="scrollTo-rectangle"></app-scroll-to>
+<app-scroll-to Theme="scrollTo-rectangle" (click)="goToTop();"></app-scroll-to>
