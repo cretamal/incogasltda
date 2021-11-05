@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Product, Products } from 'src/app/models/product';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { FormGroup, FormControl,FormArray, FormBuilder } from '@angular/forms'
 
 @Component({
   selector: 'app-shopping-cart',
@@ -10,138 +11,67 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit, AfterViewInit {
-  private unsubscribe$: Subject<boolean> = new Subject();
-  initValue:any = 1;
   isDisabled:boolean = false;
-  productsItems:any = [];
-  // shoppingCart: FormGroup;
-  formArray:                                          any;
-  tempFormArray:any = [];
-
-
-  formGroup:any = FormGroup;
-
+  skillsForm: FormGroup;
+  shoppingCart:any = new Products();
 
   constructor(
+    private fb:FormBuilder,
     private shoppingCartService: ShoppingCartService,
-    private formBuilder: FormBuilder,
-    private fb: FormBuilder
   ) {
-    // this.shoppingCart = this.formBuilder.group({
-    //   productsCant:  new FormArray([])
-    // });
+
+    this.skillsForm = this.fb.group({
+      // name: '',
+      shopCart: this.fb.array([]),
+    });
+
   }
 
   ngOnInit(): void {
-    this.iniForm();
-  }
+    this.shoppingCart.list = this.shoppingCartService.obtener();
+   }
 
-  iniForm(){
-    this.formGroup = this.fb.group({
-      productsCant: this.fb.array([])
-    });
-    const fa = (this.formGroup.get('productsCant')as FormArray);
-    this.addItems();
-  }
-
-  addNewAlias(product:any){
-    const fa = (this.formGroup.get('productsCant')as FormArray);
-
-    fa.push(this.fb.group({
-      product:
-        {
-          id:product.id,
-          title:product.title,
-          price:product.price,
-          thumb:product.img.url,
-          cantidades: 1
-        }
-
-    }));
-
-  }
-  deleteAlias(i:number){
-    const fa = (this.formGroup.get('productsCant')as FormArray);
-    fa.removeAt(i);
-    if(fa.length===0){
-      this.addNewAlias(null);
-    }
-  }
-
-
-
-  ngAfterViewInit(): void {}
-
-  addItems(){
-    this.shoppingCartService.getShoppingCart
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(resp => {
-      if (resp) {
-        this.productsItems = resp;
-        this.unsubscribe$.complete();
-        // console.log('resp', resp);
-        this.addItemFornControl();
-      }
+  ngAfterViewInit(): void {
+    this.shoppingCart.list.forEach((element:any) => {
+      console.log('element', element);
+      this.addSkills(element);
     });
   }
 
-  addItemFornControl(){
-    this.productsItems.forEach((product:any) => {
-        // console.log('product', product);
-        this.addNewAlias(product);
 
 
-    });
+
+
+
+
+  get shopCart() : FormArray {
+    return this.skillsForm.get("shopCart") as FormArray
   }
 
-  // get productsForm():FormArray{
-  //   return this.shoppingCart.get('productsCant') as FormArray;
-  // }
-
-  // createProductForm(product:any):FormGroup{
-  //   return this.formArray.controls.push(this.formBuilder.group({
-  //     id:product.id,
-  //     title:product.title,
-  //     price:product.price,
-  //     thumb:product.img.url,
-  //     cantidades: 1
-  //   }));
-  // }
-
-
-
-  deleteItem(id:number){
-
-    // this.deleteAlias(id);
-
-
-
-    this.shoppingCartService.quitar(id);
-    // this.productsItems = this.shoppingCartService.obtener();
-    console.log('delete item');
+  newSkill(element:any): FormGroup {
+    return this.fb.group({
+      name: element?.title,
+      cant: '1',
+      price: element?.price
+    })
   }
 
-  handlerChange($event:any, id:any){
-    // console.log('handlerChange', {
-    //   '$event': $event,
-    //   'id': id
-    // });
+  addSkills(element:any) {
+    this.shopCart.push(this.newSkill(element));
   }
 
-  // findElementFormControls(id:any){
-  //   return this.formArray.controls.find((element:any)  => element.value.id === id );
-  // }
+  removeSkill(i:number) {
+    this.shopCart.removeAt(i);
+  }
 
-  submit(){
-    console.log('submit', this.formGroup.controls['productsCant'].value);
+  onSubmit() {
+    console.log(this.skillsForm.value);
   }
 
 
 
-
-
-
-
-
+  handlerChange(event:any){
+    console.log(event);
+  }
 
 }

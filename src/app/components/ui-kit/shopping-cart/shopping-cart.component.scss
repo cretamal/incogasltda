@@ -1,13 +1,14 @@
 .shopping-cart{
   width: 100%;
-  max-width: 320px;
+  // max-width: 320px;
+  max-width: 640px;
   height: 100%;
   display: block;
   position:fixed;
   z-index: 100;
   top:0;
   right:0;
-  display: none !important;
+  // display: none !important;
 
   background: #fff;
 
@@ -30,12 +31,12 @@
       li{
         width: 100%;
         padding:15px 10px;
-        display: block;
         background: #fafafa;
         display:grid;
         grid-template-columns: 50px 170px 70px;
         align-items:center;
         justify-content:space-between;
+        border:1px solid red;
       }
       .thumb{
         background: #333;

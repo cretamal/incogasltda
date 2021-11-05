@@ -23,19 +23,19 @@ export class AppComponent {
     private shoppingCartService: ShoppingCartService,
     private router: Router
   ){
-    this.shoppingCartService.obtener();
+    // this.shoppingCartService.obtener();
 
 
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
           // Show progress spinner or progress bar
-          console.log('Route change detected');
+          // console.log('Route change detected');
       }
 
       if (event instanceof NavigationEnd) {
           // Hide progress spinner or progress bar
           this.currentRoute = event.url;
-          console.log(event);
+          // console.log(event);
 
           this.delay.subscribe(() => {
             this.goToTop();
@@ -54,7 +54,7 @@ export class AppComponent {
   }
 
   goToTop(){
-    console.log('goToTop', this.top);
+    // console.log('goToTop', this.top);
     gsap.to(window, { duration: 1, scrollTo: this.top.nativeElement, delay: 0 });
   }
 

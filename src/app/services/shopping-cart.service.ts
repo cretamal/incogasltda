@@ -16,7 +16,7 @@ export class ShoppingCartService {
 
   constructor() {
     this.productos      = this.obtener();
-    console.log('constructor - ShoppingCartService', this.productos);
+    // console.log('constructor - ShoppingCartService', this.productos);
     if(this.productos.length > 0) {
       this.guardar();
     }
@@ -52,10 +52,12 @@ export class ShoppingCartService {
   }
 
   guardar() {
-    localStorage.setItem(this.clave, JSON.stringify(this.productos));
-    this.shoppingItem$.next(this.productos);
+    if(this.productos.length > 0) {
+      localStorage.setItem(this.clave, JSON.stringify(this.productos));
+      this.shoppingItem$.next(this.productos);
 
-    console.log('guardar')
+      // console.log('guardar', this.productos);
+    }
   }
 
   obtener() {
