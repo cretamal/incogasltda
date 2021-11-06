@@ -14,6 +14,7 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
   isDisabled:boolean = false;
   skillsForm: FormGroup;
   shoppingCart:any = new Products();
+  private unsubscribe$ = new Subject();
 
   constructor(
     private fb:FormBuilder,
@@ -29,13 +30,34 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.shoppingCart.list = this.shoppingCartService.obtener();
+
+    
+    this.shoppingCartService.getShoppingCart
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(resp => {
+        if (resp) {
+            // this.aplyFilter(filter);
+            console.log('clearFormArray', this.skillsForm.controls['shopCart']);
+            resp.forEach((element:any) => {
+              console.log('element', element);
+              this.addSkills(element);
+            });
+
+        }
+    });
+
    }
 
   ngAfterViewInit(): void {
-    this.shoppingCart.list.forEach((element:any) => {
-      console.log('element', element);
-      this.addSkills(element);
-    });
+    // this.shoppingCart.list.forEach((element:any) => {
+    //   console.log('element', element);
+    //   this.addSkills(element);
+    // });
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 
@@ -73,5 +95,8 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
   handlerChange(event:any){
     console.log(event);
   }
+
+  
+  
 
 }
