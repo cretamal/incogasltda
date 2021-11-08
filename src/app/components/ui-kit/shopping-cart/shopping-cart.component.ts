@@ -30,41 +30,28 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.shoppingCart.list = this.shoppingCartService.obtener();
+   }
 
-    
+  ngAfterViewInit(): void {
     this.shoppingCartService.getShoppingCart
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe(resp => {
         if (resp) {
-            // this.aplyFilter(filter);
-            console.log('clearFormArray', this.skillsForm.controls['shopCart']);
-            resp.forEach((element:any) => {
-              console.log('element', element);
-              this.addSkills(element);
-            });
+          //  Clear form data cuando recibimos un actualizacion en el observable del carro
+          (this.skillsForm.controls['shopCart'] as FormArray).clear();
+          // Agregamos los elementos 1 x 1
+          resp.forEach((element:any) => {
+            this.addSkills(element);
+          });
 
         }
     });
-
-   }
-
-  ngAfterViewInit(): void {
-    // this.shoppingCart.list.forEach((element:any) => {
-    //   console.log('element', element);
-    //   this.addSkills(element);
-    // });
   }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
-
-
-
-
-
-
 
   get shopCart() : FormArray {
     return this.skillsForm.get("shopCart") as FormArray
@@ -96,7 +83,7 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
     console.log(event);
   }
 
-  
-  
+
+
 
 }

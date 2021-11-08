@@ -1,7 +1,6 @@
 .shopping-cart{
   width: 100%;
-  // max-width: 320px;
-  max-width: 340px;
+  max-width: 320px;
   height: 100%;
   display: block;
   position:fixed;
@@ -36,7 +35,6 @@
         grid-template-columns: 50px 170px 70px;
         align-items:center;
         justify-content:space-between;
-        border:1px solid red;
       }
       .thumb{
         background: #333;
