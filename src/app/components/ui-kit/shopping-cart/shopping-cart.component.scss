@@ -1,3 +1,4 @@
+@import '../../../../theme';
 .shopping-cart{
   width: 100%;
   max-width: 320px;
@@ -7,8 +8,7 @@
   z-index: 100;
   top:0;
   right:0;
-  // display: none !important;
-
+  // display: none;
   background: #fff;
 
   .wrapper{
@@ -21,8 +21,56 @@
     width:100%;
     padding:20px 0;
   }
+  .head{
+    border-bottom:1px solid #333;
+    h3,p{
+      font-family: "Roboto", sans-serif;
+      color:#333;
+    }
+    h3{
+      font-weight: 600;
+      font-size: 28px;
+      padding:10px 0;
+      border-top:1px solid $brand-primary;
+    }
+    p{
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.2;
+    }
+    .btnCerrar{
+      width:35px;
+      height:35px;
+      display:flex;
+      border-radius: 40px;
+      border:2px solid $brand-primary;
+      align-items: center;
+      justify-content: center;
+      background: $brand-secundary;
+      margin: 0 0 25px 0;
+      cursor:pointer;
+      p{
+        font-size: 16px;
+        color:#fff;
+      }
+    }
+  }
 
   .body {
+    padding:0;
+    max-height: 450px;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    h3{
+      font-family: "Roboto", sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+      line-height: 1.2;
+      letter-spacing:1.2px;
+      padding:20px;
+      color: #fff;
+      background:$brand-primary;
+    }
     ul{
       width: 100%;
       margin: 0;
@@ -35,33 +83,40 @@
         grid-template-columns: 50px 170px 70px;
         align-items:center;
         justify-content:space-between;
+        border-top:1px solid $brand-primary;
+      }
+      li:last-child{
+        border-bottom:1px solid $brand-primary;
       }
       .thumb{
         background: #333;
-        border-radius:5px;
+        border-radius:10px;
+        overflow:hidden;
         img{
           width: 100%;
         }
       }
       .details{
-        width: 100%;
+        width: 90%;
         display: block;
+        margin:0 auto;
         h4,h5,p{
           color:#333;
           margin: 0;
           padding: 0;
         }
         h4{
-          font-weight: 600;
-          font-size:18px;
+          font-weight: 500;
+          font-size:14px;
+          line-height: 1;
         }
         h5{
-          font-weight: 400;
+          font-weight: 300;
           font-size:12px;
         }
         p{
-          font-weight: 800;
-          font-size:16px;
+          font-weight: 300;
+          font-size:14px;
         }
       }
       .controls{
@@ -93,7 +148,31 @@
       display: block;
       margin: 0 auto 30px auto;
     }
+    .confirm{
+
+      margin: 5px 0 0 5px;
+      cursor:pointer;
+      display: flex;
+      column-gap:10px;
+      align-items:center;
+      img{
+        max-width:30px;
+        width: 100%;
+      }
+    }
   }
+
+  .btnCofirm{
+    width:100%;
+    background: $brand-secundary;
+    color:#fff;
+    border:1px solid $brand-secundary;
+    &:hover{
+      background: $brand-primary;
+      color:#fff;
+    }
+  }
+
 
 }
 

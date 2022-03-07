@@ -9,6 +9,7 @@
   .header-primary{
     display: grid;
     grid-template-columns: 120px auto;
+    justify-content: space-between;
     .left{
       position: relative;
       .logo{
@@ -29,6 +30,9 @@
       }
     }
     .right{
+      display:flex;
+      align-items: center;
+      column-gap: 10px;
       .nav-menu{
         @include respond-to($iphone_xs) {
           display: none;
@@ -81,6 +85,15 @@
 
           }
 
+        }
+      }
+      .shopping-cart{
+        width:25px;
+        height:25px;
+        display:block;
+        cursor: pointer;
+        img{
+          width:100%;
         }
       }
     }

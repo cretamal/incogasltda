@@ -43,7 +43,7 @@ export class CardComponent implements OnInit {
   }
 
   addShoppingCart(data:any){
-    // console.log('addShoppingCart', data);
+    console.log('addShoppingCart', data);
     this.shoppingCartService.agregar(data);
   }
 

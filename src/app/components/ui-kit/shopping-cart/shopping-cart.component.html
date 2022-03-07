@@ -1,59 +1,87 @@
 
-<div class="shopping-cart" *ngIf="skillsForm.controls">
-  <div class="head">
-    <div class="wrapper">
-      <h3>Cotización</h3>
-      <p>
-        *Aqui puedes ver el detalle de tu cotización a gestionar por nuestros ejecutivos de ventas.
-      </p>
+<ng-container *ngIf="viewShoppingCart">
+  <div class="shopping-cart">
+    <div class="head">
+      <div class="wrapper">
+        <div class="btnCerrar" (click)="closeShoppingCart()">
+          <p>
+            X
+          </p>
+        </div>
+
+        <h3>Cotización</h3>
+        <p>
+          *Aqui puedes ver el detalle de tu cotización a gestionar por nuestros ejecutivos de ventas.
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="body">
-      <ul>
-        <form [formGroup]="skillsForm" (ngSubmit)="onSubmit()">
-          <div class="wrapper">
+    <div class="body">
+        <ul>
+          <form [formGroup]="skillsForm" (ngSubmit)="onSubmit()">
             <h3>Productos seleccionados</h3>
-          </div>
-          <div formArrayName="shopCart">
+            <div formArrayName="shopCart">
 
-            <li class="border" *ngFor="let skill of shopCart.controls; let i=index">
-              <ng-container [formGroupName]="i">
-                <div class="thumb">
-                  <img src="./assets/img/delete.svg" />
-                </div>
-                <div class="details">
-                  <h4>{{skill.value.name}}</h4>
-                  <p>{{skill.value.price | number}}</p>
-                </div>
-                <div class="controls">
-                  <div class="cant">
-                    <nz-input-number
-                      [ngModel]="1"
-                      [nzMin]="1"
-                      [nzMax]="10"
-                      [nzStep]="1"
-                      [nzDisabled]="isDisabled"
-
-                      formControlName="cant"
-                    ></nz-input-number>
-                    <!-- <input *ngIf="productsForm.controls.length > 0 " type="number" value="1" id="tentacles" name="tentacles" min="1" max="10" (change)="handlerChange($event, product.value.id)" [formControlName]="i" /> -->
+              <li class="border" *ngFor="let skill of shopCart.controls; let i=index">
+                <ng-container [formGroupName]="i">
+                  <div class="thumb">
+                    <img *ngIf="skill?.value?.img" src="{{urlAssets}}{{skill.value.img.url }}" alt="" width="100%">
                   </div>
-                  <div class="delete" (click)="removeSkill(i)">
-                    <img src="./assets/img/delete.svg" />
+                  <div class="details">
+                    <h4>{{skill.value.name}}</h4>
+                    <p>{{skill.value.price | number}}</p>
                   </div>
-                </div>
-              </ng-container>
-            </li>
-          </div>
-        </form>
-      </ul>
-  </div>
-  <div class="foo">
-    <div class="wrapper">
-      <p>
-        *Para que la cotizacion sea factible debes llenar tus datos personales
-      </p>
-      <button nz-button nzSize="large" nzType="primary" (click)="onSubmit()">Enviar Cotización</button>
+                  <div class="controls">
+                    <div class="cant">
+                      <nz-input-number
+                        [ngModel]="skill.value.cantidad"
+                        [nzMin]="1"
+                        [nzMax]="10"
+                        [nzStep]="1"
+                        [nzDisabled]="isDisabled"
+                        formControlName="cantidad"
+                        (ngModelChange)="onChangeCant(skill)"
+                      ></nz-input-number>
+                      <!-- <input *ngIf="productsForm.controls.length > 0 " type="number" value="1" id="tentacles" name="tentacles" min="1" max="10" (change)="handlerChange($event, product.value.id)" [formControlName]="i" /> -->
+                    </div>
+                    <div class="delete" (click)="removeSkill(skill, i)">
+                      <img src="./assets/img/delete.svg" />
+                    </div>
+                  </div>
+                </ng-container>
+              </li>
+            </div>
+          </form>
+        </ul>
+    </div>
+    <div class="foo">
+      <div class="wrapper">
+        <!-- <p>
+          *Para que la cotizacion sea factible debes llenar tus datos personales
+        </p> -->
+        <ng-container *ngIf="updateShopping">
+          <button nz-button nzSize="large" class="btnCofirm" (click)="confirmItems()">Guardar Cotización</button>
+        </ng-container>
+        <!-- <button nz-button nzSize="large" nzType="primary" (click)="onSubmit()">Enviar Cotización</button> -->
+      </div>
     </div>
   </div>
-</div>
+</ng-container>
+
+
+
+<nz-modal
+
+    [(nzVisible)]="isVisible"
+    nzTitle="¿Desea Guardar su cotización?"
+    nzOkText="Guardar"
+    nzCancelText="Seguir Cotizando"
+    (nzOnOk)="handleOk()"
+    (nzOnCancel)="handleCancel()"
+  >
+  <ng-container *nzModalContent>
+    <p>Tu Cotizacion se Guardo Correctamente</p>
+  </ng-container>
+
+</nz-modal>
+
+

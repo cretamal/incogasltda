@@ -8,6 +8,7 @@ import { ShoppingCartComponent } from '../components/ui-kit/shopping-cart/shoppi
 export class ShoppingCartService {
 
   private shoppingItem$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  private statusShoppingCart$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   @ViewChild(ShoppingCartComponent)
   shoppingCartComponent?: ShoppingCartComponent;
@@ -24,13 +25,17 @@ export class ShoppingCartService {
 
   get getShoppingCart() { return this.shoppingItem$.asObservable();}
 
+  get getstatusShoppingCart() { return this.statusShoppingCart$.asObservable();}
+
 
   agregar(producto:any) {
+    console.log('producto', producto);
+    Object.assign(producto, {cantidad:1});
     if (!this.existe(producto.id)) {
       const itemProduct = {
         id: producto.id,
         cantidad: producto.cantidad,
-        title: producto.title,
+        name: producto.title,
         price: producto.price,
         img: producto.img
       }
@@ -45,6 +50,7 @@ export class ShoppingCartService {
 
   quitar(id:any) {
     const indice = this.productos.findIndex((p:any) => p.id === id);
+    console.log('quitar', indice);
     if (indice != -1) {
         this.productos.splice(indice, 1);
         this.guardar();
@@ -52,11 +58,10 @@ export class ShoppingCartService {
   }
 
   guardar() {
-    if(this.productos.length > 0) {
+    console.log('this.productos.length', this.productos.length);
+    if(this.productos.length >= 0) {
       localStorage.setItem(this.clave, JSON.stringify(this.productos));
       this.shoppingItem$.next(this.productos);
-
-      // console.log('guardar', this.productos);
     }
   }
 
@@ -74,9 +79,19 @@ export class ShoppingCartService {
     return this.productos.find((element:any)  => element.id === id);
   }
 
-  // obtenerConteo() {
-  //   return this.productos.length;
-  // }
+  updateStorage(productos:any){
+      this.productos = [];
+      this.productos = productos.shopCart;
+      localStorage.setItem(this.clave, JSON.stringify(this.productos));
+      this.shoppingItem$.next(this.productos);
+      this.guardar();
+  }
 
+  openStatusShoppingCart(){
+    this.statusShoppingCart$.next(true);
+  }
+  closeStatusShoppingCart(){
+    this.statusShoppingCart$.next(false);
+  }
 
 }
