@@ -94,4 +94,10 @@ export class ShoppingCartService {
     this.statusShoppingCart$.next(false);
   }
 
+
+  deleteAll(){
+    this.productos = [];
+    this.guardar();
+  }
+
 }

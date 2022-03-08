@@ -1,4 +1,4 @@
-<div class="menu">
+<div class="menu" ngStickyNav>
   <div class="wrapper-site header-primary">
     <div class="left">
       <div class="logo" [routerLink]="'/'">
@@ -19,6 +19,7 @@
           <img src="./assets/img/shopping-bag.png" />
         </ng-container>
         <ng-container *ngIf="listItemsShoppingCart.length > 0">
+          <span class="chips">{{listItemsShoppingCart.length}}</span>
           <img src="./assets/img/shopping-bag-active.png" />
         </ng-container>
 

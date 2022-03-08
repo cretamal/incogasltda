@@ -14,16 +14,21 @@ export class ContactService {
     } )
   };
 
-  private url = 'https://public.devfun.cl';
-  // private url   = "http://localhost:3000";
+  private sendMail = 'https://public.devfun.cl';
+  private url   = "http://localhost:3002";
 
   constructor(private http: HttpClient) {}
 
 
 
   sendMessageContact( data: any ): Observable<any[]> {
-    const url = `${this.url}/sendMail`;
+    const url = `${this.sendMail}/sendMail`;
     return this.http.post<any[]>( url, data );
+  }
+
+  saveContact( payload: any ): Observable<any[]> {
+    const url = `${this.url}/contacts`;
+    return this.http.post<any[]>( url, payload );
   }
 
 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { StickyNavModule } from 'ng2-sticky-nav';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/ui-kit/header/header.component';
@@ -30,7 +30,7 @@ import { ScrollToComponent } from './components/ui-kit/scroll-to/scroll-to.compo
 import { HttpClientModule } from '@angular/common/http';
 import { PageLoadingComponent } from './components/ui-kit/page-loading/page-loading.component';
 import { AsideCategoryComponent } from './components/ui-kit/aside-category/aside-category.component';
-
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 
 // ANT-DESIN
@@ -91,8 +91,10 @@ registerLocaleData(es);
     NzBreadCrumbModule,
     NzToolTipModule,
     NzInputNumberModule,
+    NzTableModule,
     NzModalModule,
     FormsModule,
+    StickyNavModule,
     BrowserAnimationsModule,
     MarkdownModule.forRoot(),
   ],
