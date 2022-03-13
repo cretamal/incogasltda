@@ -100,4 +100,11 @@ export class ShoppingCartService {
     this.guardar();
   }
 
+  getAllStore(){
+    const storeShopping = localStorage.getItem(this.clave);
+    return storeShopping;
+  }
+
+
+
 }

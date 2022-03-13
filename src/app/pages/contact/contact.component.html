@@ -164,29 +164,33 @@
     (nzOnCancel)="eliminarCoti($event)"
      >
     <ng-container *nzModalContent>
-      <nz-table #basicTable [nzData]="cotizacion">
-        <thead>
-          <tr>
-            <th>ID:</th>
-            <th>NOMBRE:</th>
-            <th>CANTIDAD:</th>
-            <th>PRECIO:</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of cotizacion">
-            <td>{{ item.id }}</td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.cantidad }}</td>
-            <td>{{ item.price }}</td>
-            <!-- <td>
-              <a>Action 一 {{data.name}}</a>
-              <nz-divider nzType="vertical"></nz-divider>
-              <a>Delete</a>
-            </td> -->
-          </tr>
-        </tbody>
-      </nz-table>
+      <div id="contentToConvert">
+        <nz-table #basicTable [nzData]="cotizacion">
+          <thead>
+            <tr>
+              <th>ID:</th>
+              <th>NOMBRE:</th>
+              <th>CANTIDAD:</th>
+              <th>PRECIO:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cotizacion">
+              <td>{{ item.id }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.cantidad }}</td>
+              <td>{{ item.price }}</td>
+              <!-- <td>
+                <a>Action 一 {{data.name}}</a>
+                <nz-divider nzType="vertical"></nz-divider>
+                <a>Delete</a>
+              </td> -->
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+
+
     </ng-container>
   </nz-modal>
 </ng-container>

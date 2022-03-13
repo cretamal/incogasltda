@@ -2,6 +2,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Client } from '../models/client';
+import { Order } from '../models/order';
+import qs from 'qs';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,9 +20,12 @@ export class ContactService {
   };
 
   private sendMail = 'https://public.devfun.cl';
-  private url   = "http://localhost:3002";
+  private url   = "http://localhost:3002/api";
 
   constructor(private http: HttpClient) {}
+
+
+
 
 
 
@@ -26,9 +34,31 @@ export class ContactService {
     return this.http.post<any[]>( url, data );
   }
 
-  saveContact( payload: any ): Observable<any[]> {
-    const url = `${this.url}/contacts`;
-    return this.http.post<any[]>( url, payload );
+  save( payload: Client ): Observable<Client> {
+    const url = `${this.url}/clients`;
+    return this.http.post<Client>( url, payload );
+  }
+
+  getUniqueClient( filter: any ): Observable<any> {
+    const query = qs.stringify({
+      filters: {
+        keyID: {
+          $eq: filter,
+        },
+      },
+      populate: '*'
+    },{
+      encodeValuesOnly: true,
+    });
+
+
+    const url = `${this.url}/clients?${query}`;
+    return this.http.get<any>( url );
+  }
+
+  saveOrder( payload: Order ): Observable<Order> {
+    const url = `${this.url}/orders`;
+    return this.http.post<Order>( url, payload );
   }
 
 
