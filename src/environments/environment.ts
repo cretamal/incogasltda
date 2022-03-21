@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  server: 'https://backend.incogasltda.cl'
-  // server: 'http://localhost:3002'
+  // server: 'https://backend.incogasltda.cl'
+  server: 'http://localhost:3002'
 };
 
 /*

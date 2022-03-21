@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ContentService } from 'src/app/services/content.service';
-
+import * as qs from 'qs';
+import { AboutPageService } from 'src/app/services/about-page.service';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -8,20 +8,25 @@ import { ContentService } from 'src/app/services/content.service';
   encapsulation: ViewEncapsulation.None
 })
 export class AboutComponent implements OnInit {
-  dataPage:any = [];
+  data_about:any = [];
   constructor(
-    private contentService: ContentService,
+    private aboutPageService: AboutPageService,
   ) { }
 
   ngOnInit(): void {
-    this.getAllCategory();
+    this.getAbout();
   }
 
-  getAllCategory(){
-    this.contentService.getContentType('?type=page').subscribe( (contentType) => {
-      const itemFilter = contentType.find((item:any) => item.title === 'Somo Incogas');
-      // console.log('itemFilter:', itemFilter);
-      this.dataPage = itemFilter;
+  getAbout(){
+    // QUERY QUE TRAE LOS COMPONENTES ANIDADOS
+    const query = qs.stringify({
+      populate: ['about'],
+    }, {
+      encodeValuesOnly: true,
+    });
+    this.aboutPageService.getDataPage(`?${query}`).subscribe( (dataAbout) => {
+      this.data_about = dataAbout.data[0].attributes.about;
+      console.log('data_about', this.data_about);
     });
   }
 

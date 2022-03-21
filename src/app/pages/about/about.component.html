@@ -19,8 +19,9 @@
       </div>
       <div class="wrapper-site">
         <div class="body-content">
-          <div class="head-section" *ngIf="dataPage.Page != undefined">
-            <markdown [data]="dataPage.Page.body"></markdown>
+          <div class="head-section" *ngFor="let item of data_about" >
+            <h1>{{item?.title}}</h1>
+            <markdown [data]="item?.description"></markdown>
           </div>
         </div>
       </div>

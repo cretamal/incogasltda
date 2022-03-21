@@ -49,6 +49,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShoppingCartComponent } from './components/ui-kit/shopping-cart/shopping-cart.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { FacilityComponent } from './components/ui-kit/facility/facility.component';
 
 registerLocaleData(es);
 @NgModule({
@@ -77,7 +78,8 @@ registerLocaleData(es);
     ScrollToComponent,
     PageLoadingComponent,
     AsideCategoryComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    FacilityComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,17 @@
 <div class="head-section">
   <h2>
-    Aprovecha Nuestros Beneficios
+    {{data_heaSHortCut?.title}}
   </h2>
+  <ng-container>
+    <p>
+      {{data_heaSHortCut?.description}}
+    </p>
+  </ng-container>
+
 </div>
 
 <div class="box-thumbnails">
   <ng-container *ngIf="data_shortcut && data_shortcut.length > 0">
-    <app-grid-card [Data]="data_shortcut" Theme="works-home col-3-flex" [ConfigChildren]="configServices"></app-grid-card>
+    <app-facility></app-facility>
   </ng-container>
 </div>

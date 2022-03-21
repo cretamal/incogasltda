@@ -11,27 +11,21 @@
       <div class="content">
         <div class="wrapper-content-slides">
           <h3>{{slide.title}}</h3>
-          <h5>{{slide.label}}</h5>
-          <p>{{slide.message}}</p>
+          <!-- <h5>{{slide.description}}</h5> -->
+          <ng-container *ngIf="slide.description != null">
+            <p>{{slide.description}}</p>
+          </ng-container>
           <div class="call-to-action" *ngIf="slide?.callToAction">
-            <app-button Theme="btn-secundary" Label="{{slide?.callToAction?.label}}" [routerLink]="[slide?.callToAction?.url]"></app-button>
+            <!-- <app-button Theme="btn-secundary" Label="{{slide?.callToAction?.label}}" [routerLink]="[slide?.callToAction?.url]"></app-button> -->
           </div>
         </div>
       </div>
-
-        <img *ngIf="slide?.type === 'big-banner' && slide.img != null" src="{{urlAssets}}{{slide.img.url }}" alt="" width="100%">
-
+      <img *ngIf="slide?.type === 'big-banner' && slide.img != null" src="{{urlAssets}}{{slide.image_web.data[0].attributes.url }}" alt="" width="100%">
         <ng-container *ngIf="slide?.type != 'big-banner'">
-          <img src="{{urlAssets}}{{slide.url }}" alt="" width="100%">
+          <img src="{{urlAssets}}{{slide.image_web.data[0].attributes.url }}" alt="" width="100%">
         </ng-container>
-
-
-
-
     </div>
-
   </ngx-slick-carousel>
-
   <!-- <button (click)="addSlide()">Add</button>
   <button (click)="removeSlide()">Remove</button>
   <button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>

@@ -11,6 +11,7 @@ import html2canvas from 'html2canvas';
 import { UploadService } from 'src/app/services/upload.service';
 import { Client } from 'src/app/models/client';
 import { Order } from 'src/app/models/order';
+import { ClientService } from 'src/app/services/client.service';
 
 @Component({
   selector: 'app-contact',
@@ -44,6 +45,7 @@ export class ContactComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private contactService: ContactService,
+    private clientService: ClientService,
     private router: Router,
     private shoppingCartService: ShoppingCartService,
     private modal: NzModalService,
@@ -82,12 +84,9 @@ export class ContactComponent implements OnInit {
         email: this.formData.controls['email'].value,
         message: this.formData.controls['message'].value
       }
-      if(this.currentStore.length > 0){
-        this.isVisibleCoti = true;
-      } else {
-        this.isVisibleCoti = false;
-        this.sendMailContact();
-      }
+
+      this.sendMailContact();
+
     }
   }
 
@@ -107,18 +106,7 @@ export class ContactComponent implements OnInit {
     this.submitted = false;
   }
 
-  async initEntryClient(){
-    const cliente = this.contactService.getUniqueClient( this.formData.controls['rut'].value ).subscribe( (currentClient :any) => {
 
-      if(currentClient.data.length > 0){
-        console.log('Usuario ya existe', currentClient);
-      }else {
-        console.log('Usuario No  existe', currentClient);
-        this.saveClient();
-      }
-    });
-
-  }
 
   async saveClient() {
     this.dataSaveClient = {
@@ -127,13 +115,27 @@ export class ContactComponent implements OnInit {
         "rut": this.formData.controls['rut'].value,
         "phone": this.formData.controls['phone'].value,
         "email": this.formData.controls['email'].value,
-        "keyID": this.formData.controls['rut'].value,
         "product": this.AuxIdRelationOrder.length > 0 ? this.AuxIdRelationOrder : [],
       }
     };
-    await this.contactService.save(this.dataSaveClient).subscribe( (respSaveContact:any) => {
+    await this.clientService.save(this.dataSaveClient).subscribe( (respSaveContact:any) => {
       if(respSaveContact != undefined){
+        this.shoppingCartService.deleteAll();
         console.log('respSaveContact', respSaveContact);
+      }
+    });
+  }
+
+  async updateClient(currentClient:any) {
+    this.currentStore   = this.getCotizacion();
+    this.dataSaveClient = {
+      data:  {
+        "product": this.currentStore,
+      }
+    };
+    await this.clientService.update(this.dataSaveClient, currentClient.id).subscribe( (updateClient:any) => {
+      if(updateClient != undefined){
+        console.log('updateClient', updateClient);
       }
     });
   }
@@ -171,7 +173,7 @@ export class ContactComponent implements OnInit {
 
   enviarCoti(){
     this.isVisibleCoti = false;
-    this.initEntryClient();
+    this.saveClient();
     // this.captureScreen();
   }
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HomePageService } from 'src/app/services/home-page.service';
 import { ContentService } from './../../../services/content.service';
+import * as qs from 'qs';
 
 @Component({
   selector: 'app-quick-shortcuts',
@@ -7,33 +9,30 @@ import { ContentService } from './../../../services/content.service';
   styleUrls: ['./quick-shortcuts.component.scss']
 })
 export class QuickShortcutsComponent implements OnInit {
+  data_heaSHortCut:any ;
   data_shortcut:any;
   configServices:any;
 
   constructor(
-    private contentService: ContentService
-  ) {
-    // this.data_shortcut = [
-    //   {id:0, type:'short-cut', params:'0', label:'Despacho 24  hrs', message:'Toda Region Metropolitana', img:'short-cut-1.jpg'},
-    //   {id:1, type:'short-cut', params:'1', label:'Paga en cuotas', message:'Hasta 12 cuotas', img:'short-cut-2.jpg'},
-    // ];
-    this.configServices = {
-      theme:'product-shortcuts backgroud-product',
-      typeMedia:'background'
-    };
-  }
+    private homePageService: HomePageService,
+  ) {}
 
   ngOnInit(): void {
     this.getDataShortCuts();
   }
 
   getDataShortCuts(){
-    this.contentService.getContentType('?type=short-cuts').subscribe( (contentType) => {
-      this.data_shortcut = contentType;
+    // QUERY QUE TRAE LOS COMPONENTES ANIDADOS + IMAGENES
+    const query = qs.stringify({
+      populate: ['*', 'shortCut', 'shortCut.image_web', 'shortCut.image_movil', 'headShortCut'],
+    }, {
+      encodeValuesOnly: true,
+    });
 
-      // console.log('this.data_shortcut', this.data_shortcut);
-
-      // console.log('typeof', typeof this.data_shortcut[0].img)
+    this.homePageService.getDataPage(`?${query}`).subscribe( (shortCut) => {
+      this.data_shortcut = shortCut.data[0].attributes.shortCut;
+      this.data_heaSHortCut = shortCut.data[0].attributes.headShortCut;
+      console.log('this.data_shortcut', shortCut.data[0].attributes.headShortCut);
     });
   }
 

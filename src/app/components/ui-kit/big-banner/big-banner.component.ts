@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { HomePageService } from 'src/app/services/home-page.service';
 import { ContentService } from './../../../services/content.service';
+import * as qs from 'qs';
 
 @Component({
   selector: 'app-big-banner',
@@ -17,7 +19,10 @@ export class BigBannerComponent implements OnInit, AfterViewInit {
     slidesToScroll:1
   };
 
-  constructor(private contentService: ContentService) {
+  constructor(
+    private contentService: ContentService,
+    private homePageService: HomePageService
+  ) {
     // :::::: SLICKJS CONFIGURATION :::::::::::::::::::
     // ::::::::::::::::::::::::::::::::::::::::::::::::
     // this.slides_data = [
@@ -43,12 +48,14 @@ export class BigBannerComponent implements OnInit, AfterViewInit {
   }
 
   getDataBanner(){
-    this.contentService.getContentType('?type=big-banner').subscribe( (slide) => {
-      this.slides_data = slide;
-
-      // console.log('this.slides_data', this.slides_data);
+    // QUERY QUE TRAE LOS COMPONENTES ANIDADOS + IMAGENES
+    const query = qs.stringify({
+      populate: ['*', 'bigBanner', 'bigBanner.image_web.media', 'bigBanner.image_movil.media'],
+    }, {
+      encodeValuesOnly: true,
+    });
+    this.homePageService.getDataPage(`?${query}`).subscribe( (slide) => {
+      this.slides_data = slide.data[0].attributes.bigBanner;
     });
   }
-
-
 }

@@ -12,18 +12,10 @@
     </div>
     <div class="right">
       <h2>
-        Quien <br/> somos.
+        {{data_teaser.title}}
       </h2>
-      <div>
-        <p>
-          Somos una empresa nueva que tenemos un gran desafío personal, el lograr ser líderes en el mercado y lograr posicionarnos en el mercado industrial como una alternativa viable y confiable, que se caracterice por tener precios competitivos y productos de la mejor calidad.
-        </p>
-        <p>
-          Buscamos enfocarnos en los procesos de nuestros clientes y ser un partner para que ellos puedan contar con los insumos de mejor calidad para desarrollar sus proyectos.
-        </p>
-        <p>
-          Nos queremos involucrar en mejorar los procesos y ser un socio confiable de aquellos que nos aligan como proveedor, nos esmeraremos en poder cumplir con su exigencia, teniendo una política de flexibilidad en los repartos y enfoque a los clientes.
-        </p>
+      <div class="box-about-teaser">
+        <markdown [data]="data_teaser.description"></markdown>
         <app-button Theme="btn-secundary" Label="Ver Más" [routerLink]="'/somos'" foo></app-button>
       </div>
     </div>

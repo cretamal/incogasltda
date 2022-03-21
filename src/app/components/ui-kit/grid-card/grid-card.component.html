@@ -2,13 +2,7 @@
   <div>
     <ul>
       <li *ngFor="let work of data_works">
-
-          <app-card
-            [Config]="ConfigChildren"
-            [Data]="work"
-            Theme="{{ConfigChildren}}"
-          >
-          </app-card>
+        <app-card [Config]="ConfigChildren" [Data]="work" Theme="{{ConfigChildren}}"></app-card>
       </li>
     </ul>
   </div>
