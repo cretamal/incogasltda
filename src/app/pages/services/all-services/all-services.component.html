@@ -21,35 +21,33 @@
         <div class="wrapper-site">
           <ng-container *ngIf="data_services.length > 0">
             <div class="works-home col-3-flex">
-              <div>
-                <ul>
-                  <li *ngFor="let service of data_services">
-                    <div class="card service-card-primary">
-                      <div class="wrapper-card">
-                        <div class="head-card">
-                            <div class="ico-card">
-                              <img *ngIf="service.Thumbnails.img" src="{{urlAssets}}{{service.Thumbnails.img.url }}" alt="" width="100%">
-                            </div>
-                          <h3>{{service.Thumbnails.title}}</h3>
-                        </div>
-                        <div class="body-card">
-                          <ng-container  *ngIf="service.Thumbnails.typeMedia === 'background'">
-                            <h3>{{service.title}}</h3>
-                            <ng-container *ngIf="service.Thumbnails.price != null">
-                              <h4 class="price"> <span>$</span> {{service.Thumbnails.price}} <span>+ iva</span></h4>
-                            </ng-container>
+              <ul>
+                <li *ngFor="let service of data_services">
+                  <div class="card service-card-primary">
+                    <div class="wrapper-card">
+                      <div class="head-card">
+                          <div class="ico-card">
+                            <img *ngIf="service?.attributes?.services?.data[0]?.attributes?.icon" src="{{urlAssets}}{{service?.attributes?.services?.data[0]?.attributes?.icon?.data?.attributes?.url }}" alt="" width="100%">
+                          </div>
+                        <h3>{{service?.attributes?.services?.data[0]?.attributes?.name}}</h3>
+                      </div>
+                      <div class="body-card">
+                        <!-- <ng-container  *ngIf="service.Thumbnails.typeMedia === 'background'">
+                          <h3>{{service.title}}</h3>
+                          <ng-container *ngIf="service.Thumbnails.price != null">
+                            <h4 class="price"> <span>$</span> {{service.Thumbnails.price}} <span>+ iva</span></h4>
                           </ng-container>
-                          <p>{{service.Thumbnails.label}}</p>
-                        </div>
-                        <div class="foo-card">
-                          <app-button Theme="btn-secundary" Label="{{service.Thumbnails.callToAction.label}}" (click)="callToAction(service)"></app-button>
-                        </div>
+                        </ng-container> -->
+                        <p>{{service?.attributes?.services?.data[0].attributes.teaser}}</p>
+                      </div>
+                      <div class="foo-card">
+                        <app-button Theme="btn-secundary" Label="ver Más" (click)="callToAction(service)"></app-button>
                       </div>
                     </div>
+                  </div>
 
-                  </li>
-                </ul>
-              </div>
+                </li>
+              </ul>
             </div>
           </ng-container>
         </div>

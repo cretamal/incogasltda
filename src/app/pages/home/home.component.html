@@ -17,9 +17,7 @@
     </div>
   </div>
 
-
   <div class="box-services">
-
     <div class="box-head-services bg-services">
       <div class="wrapper-site">
         <div>
@@ -38,35 +36,33 @@
       <div class="wrapper-site">
         <ng-container *ngIf="data_services.length > 0">
           <div class="works-home col-3-flex">
-            <div>
-              <ul>
-                <li *ngFor="let service of data_services">
-                  <div class="card service-card-primary">
-                    <div class="wrapper-card">
-                      <div class="head-card">
-                          <div class="ico-card">
-                            <img *ngIf="service.Thumbnails.img" src="{{urlAssets}}{{service.Thumbnails.img.url }}" alt="" width="100%">
-                          </div>
-                        <h3>{{service.Thumbnails.title}}</h3>
-                      </div>
-                      <div class="body-card">
-                        <ng-container  *ngIf="service.Thumbnails.typeMedia === 'background'">
-                          <h3>{{service.title}}</h3>
-                          <ng-container *ngIf="service.Thumbnails.price != null">
-                            <h4 class="price"> <span>$</span> {{service.Thumbnails.price}} <span>+ iva</span></h4>
-                          </ng-container>
+            <ul>
+              <li *ngFor="let service of data_services">
+                <div class="card service-card-primary">
+                  <div class="wrapper-card">
+                    <div class="head-card">
+                        <div class="ico-card">
+                          <img *ngIf="service?.attributes?.services?.data[0]?.attributes?.icon" src="{{urlAssets}}{{service?.attributes?.services?.data[0]?.attributes?.icon?.data?.attributes?.url }}" alt="" width="100%">
+                        </div>
+                      <h3>{{service?.attributes?.services?.data[0]?.attributes?.name}}</h3>
+                    </div>
+                    <div class="body-card">
+                      <!-- <ng-container  *ngIf="service.Thumbnails.typeMedia === 'background'">
+                        <h3>{{service.title}}</h3>
+                        <ng-container *ngIf="service.Thumbnails.price != null">
+                          <h4 class="price"> <span>$</span> {{service.Thumbnails.price}} <span>+ iva</span></h4>
                         </ng-container>
-                        <p>{{service.Thumbnails.label}}</p>
-                      </div>
-                      <div class="foo-card">
-                        <app-button Theme="btn-secundary" Label="{{service.Thumbnails.callToAction.label}}" (click)="callToAction(service)"></app-button>
-                      </div>
+                      </ng-container> -->
+                      <p>{{service?.attributes?.services?.data[0].attributes.teaser}}</p>
+                    </div>
+                    <div class="foo-card">
+                      <app-button Theme="btn-secundary" Label="ver Más" (click)="callToAction(service)"></app-button>
                     </div>
                   </div>
+                </div>
 
-                </li>
-              </ul>
-            </div>
+              </li>
+            </ul>
           </div>
         </ng-container>
       </div>
@@ -93,7 +89,55 @@
     <div class="box-grid-products">
       <div class="wrapper-site">
         <ng-container *ngIf="data_products.length > 0">
-          <app-grid-card [Data]="data_products" Theme="works-home col-4-flex" [ConfigChildren]="configProducts"></app-grid-card>
+          <div class="box-products">
+            <ul>
+              <li *ngFor="let item of data_products">
+                <div class="item-product">
+                  <ng-container *ngIf="true">
+                    <div class="thumb" *ngIf="item?.attributes?.image_web?.data != null">
+                      <img src="{{urlAssets}}{{item?.attributes?.image_web.data.attributes.url}}"/>
+                    </div>
+                  </ng-container>
+                  <div class="details">
+                    <h3>{{item.attributes.title}}</h3>
+                    <h4>{{item.attributes.supplier}}</h4>
+                  </div>
+                  <div class="format">
+                    <ul>
+                      <li>
+                        <h6>Cilindro</h6>
+                        <ng-container *ngIf="item.attributes.cilindro">
+                          <p class="disponible">SI</p>
+                        </ng-container>
+                        <ng-container *ngIf="!item.attributes.cilindro">
+                           <p class="no-disponible">NO</p>
+                        </ng-container>
+                      </li>
+                      <li>
+                        <h6>Rack</h6>
+                        <ng-container *ngIf="item.attributes.rack">
+                          <p class="disponible">SI</p>
+                        </ng-container>
+                        <ng-container *ngIf="!item.attributes.rack">
+                           <p class="no-disponible">NO</p>
+                        </ng-container>
+                      </li>
+                      <li>
+                        <h6>Termo</h6>
+                        <ng-container *ngIf="item.attributes.termo != null">
+                          <p class="disponible">{{item.attributes.termo}}</p>
+                        </ng-container>
+                        <ng-container *ngIf="item.attributes.termo === null">
+                           <p class="no-disponible">NO</p>
+                        </ng-container>
+
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </ng-container>
       </div>
     </div>

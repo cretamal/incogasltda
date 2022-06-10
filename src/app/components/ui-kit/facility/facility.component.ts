@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomePageService } from 'src/app/services/home-page.service';
 import * as qs from 'qs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-facility',
@@ -9,10 +10,13 @@ import * as qs from 'qs';
 })
 export class FacilityComponent implements OnInit {
   data_facility:any;
+  urlAssets:any;
 
   constructor(
     private homePageService: HomePageService,
-  ) { }
+  ) {
+    this.urlAssets = environment.server;
+  }
 
   ngOnInit(): void {
     this.getDataFacility();
@@ -20,14 +24,17 @@ export class FacilityComponent implements OnInit {
 
   getDataFacility(){
     // QUERY QUE TRAE LOS COMPONENTES ANIDADOS + IMAGENES
-    const query = qs.stringify({
-      populate: ['*', 'shortCut', 'shortCut.image_web', 'shortCut.image_movil'],
+     // QUERY QUE TRAE LOS COMPONENTES ANIDADOS + IMAGENES
+     const query = qs.stringify({
+      populate: ['*', 'ShortCut', 'ShortCut.web_img.media', 'ShortCut.movil_img.media'],
     }, {
       encodeValuesOnly: true,
     });
     this.homePageService.getDataPage(`?${query}`).subscribe( (shortCut) => {
-      this.data_facility = shortCut.data[0].attributes.shortCut;
+      this.data_facility = shortCut.data[0].attributes.ShortCut;
       console.log('this.data_facility', this.data_facility);
+      // this.data_heaSHortCut = shortCut.data[0].attributes.headShortCut;
+      // console.log('this.data_shortcut', shortCut.data[0].attributes.headShortCut);
     });
   }
 

@@ -50,12 +50,13 @@ export class BigBannerComponent implements OnInit, AfterViewInit {
   getDataBanner(){
     // QUERY QUE TRAE LOS COMPONENTES ANIDADOS + IMAGENES
     const query = qs.stringify({
-      populate: ['*', 'bigBanner', 'bigBanner.image_web.media', 'bigBanner.image_movil.media'],
+      populate: ['*', 'BigBanner', 'BigBanner.web_img.media', 'BigBanner.movil_img.media' ],
     }, {
       encodeValuesOnly: true,
     });
     this.homePageService.getDataPage(`?${query}`).subscribe( (slide) => {
-      this.slides_data = slide.data[0].attributes.bigBanner;
+      console.log('slide', slide.data[0].attributes.BigBanner);
+      this.slides_data = slide.data[0].attributes.BigBanner;
     });
   }
 }

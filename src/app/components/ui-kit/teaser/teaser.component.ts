@@ -25,13 +25,13 @@ export class TeaserComponent implements OnInit {
   getAbout(){
     // QUERY QUE TRAE LOS COMPONENTES ANIDADOS
     const query = qs.stringify({
-      populate: ['about'],
+      populate: ['*'],
     }, {
       encodeValuesOnly: true,
     });
     this.aboutPageService.getDataPage(`?${query}`).subscribe( (dataAbout) => {
-      this.data_teaser = dataAbout.data[0].attributes.about[0];
-      console.log('data_about', dataAbout.data[0].attributes.about[0]);
+      this.data_teaser = dataAbout.data[0].attributes.we_are;
+      console.log('data_about', dataAbout.data[0].attributes.we_are);
     });
   }
 

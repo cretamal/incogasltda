@@ -2,6 +2,8 @@ import { ProductService } from './../../../services/product.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SubCategoryService } from 'src/app/services/sub-category.service';
 // import { ProductService } from './../../services/product.service';
+import * as qs from 'qs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-all-products',
@@ -12,11 +14,13 @@ import { SubCategoryService } from 'src/app/services/sub-category.service';
 export class AllProductsComponent implements OnInit {
   data_products:any = [];
   configProducts:any;
+  urlAssets:any;
 
   constructor(
     private productService: ProductService,
     private subCategoryService: SubCategoryService
   ) {
+    this.urlAssets = environment.server;
     // this.data_products = [
     //   {id:0, type:'products', params:'0', label:'Lorem Ipsum', message:'Lorem Ipsum is simply'},
     //   {id:1, type:'products', params:'1', label:'Lorem Ipsum', message:'Lorem Ipsum is simply'},
@@ -39,10 +43,14 @@ export class AllProductsComponent implements OnInit {
   }
 
   getAllProducts(){
-    this.productService.getAll().subscribe( (product) => {
-      Object.assign(product, {cantidad:1});
-      this.data_products =  product;
-      // console.log('this.data_products', this.data_products);
+    const query = qs.stringify({
+      populate: ['*', 'image_web.media'],
+    }, {
+      encodeValuesOnly: true,
+    });
+    this.productService.getAll(`?${query}`).subscribe( (product) => {
+      this.data_products =  product.data;
+      console.log('this.data_products', this.data_products);
     });
   }
 

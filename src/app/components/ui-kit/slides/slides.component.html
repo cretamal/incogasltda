@@ -11,23 +11,20 @@
       <div class="content">
         <div class="wrapper-content-slides">
           <h3>{{slide.title}}</h3>
-          <!-- <h5>{{slide.description}}</h5> -->
           <ng-container *ngIf="slide.description != null">
             <p>{{slide.description}}</p>
           </ng-container>
-          <div class="call-to-action" *ngIf="slide?.callToAction">
-            <!-- <app-button Theme="btn-secundary" Label="{{slide?.callToAction?.label}}" [routerLink]="[slide?.callToAction?.url]"></app-button> -->
+          <div class="call-to-action">
+            <div class="btn-secundary">
+              <p>
+                Ver Más
+              </p>
+            </div>
           </div>
+
         </div>
       </div>
-      <img *ngIf="slide?.type === 'big-banner' && slide.img != null" src="{{urlAssets}}{{slide.image_web.data[0].attributes.url }}" alt="" width="100%">
-        <ng-container *ngIf="slide?.type != 'big-banner'">
-          <img src="{{urlAssets}}{{slide.image_web.data[0].attributes.url }}" alt="" width="100%">
-        </ng-container>
+      <img src="{{urlAssets}}{{slide.web_img.data.attributes.url }}" alt="" width="100%">
     </div>
   </ngx-slick-carousel>
-  <!-- <button (click)="addSlide()">Add</button>
-  <button (click)="removeSlide()">Remove</button>
-  <button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>
-  <button (click)="slickModal.unslick()">unslick</button> -->
 </div>

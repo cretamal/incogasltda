@@ -12,7 +12,7 @@ export class HomePageService {
   constructor(private http: HttpClient) { }
 
   getDataPage(query:string): Observable<any> {
-    const url = `${this.url}/api/home-pages${query}`;
+    const url = `${this.url}/api/homes${query}`;
     return this.http.get<any>( url );
   }
 

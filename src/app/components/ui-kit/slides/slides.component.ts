@@ -74,13 +74,6 @@ export class SlidesComponent implements OnInit {
   ngOnChanges() {
     this.slides = this.data;
     console.log('this.slides', this.slides);
-    // this.slides.forEach((slide:any) => {
-    //   if (slide.Thumbnails != null) {
-    //     if(isMobile.any()){
-    //       slide.img =  slide.Thumbnails.img;
-    //     }
-    //   }
-    // });
   }
 
   ngAfterViewInit(){}

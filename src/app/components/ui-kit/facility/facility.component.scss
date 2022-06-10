@@ -17,7 +17,17 @@
     padding-left: 85px;
     margin-bottom: 30px;
     cursor: pointer;
-
+    .image{
+      width:220px;
+      display: block;
+      margin:0 0 20px 0;
+      border-radius:10px;
+      overflow:hidden;
+      background-color: #333;
+      img{
+        width:100%;
+      }
+    }
     .icon {
         left: 0;
         top: 50%;

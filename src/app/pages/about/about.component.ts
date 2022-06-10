@@ -20,15 +20,12 @@ export class AboutComponent implements OnInit {
   getAbout(){
     // QUERY QUE TRAE LOS COMPONENTES ANIDADOS
     const query = qs.stringify({
-      populate: ['about'],
+      populate: ['*'],
     }, {
       encodeValuesOnly: true,
     });
     this.aboutPageService.getDataPage(`?${query}`).subscribe( (dataAbout) => {
-      this.data_about = dataAbout.data[0].attributes.about;
-      console.log('data_about', this.data_about);
+      this.data_about = dataAbout?.data[0]?.attributes;
     });
   }
-
-
 }

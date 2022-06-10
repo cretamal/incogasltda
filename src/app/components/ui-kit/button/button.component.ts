@@ -13,4 +13,8 @@ export class ButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngAfterViewInit(){
+    console.log('Label', this.Label);
+  }
+
 }

@@ -6,7 +6,7 @@ import { CategoryService } from './../../services/category.service';
 import { ProductService } from './../../services/product.service';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
-
+import * as qs from 'qs';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -63,36 +63,33 @@ export class HomeComponent implements OnInit {
 
 
   getAllCategory(){
-    this.categoryService.getAll().subscribe( (category) => {
-      category.forEach((element:any) => {
-        if(element.contents.length > 0) {
-          const findElement = element.contents.find((item:any) => item.type == "thumbnails" );
-          // console.log('findElement', findElement);
-          this.data_services.push(findElement);
-        }
-      });
+    const query = qs.stringify({
+      populate: ['*', 'services', 'services.Description', 'services.Use', 'services.Materials', 'services.Security', 'services.icon.media', 'services.pdf.media'],
+    }, {
+      encodeValuesOnly: true,
+    });
+
+    this.categoryService.getAll(`?${query}`).subscribe( (category) => {
+      // QUERY QUE TRAE LOS COMPONENTES ANIDADOS + IMAGENES
+      this.data_services = category.data;
     });
   }
 
-  // getAllCategory(){
-  //   this.categoryService.getAll().subscribe( (category) => {
-  //     console.log('category', category);
-  //     this.data_services =  category;
-  //     console.log('this.data_services', this.data_services);
-  //   });
-  // }
-
   getAllProducts(){
-    this.productService.getAll().subscribe( (product) => {
-      this.data_products =  product;
-      // console.log('this.data_products', this.data_products);
+    const query = qs.stringify({
+      populate: ['*', 'image_web.media'],
+    }, {
+      encodeValuesOnly: true,
+    });
+    this.productService.getAll(`?${query}`).subscribe( (product) => {
+      this.data_products =  product.data;
+      console.log('this.data_products', this.data_products);
     });
   }
 
 
   callToAction(service:any){
-    this.router.navigate([`/services/details/${service.category}`]);
-
+    this.router.navigate([`/services/details/${service.id}`]);
   }
 
 

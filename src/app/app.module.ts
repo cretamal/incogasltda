@@ -50,6 +50,7 @@ import { ShoppingCartComponent } from './components/ui-kit/shopping-cart/shoppin
 import { MarkdownModule } from 'ngx-markdown';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { FacilityComponent } from './components/ui-kit/facility/facility.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 registerLocaleData(es);
 @NgModule({
@@ -79,7 +80,8 @@ registerLocaleData(es);
     PageLoadingComponent,
     AsideCategoryComponent,
     ShoppingCartComponent,
-    FacilityComponent
+    FacilityComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -101,8 +103,10 @@ registerLocaleData(es);
     MarkdownModule.forRoot(),
   ],
   providers: [
+    SafePipe,
     { provide: Window, useValue: window },
     { provide: NZ_I18N, useValue: es_ES }
+
   ],
   bootstrap: [AppComponent]
 })

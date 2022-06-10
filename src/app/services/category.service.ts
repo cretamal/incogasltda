@@ -11,8 +11,8 @@ export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<any> {
-    const url = `${this.url}/categories`;
+  getAll(query:string): Observable<any> {
+    const url = `${this.url}/api/categories${query}`;
     return this.http.get<any>( url );
   }
 

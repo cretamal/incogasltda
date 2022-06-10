@@ -19,9 +19,17 @@
       </div>
       <div class="wrapper-site">
         <div class="body-content">
-          <div class="head-section" *ngFor="let item of data_about" >
-            <h1>{{item?.title}}</h1>
-            <markdown [data]="item?.description"></markdown>
+          <div class="head-section" >
+            <markdown [data]="data_about.we_are"></markdown>
+          </div>
+          <div class="head-section" >
+            <markdown [data]="data_about.mission_brand"></markdown>
+          </div>
+          <div class="head-section" >
+            <markdown [data]="data_about.visionary_brand"></markdown>
+          </div>
+          <div class="head-section" >
+            <markdown [data]="data_about.security"></markdown>
           </div>
         </div>
       </div>

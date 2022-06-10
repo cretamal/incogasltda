@@ -1,6 +1,7 @@
 import { CategoryService } from './../../../services/category.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { SubCategoryService } from 'src/app/services/sub-category.service';
+import * as qs from 'qs';
 
 @Component({
   selector: 'app-aside-category',
@@ -42,7 +43,12 @@ export class AsideCategoryComponent implements OnInit {
   }
 
   getAllCategory(){
-    this.categoryService.getAll().subscribe( (category) => {
+    const query = qs.stringify({
+      populate: ['*'],
+    }, {
+      encodeValuesOnly: true,
+    });
+    this.categoryService.getAll(query).subscribe( (category) => {
       // console.log('category', category);
       this.categories = category;
     });

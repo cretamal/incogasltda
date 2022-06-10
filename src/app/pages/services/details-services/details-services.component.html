@@ -1,11 +1,11 @@
 <section id="services-details">
   <article>
     <div class="box-services">
-      <div class="box-head-services bg-services">
+      <div class="box-head-services" style="background-image: url({{urlAssets+dataPage?.bigBanner?.data?.attributes?.url}});">
         <div class="wrapper-site">
           <div>
             <h2>
-              {{dataPage.title}}
+              {{dataPage.name}}
             </h2>
           </div>
         </div>
@@ -13,16 +13,60 @@
       <div class="breadcrumbs wrapper-site">
         <nz-breadcrumb>
           <nz-breadcrumb-item><a [routerLink]="['/services/all']">Nuestros Segmentos</a></nz-breadcrumb-item>
-          <nz-breadcrumb-item>Detalle {{dataPage.title}}</nz-breadcrumb-item>
+          <nz-breadcrumb-item>Detalle {{dataPage.name}}</nz-breadcrumb-item>
         </nz-breadcrumb>
+
+        <div class="descargar-ficha" (click)="viewPdfInline()">
+          <h3>Ficha Técnica <img src="./assets/img/download.png"/></h3>
+        </div>
       </div>
+
       <div class="wrapper-site">
         <div class="body-content">
-          <div class="head-section" *ngIf="dataPage.Page != undefined">
-            <markdown [data]="dataPage.Page.body"></markdown>
+
+          <div class="head-section" *ngIf="dataPage.Description != undefined && dataPage.Description.length > 0">
+            <div *ngFor="let item of dataPage.Description">
+              <h3>{{item.name}}</h3>
+              <markdown [data]="item.description"></markdown>
+            </div>
+          </div>
+          <div class="head-section" *ngIf="dataPage.use != undefined && dataPage.Use.length > 0">
+            <div *ngFor="let item of dataPage.Use">
+              <h3>{{item.name}}</h3>
+              <markdown [data]="item.description"></markdown>
+            </div>
+          </div>
+          <div class="head-section" *ngIf="dataPage.Materials != undefined && dataPage.Materials.length > 0">
+            <div *ngFor="let item of dataPage.Materials">
+              <h3>{{item.name}}</h3>
+              <markdown [data]="item.description"></markdown>
+            </div>
+          </div>
+          <div class="head-section" *ngIf="dataPage.Security != undefined && dataPage.Security.length > 0">
+            <h2>Seguridad:</h2>
+            <div *ngFor="let item of dataPage.Security">
+              <br/>
+              <h3>{{item.name}}</h3>
+              <markdown [data]="item.description"></markdown>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </article>
 </section>
+
+
+<ng-container *ngIf="viewPdf">
+  <div class="view-pdf">
+    <div class="head-pdf">
+      <div class="btn-close-pdf" (click)="closePdfInline()">
+        <img src="./assets/img/x-mark.png" />
+      </div>
+    </div>
+    <div class="content-pdf">
+      <iframe id="iframepdf" src="{{currentPdfView | safe}}"></iframe>
+    </div>
+  </div>
+
+</ng-container>

@@ -11,11 +11,11 @@
 
     </div>
     <div class="right">
-      <h2>
-        {{data_teaser.title}}
-      </h2>
+      <!-- <h2>
+        {{data_teaser}}
+      </h2> -->
       <div class="box-about-teaser">
-        <markdown [data]="data_teaser.description"></markdown>
+        <markdown [data]="data_teaser"></markdown>
         <app-button Theme="btn-secundary" Label="Ver Más" [routerLink]="'/somos'" foo></app-button>
       </div>
     </div>

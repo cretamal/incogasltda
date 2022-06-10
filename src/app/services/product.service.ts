@@ -13,8 +13,8 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
 
-  getAll(): Observable<any> {
-    const url = `${this.url}/products`;
+  getAll(query:any): Observable<any> {
+    const url = `${this.url}/api/products${query}`;
     return this.http.get<any>( url );
   }
 

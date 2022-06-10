@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { CategoryService } from './../../../services/category.service';
-
+import * as qs from 'qs';
 
 @Component({
   selector: 'app-all-services',
@@ -34,24 +34,21 @@ export class AllServicesComponent implements OnInit {
   }
 
   getAllCategory(){
-    this.categoryService.getAll().subscribe( (category) => {
-      // console.log('category', category);
-      category.forEach((element:any) => {
+    const query = qs.stringify({
+      populate: ['*', 'services', 'services.Description', 'services.Use', 'services.Materials', 'services.Security', 'services.icon.media', 'services.pdf.media'],
+    }, {
+      encodeValuesOnly: true,
+    });
 
-        if(element.contents.length > 0) {
-          const findElement = element.contents.find((item:any) => item.type == "thumbnails" );
-          // console.log('findElement', findElement);
-          this.data_services.push(findElement);
-        }
-      });
+    this.categoryService.getAll(`?${query}`).subscribe( (category) => {
+      // QUERY QUE TRAE LOS COMPONENTES ANIDADOS + IMAGENES
+      this.data_services = category.data;
     });
   }
 
 
   callToAction(service:any){
-    // console.log('service', service);
-    this.router.navigate([`/services/details/${service.category}`]);
-
+    this.router.navigate([`/services/details/${service.id}`]);
   }
 
 }
