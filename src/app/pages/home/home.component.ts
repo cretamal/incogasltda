@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
 
 
   constructor(
-    private contentService: ContentService,
     private categoryService: CategoryService,
     private productService: ProductService,
     private router: Router,
@@ -34,33 +33,19 @@ export class HomeComponent implements OnInit {
       theme:'product-service backgroud-product',
       typeMedia:'background'
     };
-
     this.configServices = {
       theme:'service-card-primary',
       typeMedia:'icon'
     };
-
-
-
   }
 
 
-  ngOnInit(): void {
-    this.getAllContent();
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit() {
     this.getAllCategory();
     this.getAllProducts();
   }
-
-
-  getAllContent(){
-    this.contentService.getAll().subscribe( (content) => {
-      // console.log('content', content);
-    });
-  }
-
 
   getAllCategory(){
     const query = qs.stringify({

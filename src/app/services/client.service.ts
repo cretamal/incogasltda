@@ -16,7 +16,7 @@ export class ClientService {
   ) {}
 
   save( payload: Client ): Observable<Client> {
-    const url = `${this.url}/clients`;
+    const url = `${this.url}/contacts`;
     return this.http.post<Client>( url, payload );
   }
 

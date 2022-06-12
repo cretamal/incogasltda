@@ -20,24 +20,8 @@ export class BigBannerComponent implements OnInit, AfterViewInit {
   };
 
   constructor(
-    private contentService: ContentService,
     private homePageService: HomePageService
-  ) {
-    // :::::: SLICKJS CONFIGURATION :::::::::::::::::::
-    // ::::::::::::::::::::::::::::::::::::::::::::::::
-    // this.slides_data = [
-    //   {
-    //     img: "./assets/img/slider-1.jpg",
-    //     title: "1 Lorem Ipsum",
-    //     subTitle:"Lorem Ipsum",
-    //     message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-    //   }
-
-    // ];
-
-
-
-  }
+  ) {}
 
   ngOnInit(){
 

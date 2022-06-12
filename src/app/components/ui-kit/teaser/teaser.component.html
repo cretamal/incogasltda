@@ -15,7 +15,9 @@
         {{data_teaser}}
       </h2> -->
       <div class="box-about-teaser">
-        <markdown [data]="data_teaser"></markdown>
+        <ng-container *ngIf="data_teaser.length > 0">
+          <markdown [data]="data_teaser"></markdown>
+        </ng-container>
         <app-button Theme="btn-secundary" Label="Ver Más" [routerLink]="'/somos'" foo></app-button>
       </div>
     </div>

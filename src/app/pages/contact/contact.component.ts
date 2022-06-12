@@ -84,9 +84,7 @@ export class ContactComponent implements OnInit {
         email: this.formData.controls['email'].value,
         message: this.formData.controls['message'].value
       }
-
-      this.sendMailContact();
-
+      this.saveClient();
     }
   }
 
@@ -97,7 +95,7 @@ export class ContactComponent implements OnInit {
 
     this.contactService.sendMessageContact(this.dataFormMail).subscribe( (contact:any) => {
       if(contact['code'] == 200){
-        this.saveClient();
+        // this.saveClient();
         this.isVisible = true;
         this.formData.reset();
         this.sendMail = false;
@@ -115,13 +113,16 @@ export class ContactComponent implements OnInit {
         "rut": this.formData.controls['rut'].value,
         "phone": this.formData.controls['phone'].value,
         "email": this.formData.controls['email'].value,
-        "product": this.AuxIdRelationOrder.length > 0 ? this.AuxIdRelationOrder : [],
+        "message": this.formData.controls['message'].value,
+        // "product": this.AuxIdRelationOrder.length > 0 ? this.AuxIdRelationOrder : [],
       }
     };
     await this.clientService.save(this.dataSaveClient).subscribe( (respSaveContact:any) => {
+      console.log('respSaveContact', respSaveContact);
       if(respSaveContact != undefined){
-        this.shoppingCartService.deleteAll();
+        // this.shoppingCartService.deleteAll();
         console.log('respSaveContact', respSaveContact);
+        this.sendMailContact();
       }
     });
   }
@@ -173,7 +174,7 @@ export class ContactComponent implements OnInit {
 
   enviarCoti(){
     this.isVisibleCoti = false;
-    this.saveClient();
+    // this.saveClient();
     // this.captureScreen();
   }
 

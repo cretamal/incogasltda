@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HomePageService } from 'src/app/services/home-page.service';
-import { ContentService } from './../../../services/content.service';
 import * as qs from 'qs';
 
 @Component({
