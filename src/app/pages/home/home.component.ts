@@ -15,7 +15,7 @@ import * as qs from 'qs';
 })
 export class HomeComponent implements OnInit {
   data_services:any = [];
-  data_products:any = [];
+  // data_products:any = [];
 
   configProducts:any;
   configServices:any;
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private categoryService: CategoryService,
-    private productService: ProductService,
+    // private productService: ProductService,
     private router: Router,
   ) {
     this.urlAssets = environment.server;
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
 
   ngAfterViewInit() {
     this.getAllCategory();
-    this.getAllProducts();
+    // this.getAllProducts();
   }
 
   getAllCategory(){
@@ -60,17 +60,17 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getAllProducts(){
-    const query = qs.stringify({
-      populate: ['*', 'image_web.media'],
-    }, {
-      encodeValuesOnly: true,
-    });
-    this.productService.getAll(`?${query}`).subscribe( (product) => {
-      this.data_products =  product.data;
-      console.log('this.data_products', this.data_products);
-    });
-  }
+  // getAllProducts(){
+  //   const query = qs.stringify({
+  //     populate: ['*', 'image_web.media'],
+  //   }, {
+  //     encodeValuesOnly: true,
+  //   });
+  //   this.productService.getAll(`?${query}`).subscribe( (product) => {
+  //     this.data_products =  product.data;
+  //     console.log('this.data_products', this.data_products);
+  //   });
+  // }
 
 
   callToAction(service:any){

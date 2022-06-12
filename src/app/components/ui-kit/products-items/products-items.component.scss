@@ -1,0 +1,109 @@
+@import '../../../../theme.scss';
+@import '../../../../mq.scss';
+.box-products{
+  ul{
+    margin: 0;
+    padding: 0;
+    display:grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-auto-flow: dense;
+    grid-column-gap: 25px;
+    column-gap: 25px;
+    grid-row-gap: 25px;
+    row-gap: 25px;
+    @include respond-to($iphone_xs) {
+      grid-template-columns: 100%;
+    }
+    li{
+      width: 100%;
+      // max-width: 300px;
+      display: block;
+      order: 1px solid #fff;
+      background: #fff;
+      border-radius: 5px;
+      padding: 30px 0;
+      box-shadow: -14px 1px 67px -28px rgb(0 0 0 / 20%);
+      .item-product{
+        max-width:80%;
+        display:block;
+        margin:0 auto;
+        h3,h4{
+          color:$brand-primary;
+        }
+        h3{
+          font-weight: 900;
+          padding:20px 0;
+        }
+      }
+      .item-product{
+        .thumb{
+          width: 100%;
+          display: block;
+          margin-bottom: 30px;
+          img{
+            width: 100%;
+          }
+        }
+        .details{
+          display: flex;
+          column-gap: 20px;
+          align-items: center;
+          justify-content: space-between;
+          h3,h4{
+            color:#333;
+          }
+          h3{
+            font-weight: 900;
+          }
+          h4{
+            font-size: 20px;
+            font-weight: 600;
+            color: #009a49 !important;
+            span{
+              font-size: 16px;
+              font-weight: 400;
+              display: block;
+            }
+          }
+
+        }
+        .format{
+          border-top: 1px solid rgb(208, 208, 208);
+          ul{
+            display: grid;
+            grid-template-columns: 33% 33% 33%;
+            column-gap: 3%;
+            li{
+              box-shadow: none;
+              h6{
+                font-size: 20px;
+                font-weight: 700;
+                color:#333;
+                text-align: center
+              }
+              p{
+                font-size: 20px;
+                font-weight: 700;
+                color:#333;
+                text-align: center;
+              }
+              .disponible{
+                color: #009a49
+              }
+              .no-disponible{
+                color: $brand-primary;
+              }
+
+            }
+          }
+        }
+      }
+      &:hover{
+        // border:1 px solid rgba(255, 255, 255, 1);
+        box-shadow: -14px 1px 67px -28px rgba(0,0,0,0.71);
+        -webkit-box-shadow: -14px 1px 67px -28px rgba(0,0,0,0.71);
+        -moz-box-shadow: -14px 1px 67px -28px rgba(0,0,0,0.71);
+      }
+    }
+  }
+}

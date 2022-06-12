@@ -3,7 +3,7 @@
     <div class="box-services">
       <div class="box-head-services" style="background-image: url({{urlAssets+dataPage?.bigBanner?.data?.attributes?.url}});">
         <div class="wrapper-site">
-          <div>
+          <div class="box-banner">
             <h2>
               {{dataPage.name}}
             </h2>
@@ -23,33 +23,40 @@
 
       <div class="wrapper-site">
         <div class="body-content">
+          <ng-container *ngIf="dataPage != null">
+            <div class="head-section" *ngIf="dataPage.Description != undefined && dataPage.Description.length > 0">
+              <div *ngFor="let item of dataPage.Description">
+                <h3>{{item.name}}</h3>
+                <markdown [data]="item.description"></markdown>
+              </div>
+            </div>
+            <div class="head-section" *ngIf="dataPage.use != undefined && dataPage.Use.length > 0">
+              <div *ngFor="let item of dataPage.Use">
+                <h3>{{item.name}}</h3>
+                <markdown [data]="item.description"></markdown>
+              </div>
+            </div>
+            <div class="head-section" *ngIf="dataPage.Materials != undefined && dataPage.Materials.length > 0">
+              <div *ngFor="let item of dataPage.Materials">
+                <h3>{{item.name}}</h3>
+                <markdown [data]="item.description"></markdown>
+              </div>
+            </div>
+            <div class="head-section" *ngIf="dataPage.Security != undefined && dataPage.Security.length > 0">
+              <h2>Seguridad:</h2>
+              <div *ngFor="let item of dataPage.Security">
+                <br/>
+                <h3>{{item.name}}</h3>
+                <markdown [data]="item.description"></markdown>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="dataPage.length === 0">
+            <div class="loader white">Loading...</div>
+          </ng-container>
 
-          <div class="head-section" *ngIf="dataPage.Description != undefined && dataPage.Description.length > 0">
-            <div *ngFor="let item of dataPage.Description">
-              <h3>{{item.name}}</h3>
-              <markdown [data]="item.description"></markdown>
-            </div>
-          </div>
-          <div class="head-section" *ngIf="dataPage.use != undefined && dataPage.Use.length > 0">
-            <div *ngFor="let item of dataPage.Use">
-              <h3>{{item.name}}</h3>
-              <markdown [data]="item.description"></markdown>
-            </div>
-          </div>
-          <div class="head-section" *ngIf="dataPage.Materials != undefined && dataPage.Materials.length > 0">
-            <div *ngFor="let item of dataPage.Materials">
-              <h3>{{item.name}}</h3>
-              <markdown [data]="item.description"></markdown>
-            </div>
-          </div>
-          <div class="head-section" *ngIf="dataPage.Security != undefined && dataPage.Security.length > 0">
-            <h2>Seguridad:</h2>
-            <div *ngFor="let item of dataPage.Security">
-              <br/>
-              <h3>{{item.name}}</h3>
-              <markdown [data]="item.description"></markdown>
-            </div>
-          </div>
+
+
         </div>
       </div>
     </div>

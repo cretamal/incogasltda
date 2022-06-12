@@ -19,18 +19,24 @@
       </div>
       <div class="wrapper-site">
         <div class="body-content">
-          <div class="head-section" >
-            <markdown [data]="data_about.we_are"></markdown>
-          </div>
-          <div class="head-section" >
-            <markdown [data]="data_about.mission_brand"></markdown>
-          </div>
-          <div class="head-section" >
-            <markdown [data]="data_about.visionary_brand"></markdown>
-          </div>
-          <div class="head-section" >
-            <markdown [data]="data_about.security"></markdown>
-          </div>
+
+          <ng-container *ngIf="data_about != null">
+            <div class="head-section">
+              <markdown [data]="data_about.we_are"></markdown>
+            </div>
+            <div class="head-section" >
+              <markdown [data]="data_about.mission_brand"></markdown>
+            </div>
+            <div class="head-section" >
+              <markdown [data]="data_about.visionary_brand"></markdown>
+            </div>
+            <div class="head-section" >
+              <markdown [data]="data_about.security"></markdown>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="data_about.length === 0">
+            <div class="loader white">Loading...</div>
+          </ng-container>
         </div>
       </div>
     </div>

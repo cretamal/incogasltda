@@ -51,6 +51,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { FacilityComponent } from './components/ui-kit/facility/facility.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { ProductsItemsComponent } from './components/ui-kit/products-items/products-items.component';
 
 registerLocaleData(es);
 @NgModule({
@@ -81,7 +82,8 @@ registerLocaleData(es);
     AsideCategoryComponent,
     ShoppingCartComponent,
     FacilityComponent,
-    SafePipe
+    SafePipe,
+    ProductsItemsComponent
   ],
   imports: [
     BrowserModule,

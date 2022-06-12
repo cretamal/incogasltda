@@ -1,30 +1,40 @@
 
 <div class="slider-primary {{Theme}}">
+  <ng-container *ngIf="slides.length > 0">
     <ngx-slick-carousel class="carousel" #slickModal="slick-carousel"
-    [config]="slideConfig"
-    (init)="slickInit($event)"
-    (breakpoint)="breakpoint($event)"
-    (afterChange)="afterChange($event)"
-    (beforeChange)="beforeChange($event)">
-
-    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-      <div class="content">
-        <div class="wrapper-content-slides">
-          <h3>{{slide.title}}</h3>
-          <ng-container *ngIf="slide.description != null">
-            <p>{{slide.description}}</p>
-          </ng-container>
-          <div class="call-to-action">
-            <div class="btn-secundary">
-              <p>
-                Ver Más
-              </p>
+      [config]="slideConfig"
+      (init)="slickInit($event)"
+      (breakpoint)="breakpoint($event)"
+      (afterChange)="afterChange($event)"
+      (beforeChange)="beforeChange($event)">
+      <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+        <div class="content">
+          <div class="wrapper-content-slides">
+            <h3>{{slide.title}}</h3>
+            <ng-container *ngIf="slide.description != null">
+              <p>{{slide.description}}</p>
+            </ng-container>
+            <div class="call-to-action">
+              <div class="btn-secundary">
+                <p>
+                  Ver Más
+                </p>
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
+        <ng-container *ngIf="mdq.matches === false">
+          <img src="{{urlAssets}}{{slide.web_img.data.attributes.url }}" alt="" width="100%">
+        </ng-container>
+        <ng-container *ngIf="mdq.matches === true">
+          <img src="{{urlAssets}}{{slide.movil_img.data.attributes.url }}" alt="" width="100%">
+        </ng-container>
+
       </div>
-      <img src="{{urlAssets}}{{slide.web_img.data.attributes.url }}" alt="" width="100%">
-    </div>
-  </ngx-slick-carousel>
+    </ngx-slick-carousel>
+  </ng-container>
+  <ng-container *ngIf="slides.length === 0">
+    <div class="loader">Loading...</div>
+  </ng-container>
 </div>

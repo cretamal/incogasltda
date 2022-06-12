@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./facility.component.scss']
 })
 export class FacilityComponent implements OnInit {
-  data_facility:any;
+  data_facility:any = null;
   urlAssets:any;
 
   constructor(

@@ -9,7 +9,7 @@ import * as qs from 'qs';
 })
 export class QuickShortcutsComponent implements OnInit {
   data_heaSHortCut:any ;
-  data_shortcut:any;
+  data_shortcut:any = null;
   configServices:any;
 
   constructor(

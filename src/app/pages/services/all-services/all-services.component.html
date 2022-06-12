@@ -50,6 +50,9 @@
               </ul>
             </div>
           </ng-container>
+          <ng-container *ngIf="data_services.length === 0">
+            <div class="loader">Loading...</div>
+          </ng-container>
         </div>
       </div>
 

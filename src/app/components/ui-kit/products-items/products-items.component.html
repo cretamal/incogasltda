@@ -1,0 +1,54 @@
+<ng-container *ngIf="data_products.length > 0">
+  <div class="box-products">
+    <ul>
+      <li *ngFor="let item of data_products">
+        <div class="item-product">
+          <h3>{{item.attributes.title}}</h3>
+          <ng-container *ngIf="true">
+            <div class="thumb" *ngIf="item?.attributes?.image_web?.data != null">
+              <img src="{{urlAssets}}{{item?.attributes?.image_web.data.attributes.url}}"/>
+            </div>
+          </ng-container>
+          <!-- <div class="details">
+            <h4>{{item.attributes.supplier}}</h4>
+          </div> -->
+          <div class="format">
+            <ul>
+              <li>
+                <h6>Cilindro</h6>
+                <ng-container *ngIf="item.attributes.cilindro">
+                  <p class="disponible">SI</p>
+                </ng-container>
+                <ng-container *ngIf="!item.attributes.cilindro">
+                   <p class="no-disponible">NO</p>
+                </ng-container>
+              </li>
+              <li>
+                <h6>Rack</h6>
+                <ng-container *ngIf="item.attributes.rack">
+                  <p class="disponible">SI</p>
+                </ng-container>
+                <ng-container *ngIf="!item.attributes.rack">
+                   <p class="no-disponible">NO</p>
+                </ng-container>
+              </li>
+              <li>
+                <h6>Termo</h6>
+                <ng-container *ngIf="item.attributes.termo != null">
+                  <p class="disponible">{{item.attributes.termo}}</p>
+                </ng-container>
+                <ng-container *ngIf="item.attributes.termo === null">
+                   <p class="no-disponible">NO</p>
+                </ng-container>
+
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</ng-container>
+<ng-container *ngIf="data_products.length === 0">
+  <div class="loader">Loading...</div>
+</ng-container>
