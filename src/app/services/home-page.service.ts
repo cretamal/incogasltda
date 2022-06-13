@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class HomePageService {
-  private url = 'http://localhost:3002';
+  private url = `${environment.server}`;
 
   constructor(private http: HttpClient) { }
 

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root'
 })
 export class ContentService {
-  private url = environment.server;
+  private url = `${environment.server}/api`;
 
   constructor(private http: HttpClient) {
     // console.log('url:', this.url);

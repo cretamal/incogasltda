@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ServicesService {
-  private url = environment.server;
+  private url = `${environment.server}`;
 
   constructor(private http: HttpClient) {}
 

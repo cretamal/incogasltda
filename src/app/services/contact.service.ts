@@ -18,7 +18,7 @@ export class ContactService {
   };
 
   private sendMail = 'https://public.devfun.cl';
-  private url   = "http://localhost:3002/api";
+  private url = `${environment.server}/api`;
 
   constructor(private http: HttpClient) {}
 

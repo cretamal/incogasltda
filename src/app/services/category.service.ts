@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root'
 })
 export class CategoryService {
-  private url = environment.server;
+  private url = `${environment.server}`;
 
   constructor(private http: HttpClient) { }
 

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class ProductService {
 
-  private url = environment.server;
+  private url = `${environment.server}`;
 
   constructor(private http: HttpClient) {}
 
