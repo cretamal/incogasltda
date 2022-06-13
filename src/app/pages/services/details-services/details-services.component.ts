@@ -17,7 +17,7 @@ export class DetailsServicesComponent implements OnInit {
   dataPage:any = [];
   viewPdf:boolean = false;
   urlAssets:any;
-  currentPdfView:any;
+  currentPdfView:any = null;
 
   // :::::: SLICKJS CONFIGURATION :::::::::::::::::::
   // ::::::::::::::::::::::::::::::::::::::::::::::::
@@ -43,7 +43,7 @@ export class DetailsServicesComponent implements OnInit {
 
   findService(){
     const query = qs.stringify({
-      populate: ['*', 'services', 'services.Description', 'services.Use', 'services.Materials', 'services.Security', 'services.icon.media', 'services.pdf.media', 'services.bigBanner.media'],
+      populate: ['*', 'services', 'services.Description', 'services.Use', 'services.Materials', 'services.Security', 'services.icon.media', 'services.bigBanner.media'],
       filters: {
         id: {
           $eq: this.idParamRoute,
@@ -55,12 +55,14 @@ export class DetailsServicesComponent implements OnInit {
     this.categoryService.getAll(`?${query}`).subscribe( (category) => {
       const currentService  = category.data[0].attributes.services
       this.dataPage         = currentService.data[0].attributes;
-      console.log('this.dataPage', this.dataPage);
-      const urlPdf = this.urlAssets+this.dataPage?.pdf?.data?.attributes?.url;
+      this.currentPdfView   = this.dataPage.namePDF;
 
-      this.currentPdfView = this.sanitizer.sanitize(SecurityContext.RESOURCE_URL, this.sanitizer.bypassSecurityTrustResourceUrl(urlPdf));
+      console.log('this.currentPdfView', this.currentPdfView);
 
-      // this.currentPdfView = this.sanitizer.bypassSecurityTrustResourceUrl(urlPdf);
+      // const urlPdf = this.urlAssets+this.dataPage?.pdf?.data?.attributes?.url;
+      // this.currentPdfView = this.sanitizer.sanitize(SecurityContext.RESOURCE_URL, this.sanitizer.bypassSecurityTrustResourceUrl(urlPdf));
+      // console.log('this.currentPdfView', this.currentPdfView);
+      // this.currentPdfView = this.sanitizer.bypassSecurityTrustResourceUrl(this.currentPdfView);
     });
   }
 

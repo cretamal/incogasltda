@@ -9,6 +9,17 @@
     grid-template-columns:320px auto;
     column-gap: 80px;
   }
+  .breadcrumbs{
+    .ant-breadcrumb-link{
+      color:$brand-primary !important;
+      a{
+        color:#000 !important;
+      }
+    }
+    .ant-breadcrumb-separator{
+      color:#000 !important;
+    }
+  }
 }
 
 

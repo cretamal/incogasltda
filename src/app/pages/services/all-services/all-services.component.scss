@@ -6,16 +6,17 @@
   background: $white;
   min-height: 85vh;
   padding-bottom: 80px;
-}
-.breadcrumbs{
-  .ant-breadcrumb-link{
-    color:$brand-primary !important;
-    a{
+  .breadcrumbs{
+    .ant-breadcrumb-link{
+      color:$brand-primary !important;
+      a{
+        color:#000 !important;
+      }
+    }
+    .ant-breadcrumb-separator{
       color:#000 !important;
     }
   }
-  .ant-breadcrumb-separator{
-    color:#000 !important;
-  }
 }
+
 

@@ -16,11 +16,12 @@
           <nz-breadcrumb-item>Detalle {{dataPage.name}}</nz-breadcrumb-item>
         </nz-breadcrumb>
 
-        <div class="descargar-ficha" (click)="viewPdfInline()">
-          <h3>Ficha Técnica <img src="./assets/img/download.png"/></h3>
-        </div>
+        <ng-container *ngIf="currentPdfView != null">
+          <div class="descargar-ficha" (click)="viewPdfInline()">
+            <h3>Ficha Técnica <img src="./assets/img/download.png"/></h3>
+          </div>
+        </ng-container>
       </div>
-
       <div class="wrapper-site">
         <div class="body-content">
           <ng-container *ngIf="dataPage != null">
@@ -63,7 +64,6 @@
   </article>
 </section>
 
-
 <ng-container *ngIf="viewPdf">
   <div class="view-pdf">
     <div class="head-pdf">
@@ -71,9 +71,16 @@
         <img src="./assets/img/x-mark.png" />
       </div>
     </div>
+
     <div class="content-pdf">
-      <iframe id="iframepdf" src="{{currentPdfView | safe}}"></iframe>
+
+      <ng-container *ngIf="currentPdfView === 'aire' ">
+        <iframe id="iframepdf" src="./assets/pdf/aire.pdf"></iframe>
+      </ng-container>
+      <ng-container *ngIf="currentPdfView === 'indurmig' ">
+        <iframe id="iframepdf" src="./assets/pdf/indurmig.pdf"></iframe>
+      </ng-container>
+
     </div>
   </div>
-
 </ng-container>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -10,14 +10,18 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @ViewChild('navMenuMovil') navMenuMovil!: ElementRef;
+  @ViewChild('btnMenuMovil') btnMenuMovil!: ElementRef;
 
   navMenu:any = [];
   private unsubscribe$ = new Subject();
   listItemsShoppingCart:any = [];
+  openMenuMovil:boolean = false;
 
   constructor(
     private router: Router,
-    private shoppingCartService: ShoppingCartService
+    private shoppingCartService: ShoppingCartService,
+    private renderer: Renderer2,
   ) {
     this.navMenu = [
       {id:0,  label:'Home',  url: '/home'},
@@ -49,6 +53,18 @@ export class HeaderComponent implements OnInit {
       console.log('header-resp', resp);
       this.listItemsShoppingCart = resp;
     });
+  }
+
+  toggeleMenu(){
+    if(this.openMenuMovil === false){
+      this.renderer.setStyle(this.navMenuMovil.nativeElement, 'display', 'block');
+      this.renderer.setStyle(this.btnMenuMovil.nativeElement, 'background', '#000');
+      this.openMenuMovil = true;
+    }else if(this.openMenuMovil === true){
+      this.renderer.setStyle(this.navMenuMovil.nativeElement, 'display', 'none');
+      this.renderer.setStyle(this.btnMenuMovil.nativeElement, 'background', '#e41b23');
+      this.openMenuMovil = false;
+    }
   }
 
 }

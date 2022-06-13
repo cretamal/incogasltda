@@ -1,6 +1,7 @@
 
   @import '../../../../theme';
   .box-services{
+    min-height: 100vh;
     .box-banner{
       h2{
         color:#fff;
@@ -19,23 +20,23 @@
     display: flex;
     align-items: center;
   }
-  .breadcrumbs{
-    position: relative;
-    display: block;
-    margin-bottom: 120px;
-    .ant-breadcrumb-link{
-      color:#fff !important;
-      a{
-        color:#fff !important;
-      }
-    }
-    .ant-breadcrumb-separator{
-      color:#fff !important;
-    }
-  }
   #services-details{
     background: $brand-primary;
     padding:0 0 80px 0;
+    .breadcrumbs{
+      position: relative;
+      display: block;
+      margin-bottom: 120px;
+      .ant-breadcrumb-link{
+        color:#fff !important;
+        a{
+          color:#fff !important;
+        }
+      }
+      .ant-breadcrumb-separator{
+        color:#fff !important;
+      }
+    }
     .descargar-ficha{
       position: absolute;
       top:0;
@@ -44,9 +45,11 @@
       h3{
         color:#fff !important;
         font-size:22px;
+        font-weight: 400;;
       }
       img{
-        width:40px;
+        width:30px;
+        margin:0 0 0 20px;
       }
     }
     .body-content{
@@ -89,6 +92,7 @@
             line-height:22px;
             display: block;
             margin: 30px 0;
+            color:#fff !important;
           }
         }
       }

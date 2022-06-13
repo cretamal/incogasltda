@@ -1,216 +1,220 @@
-<ng-container *ngIf="true">
-  <br/>
-  <br/>
-  <br/>
-  <ng-container *ngIf="onBreadCrumbs">
-    <div class="breadcrumbs wrapper-site">
-      <nz-breadcrumb>
-        <nz-breadcrumb-item><a [routerLink]="['/']">Home</a></nz-breadcrumb-item>
-        <nz-breadcrumb-item>Contacto</nz-breadcrumb-item>
-      </nz-breadcrumb>
-    </div>
+
+<div id="contact">
+  <ng-container *ngIf="true">
+    <br/>
+    <br/>
+    <br/>
+    <ng-container *ngIf="onBreadCrumbs">
+      <div class="breadcrumbs wrapper-site">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item><a [routerLink]="['/']">Home</a></nz-breadcrumb-item>
+          <nz-breadcrumb-item>Contacto</nz-breadcrumb-item>
+        </nz-breadcrumb>
+      </div>
+    </ng-container>
+
   </ng-container>
 
-</ng-container>
 
-
-<div class="{{Theme}}">
-  <div class="wrapper-site">
-    <div class="left">
-      <div class="body">
-        <div class="head-section">
-          <h2>
-            Contacto
-          </h2>
-          <p>
-            Utiliza cualquiera de nuestro canales para contactarnos, estaremos felices de atender tus necesidades.
-          </p>
-        </div>
-        <hr />
-        <div class="content">
-          <h3>Incogas ltda. </h3>
-          <ul>
-            <li>
-              <img src="./assets/img/pin.png" />
-              <p>Dirección El Roble 670, Lampa Santiago.</p>
-            </li>
-            <li>
-              <img src="./assets/img/email.png" />
-              <p>ventas@incogasltda.cl - contacto@incogasltda.cl</p>
-            </li>
-            <li>
-              <img src="./assets/img/old-phone.png" />
-              <p>+569 65739999 - +569 XXXXXXXX</p>
-            </li>
-          </ul>
-        </div>
-        <div class="maps">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3334.2676063012073!2d-70.73563868385085!3d-33.31181868081404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662bfe2c627c421%3A0xfc5bf4c4cf6c0752!2sEl%20Roble%20670%2C%20Lampa%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1654823934472!5m2!1ses!2scl" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </div>
-    </div>
-    <div class="right">
-      <form [formGroup]="formData">
-        <div class="form">
-          <div class="body">
+  <div class="{{Theme}}">
+    <div class="wrapper-site">
+      <div class="left">
+        <div class="body">
+          <div class="head-section">
+            <h2>
+              Contacto
+            </h2>
+            <p>
+              Utiliza cualquiera de nuestro canales para contactarnos, estaremos felices de atender tus necesidades.
+            </p>
+          </div>
+          <hr />
+          <div class="content">
+            <h3>Incogas ltda. </h3>
             <ul>
-              <!-- Replicar con data dinamica json -->
               <li>
-                <div class="box-campo-form">
-                  <p>Nombre</p>
-                  <input type="text" placeholder="Ej: Juan Riquelme" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
-                  <div class="error">
-                    <div *ngIf="submitted && f.name.errors">
-                      <p *ngIf="f.name.errors.required">
-                        dato obligatorio
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <img src="./assets/img/pin.png" />
+                <p>Dirección El Roble 670, Lampa Santiago.</p>
               </li>
               <li>
-                <div class="box-campo-form">
-                  <p>Rut</p>
-                  <input type="text" placeholder="Ej: 16.089.345-3" formControlName="rut" [ngClass]="{ 'is-invalid': submitted && f.rut.errors }" />
-                  <div class="error">
-                    <div *ngIf="submitted && f.rut.errors">
-                      <p *ngIf="f.rut.errors.required">
-                        dato obligatorio
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <img src="./assets/img/email.png" />
+                <p>ventas@incogasltda.cl - contacto@incogasltda.cl</p>
               </li>
               <li>
-                <div class="box-campo-form">
-                  <p>Telefono</p>
-                  <input type="text" placeholder="Ej: 965879334" formControlName="phone" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
-                  <div class="error">
-                    <div *ngIf="submitted && f.phone.errors">
-                      <p *ngIf="f.phone.errors.required">
-                        dato obligatorio
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="box-campo-form">
-                  <p>Empresa</p>
-                  <input type="text" placeholder="Nombre Empresa" formControlName="business" [ngClass]="{ 'is-invalid': submitted && f.business.errors }" />
-                  <div class="error">
-                    <div *ngIf="submitted && f.business.errors">
-                      <p *ngIf="f.business.errors.required">
-                        dato obligatorio
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="box-campo-form">
-                  <p>Email</p>
-                  <input type="text" placeholder="Ej: contacto@empresa.cl" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-                  <div class="error">
-                    <div *ngIf="submitted && f.email.errors">
-                      <p *ngIf="f.email.errors.required">
-                        dato obligatorio
-                      </p>
-                      <p *ngIf="!f.email.errors.required && this.formData?.controls['email'].invalid">
-                        Formato invalido
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="box-campo-form">
-                  <p>Mensaje</p>
-                  <textarea formControlName="message" placeholder="Escribe tu mensaje"></textarea>
-                </div>
+                <img src="./assets/img/old-phone.png" />
+                <p>+569 65739999 - +569 XXXXXXXX</p>
               </li>
             </ul>
-            <br/>
-            <app-button Theme="btn-primary" Label="Enviar" (click)="onSubmit()"></app-button>
+          </div>
+          <div class="maps">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3334.2676063012073!2d-70.73563868385085!3d-33.31181868081404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662bfe2c627c421%3A0xfc5bf4c4cf6c0752!2sEl%20Roble%20670%2C%20Lampa%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1654823934472!5m2!1ses!2scl" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </div>
         </div>
-      </form>
+      </div>
+      <div class="right">
+        <form [formGroup]="formData">
+          <div class="form">
+            <div class="body">
+              <ul>
+                <!-- Replicar con data dinamica json -->
+                <li>
+                  <div class="box-campo-form">
+                    <p>Nombre</p>
+                    <input type="text" placeholder="Ej: Juan Riquelme" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                    <div class="error">
+                      <div *ngIf="submitted && f.name.errors">
+                        <p *ngIf="f.name.errors.required">
+                          dato obligatorio
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="box-campo-form">
+                    <p>Rut</p>
+                    <input type="text" placeholder="Ej: 16.089.345-3" formControlName="rut" [ngClass]="{ 'is-invalid': submitted && f.rut.errors }" />
+                    <div class="error">
+                      <div *ngIf="submitted && f.rut.errors">
+                        <p *ngIf="f.rut.errors.required">
+                          dato obligatorio
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="box-campo-form">
+                    <p>Telefono</p>
+                    <input type="text" placeholder="Ej: 965879334" formControlName="phone" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+                    <div class="error">
+                      <div *ngIf="submitted && f.phone.errors">
+                        <p *ngIf="f.phone.errors.required">
+                          dato obligatorio
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="box-campo-form">
+                    <p>Empresa</p>
+                    <input type="text" placeholder="Nombre Empresa" formControlName="business" [ngClass]="{ 'is-invalid': submitted && f.business.errors }" />
+                    <div class="error">
+                      <div *ngIf="submitted && f.business.errors">
+                        <p *ngIf="f.business.errors.required">
+                          dato obligatorio
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="box-campo-form">
+                    <p>Email</p>
+                    <input type="text" placeholder="Ej: contacto@empresa.cl" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div class="error">
+                      <div *ngIf="submitted && f.email.errors">
+                        <p *ngIf="f.email.errors.required">
+                          dato obligatorio
+                        </p>
+                        <p *ngIf="!f.email.errors.required && this.formData?.controls['email'].invalid">
+                          Formato invalido
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="box-campo-form">
+                    <p>Mensaje</p>
+                    <textarea formControlName="message" placeholder="Escribe tu mensaje"></textarea>
+                  </div>
+                </li>
+              </ul>
+              <br/>
+              <app-button Theme="btn-primary" Label="Enviar" (click)="onSubmit()"></app-button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
 
-<app-page-loading [activeLoad]=sendMail></app-page-loading>
+  <app-page-loading [activeLoad]=sendMail></app-page-loading>
 
-<nz-modal [(nzVisible)]="isVisible" nzTitle="Contacto Incogas"  (nzOnOk)="handleOk()">
-  <ng-container *nzModalContent>
-    <p>Formulario de contacto <strong>Enviado con Exito</strong>.</p>
-  </ng-container>
-</nz-modal>
-
-
-
-
-
-<ng-container *ngIf="isVisibleCoti">
-  <nz-modal
-    [(nzVisible)]="isVisibleCoti"
-    nzTitle="Tiene una Cotización Activa"
-    nzOkText="Enviar"
-    nzCancelText="Eliminar"
-    nzClosable="false"
-    nzMaskClosable="false"
-    (nzOnOk)="enviarCoti()"
-    (nzOnCancel)="eliminarCoti($event)"
-     >
+  <nz-modal [(nzVisible)]="isVisible" nzTitle="Contacto Incogas"  (nzOnOk)="handleOk()">
     <ng-container *nzModalContent>
-      <div id="contentToConvert">
-        <nz-table #basicTable [nzData]="cotizacion">
-          <thead>
-            <tr>
-              <th>ID:</th>
-              <th>NOMBRE:</th>
-              <th>CANTIDAD:</th>
-              <th>PRECIO:</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of cotizacion">
-              <td>{{ item.id }}</td>
-              <td>{{ item.name }}</td>
-              <td>{{ item.cantidad }}</td>
-              <td>{{ item.price }}</td>
-              <!-- <td>
-                <a>Action 一 {{data.name}}</a>
-                <nz-divider nzType="vertical"></nz-divider>
-                <a>Delete</a>
-              </td> -->
-            </tr>
-          </tbody>
-        </nz-table>
-      </div>
+      <p>Formulario de contacto <strong>Enviado con Exito</strong>.</p>
+    </ng-container>
+  </nz-modal>
 
+
+
+
+
+  <ng-container *ngIf="isVisibleCoti">
+    <nz-modal
+      [(nzVisible)]="isVisibleCoti"
+      nzTitle="Tiene una Cotización Activa"
+      nzOkText="Enviar"
+      nzCancelText="Eliminar"
+      nzClosable="false"
+      nzMaskClosable="false"
+      (nzOnOk)="enviarCoti()"
+      (nzOnCancel)="eliminarCoti($event)"
+       >
+      <ng-container *nzModalContent>
+        <div id="contentToConvert">
+          <nz-table #basicTable [nzData]="cotizacion">
+            <thead>
+              <tr>
+                <th>ID:</th>
+                <th>NOMBRE:</th>
+                <th>CANTIDAD:</th>
+                <th>PRECIO:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of cotizacion">
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.cantidad }}</td>
+                <td>{{ item.price }}</td>
+                <!-- <td>
+                  <a>Action 一 {{data.name}}</a>
+                  <nz-divider nzType="vertical"></nz-divider>
+                  <a>Delete</a>
+                </td> -->
+              </tr>
+            </tbody>
+          </nz-table>
+        </div>
+
+
+      </ng-container>
+    </nz-modal>
+  </ng-container>
+
+  <ng-container *ngIf="alertDeleteCoti">
+    <nz-modal
+      [(nzVisible)]="alertDeleteCoti"
+      nzTitle="ELIMINARA POR COMPLETO SU COTIZACIÓN"
+      nzOkText="Aceptar"
+      nzCancelText="Volver"
+      nzClosable="false"
+      nzMaskClosable="false"
+      (nzOnOk)="enviarCoti()"
+      (nzOnCancel)="eliminarCoti($event)"
+
+    >
+    <ng-container *nzModalContent>
 
     </ng-container>
   </nz-modal>
-</ng-container>
 
-<ng-container *ngIf="alertDeleteCoti">
-  <nz-modal
-    [(nzVisible)]="alertDeleteCoti"
-    nzTitle="ELIMINARA POR COMPLETO SU COTIZACIÓN"
-    nzOkText="Aceptar"
-    nzCancelText="Volver"
-    nzClosable="false"
-    nzMaskClosable="false"
-    (nzOnOk)="enviarCoti()"
-    (nzOnCancel)="eliminarCoti($event)"
-
-  >
-  <ng-container *nzModalContent>
 
   </ng-container>
-</nz-modal>
 
-
-</ng-container>
+</div>
