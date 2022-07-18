@@ -35,12 +35,14 @@ export class AllServicesComponent implements OnInit {
 
   getAllCategory(){
     const query = qs.stringify({
-      populate: ['*', 'services', 'services.Description', 'services.Use', 'services.Materials', 'services.Security', 'services.icon.media', 'services.pdf.media'],
+      populate: ['*', 'icon.media', 'services', 'services.Description', 'services.Use', 'services.Materials', 'services.Security', 'services.icon.media', 'services.pdf.media'],
+      sort: ['order:asc']
     }, {
       encodeValuesOnly: true,
     });
 
     this.categoryService.getAll(`?${query}`).subscribe( (category) => {
+      console.log('category:', category);
       // QUERY QUE TRAE LOS COMPONENTES ANIDADOS + IMAGENES
       this.data_services = category.data;
     });

@@ -69,6 +69,7 @@
         }
         .format{
           border-top: 1px solid rgb(208, 208, 208);
+          display:none;
           ul{
             display: grid;
             grid-template-columns: 33% 33% 33%;

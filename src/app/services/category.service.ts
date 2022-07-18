@@ -17,4 +17,10 @@ export class CategoryService {
   }
 
 
+  getServices(query:string): Observable<any> {
+    const url = `${this.url}/api/services${query}`;
+    return this.http.get<any>( url );
+  }
+
+
 }

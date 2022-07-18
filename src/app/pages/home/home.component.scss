@@ -15,14 +15,10 @@
 .box-quick-shortcuts{
   padding:0px 0;
   background: $white;
-  // background: $brand-primary;
-  // background: rgb(228,27,35);
-  // background: linear-gradient(90deg, rgba(228,27,35,1) 0%, rgb(250, 37, 45) 100%);
 }
 .box-teaser{
   margin-top: 50px;
   padding:20px 0;
-  // background: $brand-primary;
   background: rgb(254,71,78);
   background: linear-gradient(90deg, rgba(254,71,78,1) 0%, rgba(228,27,35,1) 100%);
 }
@@ -55,49 +51,72 @@
   border-radius: 5px;
   padding:30px 0;
   box-shadow: -14px 1px 67px -28px rgba(0,0,0,0.2);
-  .btn-products{display: none;}
+  .btn-products{
+    display: none;
+  }
+}
+
+
+.box-grid-services{
   .wrapper-card{
     max-width:80%;
     display:block;
     margin:0 auto;
   }
   .head-card{
-    h3{
-      font-size: 30px;
-      padding:10px 0 0 5px;
-      color: #000;
-    }
-  }
-  .body-card{
-    p{
-      font-weight: 400;
-      color: #000;
-    }
+    border-bottom:1px solid rgb(206, 206, 206);
   }
   .ico-card{
-    max-width: 60px !important;
-    margin:0 !important;
-    padding:0;
+    width:100%;
+    max-width: 100% !important;
+    display:flex !important;
+    column-gap: 15px;
+    align-items:center;
+    margin: 0 auto 20px;
+    img{
+      width:45px;
+    }
+    // h3{
+    //   width:100%;
+    //   display: block
+    // }
   }
-  .foo-card{
-    app-button{
-      max-width:150px;
+  .body-card{
+    ul{
+      margin:0;
+      padding:25px 0 0 0;
       display:block;
-      margin-top: 25px;
-      .btn-secundary{
-        background: $brand-primary;
-        border:1px solid $brand-primary;
+      li{
+        display:flex;
+        column-gap: 15px;
+        justify-content: space-between;
+        cursor:pointer;
+        align-items:center;
+        p{
+          color:#000;
+          padding:0;
+          margin:0;
+        }
+        .open-link{
+          width:24px;
+          img{
+            width:100%;
+          }
+        }
+       &:hover{
+        border:0px solid $brand-primary;
+        p{
+          color:$brand-primary;
+          text-decoration: underline;
+        }
+       }
+      }
+      .inactive-link{
+        pointer-events: none !important;
+        .open-link{
+          visibility:hidden !important;
+        }
       }
     }
-
   }
-
-  &:hover{
-    @include transition(0.3s);
-    border:1px solid $brand-primary;
-    box-shadow: -14px 1px 67px -28px rgba(0,0,0,0);
-  }
-
-
 }
-

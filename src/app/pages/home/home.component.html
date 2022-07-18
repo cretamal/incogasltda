@@ -42,25 +42,24 @@
                   <div class="wrapper-card">
                     <div class="head-card">
                         <div class="ico-card">
-                          <img *ngIf="service?.attributes?.services?.data[0]?.attributes?.icon" src="{{urlAssets}}{{service?.attributes?.services?.data[0]?.attributes?.icon?.data?.attributes?.url }}" alt="" width="100%">
+                          <img *ngIf="service?.attributes?.icon?.data != null" src="{{urlAssets}}{{service?.attributes?.icon?.data.attributes.url }}" alt="" width="100%">
+                          <h3>{{service?.attributes?.title}}</h3>
                         </div>
-                      <h3>{{service?.attributes?.services?.data[0]?.attributes?.name}}</h3>
                     </div>
                     <div class="body-card">
-                      <!-- <ng-container  *ngIf="service.Thumbnails.typeMedia === 'background'">
-                        <h3>{{service.title}}</h3>
-                        <ng-container *ngIf="service.Thumbnails.price != null">
-                          <h4 class="price"> <span>$</span> {{service.Thumbnails.price}} <span>+ iva</span></h4>
-                        </ng-container>
-                      </ng-container> -->
-                      <p>{{service?.attributes?.services?.data[0].attributes.teaser}}</p>
-                    </div>
-                    <div class="foo-card">
-                      <app-button Theme="btn-secundary" Label="ver Más" (click)="callToAction(service)"></app-button>
+                      <ng-container>
+                        <ul>
+                          <li *ngFor="let item of service.attributes.services.data" (click)="callToAction(item)" [ngClass]="{'inactive-link': item.attributes.active === false}">
+                            <p>{{item.attributes.name}}</p>
+                            <div class="open-link">
+                              <img src="./assets/img/broken-link.png" />
+                            </div>
+                          </li>
+                        </ul>
+                      </ng-container>
                     </div>
                   </div>
                 </div>
-
               </li>
             </ul>
           </div>

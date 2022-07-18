@@ -43,7 +43,8 @@ export class DetailsServicesComponent implements OnInit {
 
   findService(){
     const query = qs.stringify({
-      populate: ['*', 'services', 'services.Description', 'services.Use', 'services.Materials', 'services.Security', 'services.icon.media', 'services.bigBanner.media'],
+      populate: ['*', 'Description', 'Use', 'Materials', 'Security', 'icon.media', 'bigBanner.media', 'category', 'icon.media'],
+      // populate: ['*'],
       filters: {
         id: {
           $eq: this.idParamRoute,
@@ -52,9 +53,10 @@ export class DetailsServicesComponent implements OnInit {
     }, {
       encodeValuesOnly: true,
     });
-    this.categoryService.getAll(`?${query}`).subscribe( (category) => {
-      const currentService  = category.data[0].attributes.services
-      this.dataPage         = currentService.data[0].attributes;
+    this.categoryService.getServices(`?${query}`).subscribe( (service) => {
+      console.log('service::', service);
+
+      this.dataPage         = service.data[0].attributes;
       this.currentPdfView   = this.dataPage.namePDF;
 
       console.log('this.currentPdfView', this.currentPdfView);
@@ -64,6 +66,7 @@ export class DetailsServicesComponent implements OnInit {
       // console.log('this.currentPdfView', this.currentPdfView);
       // this.currentPdfView = this.sanitizer.bypassSecurityTrustResourceUrl(this.currentPdfView);
     });
+
   }
 
   viewPdfInline(){

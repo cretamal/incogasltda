@@ -25,12 +25,12 @@
   }
   .head-card{
     .ico-card{
-      max-width: 50px;
+      // max-width: 50px;
       display:block;
       margin:0 auto 20px auto;
-      img{
-        width: 100%;
-      }
+      // img{
+      //   width: 100%;
+      // }
     }
   }
 }
@@ -194,6 +194,7 @@
   border-radius: 5px;
   padding:30px 0;
   box-shadow: -14px 1px 67px -28px rgba(0,0,0,0.2);
+  display: block;
   .btn-products{display: none;}
   .wrapper-card{
     max-width:80%;
@@ -214,8 +215,8 @@
     }
   }
   .ico-card{
-    max-width: 60px !important;
-    margin:0 !important;
+    // max-width: 60px !important;
+    margin:0;
     padding:0;
   }
   .foo-card{

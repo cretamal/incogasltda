@@ -1,5 +1,7 @@
 
   @import '../../../../theme';
+  @import '../../../../mq';
+
   .box-services{
     min-height: 100vh;
     .box-banner{
@@ -42,6 +44,10 @@
       top:0;
       right:0;
       cursor:pointer;
+      @include respond-to($iphone_xs) {
+        position: relative;
+        margin-top:35px;
+      }
       h3{
         color:#fff !important;
         font-size:22px;
