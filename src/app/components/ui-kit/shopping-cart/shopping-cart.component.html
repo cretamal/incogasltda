@@ -24,7 +24,7 @@
               <li class="border" *ngFor="let skill of shopCart.controls; let i=index">
                 <ng-container [formGroupName]="i">
                   <div class="thumb">
-                    <img *ngIf="skill?.value?.img" src="{{urlAssets}}{{skill.value.img.url }}" alt="" width="100%">
+                    <img *ngIf="skill?.value?.img" src="{{skill.value.img.url }}" alt="" width="100%">
                   </div>
                   <div class="details">
                     <h4>{{skill.value.name}}</h4>

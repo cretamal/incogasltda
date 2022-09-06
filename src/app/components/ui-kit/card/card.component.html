@@ -17,7 +17,7 @@
       <ng-container *ngIf="Config.typeMedia === 'background'">
         <div class="background-card">
           <ng-container>
-            <img *ngIf="Data.img" src="{{urlAssets}}{{Data.img.url }}" alt="" width="100%">
+            <img *ngIf="Data.img" src="{{Data.img.url }}" alt="" width="100%">
           </ng-container>
 
 
@@ -27,7 +27,7 @@
       <ng-container *ngIf="Config.typeMedia === 'icon'">
         <div class="head-card">
             <div class="ico-card">
-              <img *ngIf="Data.img" src="{{urlAssets}}{{Data.img.url }}" alt="" width="100%">
+              <img *ngIf="Data.img" src="{{Data.img.url }}" alt="" width="100%">
             </div>
 
           <h3>{{Data.title}}</h3>

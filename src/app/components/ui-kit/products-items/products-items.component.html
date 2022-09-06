@@ -6,7 +6,7 @@
           <h3>{{item.attributes.title}}</h3>
           <ng-container *ngIf="true">
             <div class="thumb" *ngIf="item?.attributes?.image_web?.data != null">
-              <img src="{{urlAssets}}{{item?.attributes?.image_web.data.attributes.url}}"/>
+              <img src="{{item?.attributes?.image_web.data.attributes.url}}"/>
             </div>
           </ng-container>
           <!-- <div class="details">
