@@ -31,7 +31,7 @@ export class TeaserComponent implements OnInit {
     });
     this.aboutPageService.getDataPage(`?${query}`).subscribe( (dataAbout) => {
       this.data_teaser = dataAbout.data[0].attributes.we_are;
-      console.log('data_about', dataAbout.data[0].attributes.we_are);
+      // console.log('data_about', dataAbout.data[0].attributes.we_are);
     });
   }
 

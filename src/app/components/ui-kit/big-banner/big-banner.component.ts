@@ -39,7 +39,7 @@ export class BigBannerComponent implements OnInit, AfterViewInit {
       encodeValuesOnly: true,
     });
     this.homePageService.getDataPage(`?${query}`).subscribe( (slide) => {
-      console.log('slide', slide);
+      // console.log('slide', slide);
       this.slides_data = slide.data[0].attributes.BigBanner;
     });
   }

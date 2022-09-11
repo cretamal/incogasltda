@@ -54,12 +54,12 @@ export class DetailsServicesComponent implements OnInit {
       encodeValuesOnly: true,
     });
     this.categoryService.getServices(`?${query}`).subscribe( (service) => {
-      console.log('service::', service);
+      // console.log('service::', service);
 
       this.dataPage         = service.data[0].attributes;
       this.currentPdfView   = this.dataPage.namePDF;
 
-      console.log('this.currentPdfView', this.currentPdfView);
+      // console.log('this.currentPdfView', this.currentPdfView);
 
       // const urlPdf = this.urlAssets+this.dataPage?.pdf?.data?.attributes?.url;
       // this.currentPdfView = this.sanitizer.sanitize(SecurityContext.RESOURCE_URL, this.sanitizer.bypassSecurityTrustResourceUrl(urlPdf));

@@ -12,7 +12,7 @@ export class UploadService {
   constructor(private http: HttpClient) { }
 
   uploadFile( file: any ): Observable<HttpEvent<{}>> {
-    console.log('file', file);
+    // console.log('file', file);
     const url = `${this.url}/upload`;
     const formData: FormData = new FormData();
     formData.append('files', file);

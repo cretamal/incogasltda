@@ -29,7 +29,7 @@ export class ShoppingCartService {
 
 
   agregar(producto:any) {
-    console.log('producto', producto);
+    // console.log('producto', producto);
     Object.assign(producto, {cantidad:1});
     if (!this.existe(producto.id)) {
       const itemProduct = {
@@ -42,15 +42,15 @@ export class ShoppingCartService {
       this.productos.push(itemProduct);
       this.guardar();
     }
-    console.log('agregar - ShoppingCartService', {
-      'this.productos': this.productos,
-      'producto': producto,
-    });
+    // console.log('agregar - ShoppingCartService', {
+    //   'this.productos': this.productos,
+    //   'producto': producto,
+    // });
   }
 
   quitar(id:any) {
     const indice = this.productos.findIndex((p:any) => p.id === id);
-    console.log('quitar', indice);
+    // console.log('quitar', indice);
     if (indice != -1) {
         this.productos.splice(indice, 1);
         this.guardar();
@@ -58,7 +58,7 @@ export class ShoppingCartService {
   }
 
   guardar() {
-    console.log('this.productos.length', this.productos.length);
+    // console.log('this.productos.length', this.productos.length);
     if(this.productos.length >= 0) {
       localStorage.setItem(this.clave, JSON.stringify(this.productos));
       this.shoppingItem$.next(this.productos);

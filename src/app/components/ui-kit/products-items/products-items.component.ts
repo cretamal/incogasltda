@@ -29,7 +29,7 @@ export class ProductsItemsComponent implements OnInit {
       });
       this.productService.getAll(`?${query}`).subscribe( (product) => {
         this.data_products =  product.data;
-        console.log('this.data_products', this.data_products);
+        // console.log('this.data_products', this.data_products);
       });
     }
 

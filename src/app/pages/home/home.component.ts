@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
     });
 
     this.categoryService.getAll(`?${query}`).subscribe( (category) => {
-      console.log('category:', category);
+      // console.log('category:', category);
       // QUERY QUE TRAE LOS COMPONENTES ANIDADOS + IMAGENES
       this.data_services = category.data;
     });

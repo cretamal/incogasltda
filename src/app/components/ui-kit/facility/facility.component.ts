@@ -32,7 +32,7 @@ export class FacilityComponent implements OnInit {
     });
     this.homePageService.getDataPage(`?${query}`).subscribe( (shortCut) => {
       this.data_facility = shortCut.data[0].attributes.ShortCut;
-      console.log('this.data_facility', this.data_facility);
+      // console.log('this.data_facility', this.data_facility);
       // this.data_heaSHortCut = shortCut.data[0].attributes.headShortCut;
       // console.log('this.data_shortcut', shortCut.data[0].attributes.headShortCut);
     });

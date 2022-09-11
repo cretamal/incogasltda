@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit {
 
   observerShopingCart(){
     this.shoppingCartService.getShoppingCart.pipe(takeUntil(this.unsubscribe$)).subscribe(resp => {
-      console.log('header-resp', resp);
+      // console.log('header-resp', resp);
       this.listItemsShoppingCart = resp;
     });
   }

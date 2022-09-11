@@ -47,7 +47,7 @@ export class AppComponent {
            // Hide progress spinner or progress bar
 
           // Present error to user
-          console.log(event.error);
+          // console.log(event.error);
       }
   });
 

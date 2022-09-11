@@ -118,10 +118,10 @@ export class ContactComponent implements OnInit {
       }
     };
     await this.clientService.save(this.dataSaveClient).subscribe( (respSaveContact:any) => {
-      console.log('respSaveContact', respSaveContact);
+      // console.log('respSaveContact', respSaveContact);
       if(respSaveContact != undefined){
         // this.shoppingCartService.deleteAll();
-        console.log('respSaveContact', respSaveContact);
+        // console.log('respSaveContact', respSaveContact);
         this.sendMailContact();
       }
     });
@@ -136,14 +136,14 @@ export class ContactComponent implements OnInit {
     };
     await this.clientService.update(this.dataSaveClient, currentClient.id).subscribe( (updateClient:any) => {
       if(updateClient != undefined){
-        console.log('updateClient', updateClient);
+        // console.log('updateClient', updateClient);
       }
     });
   }
 
   async saveOrder(){
     await this.currentStore.forEach((item:any) => {
-      console.log('item', item);
+      // console.log('item', item);
       const AuxOrder:any =  {
         data: {
           name: `COTI-Nº${item.id.toString()}`,
@@ -155,7 +155,7 @@ export class ContactComponent implements OnInit {
       this.contactService.saveOrder( AuxOrder ).subscribe( (respSaveOrder:any) => {
         // console.log('respSaveOrder', respSaveOrder);
         this.AuxIdRelationOrder.push(respSaveOrder.data.attributes);
-        console.log('AuxIdRelationOrder', this.AuxIdRelationOrder);
+        // console.log('AuxIdRelationOrder', this.AuxIdRelationOrder);
       });
     });
   }
@@ -198,7 +198,7 @@ export class ContactComponent implements OnInit {
   captureScreen() {
     let data:any  = document.getElementById('contentToConvert');
     html2canvas(data).then(canvas => {
-      console.log('canvas', canvas);
+      // console.log('canvas', canvas);
       // Few necessary setting options
       var imgWidth = 1000;
       var pageHeight = 1000;
@@ -209,14 +209,14 @@ export class ContactComponent implements OnInit {
 
       this.uploadService.uploadFile(contentDataURL);
 
-      console.log('contentDataURL', contentDataURL);
+      // console.log('contentDataURL', contentDataURL);
       // this.dataSaveContact.quote[0] =  contentDataURL;
       var position = 0;
       this.pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
       // pdf.save('MYPdf.pdf'); // Generated PDF
 
       this.sendMailContact();
-      console.log('pdf', this.pdf);
+      // console.log('pdf', this.pdf);
 
     });
   }

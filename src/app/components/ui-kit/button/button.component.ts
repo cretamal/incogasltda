@@ -14,7 +14,7 @@ export class ButtonComponent implements OnInit {
   }
 
   ngAfterViewInit(){
-    console.log('Label', this.Label);
+    // console.log('Label', this.Label);
   }
 
 }

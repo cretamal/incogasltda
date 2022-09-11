@@ -54,7 +54,7 @@ export class SlidesComponent implements OnInit {
 
     this.mediaQueryListener = () => {
       changeDetectorRef.detectChanges();
-      console.log("Match?: ", this.mdq.matches)
+      // console.log("Match?: ", this.mdq.matches)
       }
     this.mdq.addListener(this.mediaQueryListener);
 
@@ -73,7 +73,7 @@ export class SlidesComponent implements OnInit {
 
   ngOnChanges() {
     this.slides = this.data;
-    console.log('this.slides', this.slides);
+    // console.log('this.slides', this.slides);
   }
 
   ngAfterViewInit(){}
